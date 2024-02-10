@@ -1,4 +1,4 @@
-# Credit Risk Assessment: Optimizing and Streamlining Credit Risk
+# Credit Risk Assessment
 
 ## Team Members:
 - Kush Suryavanshi
