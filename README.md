@@ -1,4 +1,4 @@
-# Credit Risk Assessment
+# Credit Risk Assessment: Optimizing and Streamlining Credit Risk
 
 ## Team Members:
 - Kush Suryavanshi
@@ -20,11 +20,19 @@ By implementing this MLops pipeline, the project aims to streamline the loan pre
 ### 2.1. Dataset Introduction:
 The dataset consists of 28 features for each applicant where loan_status is our target variable. The target variable has Fully_Paid and Charged_Off values indicating that the applicant either paid back the entire loan on time or missed all payments. Here Charged_Off is the class of interest as we want to identify potential risks in time.
 
+<p align="center">
+<img src="https://github.com/neelanap1999/MLOPSPROJECT/blob/main/Image/Class%20Distribution.png" alt="ML Project class" height="300">
+</p>
+
+
 ### 2.2. Data Card:
 The dataset has 396,030 entries where each entry corresponds to one applicant. There are 12 numeric features and 16 categorical features.
 
+
+![Data Card](https://github.com/neelanap1999/MLOPSPROJECT/blob/main/Image/Data%20Card.png)
+
 ### 2.3. Data Source:
-The dataset is a public dataset owned by Lending Club.
+The dataset is a public dataset owned by [Lending Club](https://www.lendingclub.com/personal-savings/founder-savings)
 
 Below is the URL for data:
 
@@ -100,6 +108,8 @@ The current approach flowchart is given below to help visualize our steps. There
 
 1. Engineering new features to monitor their impact on the target variable can consume time.
 2. Imbalanced data and class skew can cause errors in metrics.
+
+![Workflow](https://github.com/neelanap1999/MLOPSPROJECT/blob/main/Image/workflow.png)
 
 ## 7. Metrics, Objectives, and Business Goals
 
