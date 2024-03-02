@@ -5,8 +5,8 @@ import pandas as pd
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','initial.pkl')
-OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_zipcode.pkl')
+INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_year.pkl')
+OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_dummies.pkl')
 
 def get_dummies(input_pickle_path=INPUT_PICKLE_PATH,
                             output_pickle_path=OUTPUT_PICKLE_PATH):
