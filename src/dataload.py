@@ -8,7 +8,7 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEFAULT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data',
                                    'processed', 'initial.pkl')
-DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'data', 'initial.csv')
+DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'src', 'initial.csv')
 
 def load_data(pickle_path=DEFAULT_PICKLE_PATH, excel_path=DEFAULT_EXCEL_PATH):
     df = None
