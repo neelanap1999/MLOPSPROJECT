@@ -11,7 +11,7 @@ DEFAULT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data',
 DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'data', 'initial.csv')
 
 def load_data(pickle_path=DEFAULT_PICKLE_PATH, excel_path=DEFAULT_EXCEL_PATH):
-   
+    df = None
     # Check if pickle file exists
     if os.path.exists(pickle_path):
         with open(pickle_path, "rb") as file:
@@ -19,7 +19,7 @@ def load_data(pickle_path=DEFAULT_PICKLE_PATH, excel_path=DEFAULT_EXCEL_PATH):
         print(f"Data loaded successfully from {pickle_path}.")
     # If pickle doesn't exist, load from Excel
     elif os.path.exists(excel_path):
-        df = pd.read_excel(excel_path)
+        df = pd.read_csv(excel_path)
         print(f"Data loaded from {excel_path}.")
     else:
         error_message = f"No data found in the specified paths: {pickle_path} or {excel_path}"
@@ -31,3 +31,5 @@ def load_data(pickle_path=DEFAULT_PICKLE_PATH, excel_path=DEFAULT_EXCEL_PATH):
         pickle.dump(df, file)
     print(f"Data saved to {pickle_path} for future use.")
     return pickle_path
+
+
