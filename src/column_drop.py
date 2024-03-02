@@ -5,7 +5,7 @@ import pickle
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_term.pkl')
-OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_drop.pkl')
+OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_dropcol.pkl')
 
 def map_term(input_pickle_path=INPUT_PICKLE_PATH,
                             output_pickle_path=OUTPUT_PICKLE_PATH):
@@ -18,7 +18,7 @@ def map_term(input_pickle_path=INPUT_PICKLE_PATH,
         raise FileNotFoundError(f"No data found at the specified path: {input_pickle_path}")
 
     df.drop(['emp_length','grade','title','emp_title','issue_d'],axis=1,inplace=True)
-    
+
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df, file)
     print(f"Data saved to {output_pickle_path}.")
