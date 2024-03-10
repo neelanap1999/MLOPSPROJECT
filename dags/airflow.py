@@ -40,7 +40,7 @@ dag = DAG(
 load_data_task = PythonOperator(
     task_id='load_data_task',
     python_callable=load_data,
-    op_kwargs=[DEFAULT_EXCEL_PATH],
+    op_kwargs={'pickle_path': DEFAULT_PICKLE_PATH},
     dag=dag,
 )
 
