@@ -12,7 +12,7 @@ from src.null_drop import drop_null
 from src.credit_year import extract_year
 from src.dummies import get_dummies
 from src.outlier_handle import handle_outliers
-from dataload import DEFAULT_PICKLE_PATH
+from src.dataload import DEFAULT_PICKLE_PATH
 
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
