@@ -1,3 +1,4 @@
+import logging
 from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
@@ -14,6 +15,12 @@ from src.dummies import get_dummies
 from src.outlier_handle import handle_outliers
 from src.dataload import DEFAULT_PICKLE_PATH
 
+# Configure logging
+LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+LOG_PATH = os.path.join(os.path.dirname(__file__), '..', 'logs', 'datapipeline.log')
+os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)  # Ensure the directory exists
+logging.basicConfig(filename=LOG_PATH, level=logging.INFO, format=LOG_FORMAT)
+logger = logging.getLogger(__name__)
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'src', 'data', 'initial.csv')
@@ -126,6 +133,7 @@ load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
 missing_values_task >> null_drop_task >> credit_year_task >> \
       dummies_task >> outlier_handle_task 
 
+logger.info("DAG tasks defined successfully.")
 
 if __name__ == "__main__":
     dag.cli()
