@@ -8,7 +8,7 @@ LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 LOG_PATH = os.path.join(os.path.dirname(__file__), '..', 'logs', 'dataload.log')
 os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)  # Ensure the directory exists
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO, format=LOG_FORMAT)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(LOG_PATH)
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
