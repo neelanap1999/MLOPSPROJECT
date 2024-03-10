@@ -121,7 +121,7 @@ outlier_handle_task = PythonOperator(
 
 
 load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
-missing_values_task >> null_drop_task >> null_drop_task >> credit_year_task >> \
+missing_values_task >> null_drop_task >> credit_year_task >> \
       dummies_task >> outlier_handle_task 
 
 

@@ -10,7 +10,9 @@ DEFAULT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data',
                                    'processed', 'initial.pkl')
 DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'src', 'data', 'initial.csv')
 
-def load_data(pickle_path=DEFAULT_PICKLE_PATH, excel_path=DEFAULT_EXCEL_PATH):
+def load_data(pickle_path=DEFAULT_PICKLE_PATH, excel_path=None):
+    if excel_path is None:
+        excel_path = DEFAULT_EXCEL_PATH
     df = None
     # Check if pickle file exists
     if os.path.exists(pickle_path):
