@@ -1,9 +1,15 @@
 import os
 import pickle
 from sklearn.ensemble import IsolationForest
+import logging
 
-
+# Configure logging
+LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOG_PATH = os.path.join(PROJECT_DIR, 'logs', 'datapipeline.log')
+os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)  # Ensure the directory exists
+logging.basicConfig(filename=LOG_PATH, level=logging.INFO, format=LOG_FORMAT)
+logger = logging.getLogger(LOG_PATH)
 
 INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_dummies.pkl')
 OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_outlier.pkl')
@@ -16,7 +22,9 @@ def handle_outliers(input_pickle_path=INPUT_PICKLE_PATH,
         with open(input_pickle_path, "rb") as file:
             df = pickle.load(file)
     else:
-        raise FileNotFoundError(f"No data found at the specified path: {input_pickle_path}")
+        error_message = f"No data found at the specified path: {input_pickle_path}"
+        logger.error(error_message)
+        raise FileNotFoundError(error_message)
 
     model = IsolationForest(contamination=0.05, random_state=0)
 
@@ -27,5 +35,5 @@ def handle_outliers(input_pickle_path=INPUT_PICKLE_PATH,
 
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df_cleaned, file)
-    print(f"Data saved to {output_pickle_path}.")
+    logger.info(f"Data saved to {output_pickle_path}.")
     return output_pickle_path
