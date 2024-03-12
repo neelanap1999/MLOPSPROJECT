@@ -1,6 +1,7 @@
 """
 Modularized Data pipeline to form DAGs in the future
 """
+import logging
 import os
 from dataload import load_data
 from zipcode_extract import extract_zipcode
