@@ -2,6 +2,8 @@ import logging
 import os
 import pickle
 
+# Configure logging
+LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_PATH = os.path.join(PROJECT_DIR, 'logs', 'datapipeline.log')
