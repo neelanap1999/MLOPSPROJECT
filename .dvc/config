@@ -1,5 +1,5 @@
 [core]
     remote = myremote
 ['remote "myremote"']
-    url = gs://initial_loan_data/
-    credentialpath = ../dags/data/gcp-service-config.json
+    url = gs://loan_data_all
+    credentialpath = dags/data/gcp-service-config.json
