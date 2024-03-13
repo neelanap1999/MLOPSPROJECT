@@ -25,7 +25,59 @@ Our data pipeline is orchestrated using Apache Airflow, where we design a Direct
 
 ![Airflow Chart](Image/airflow_chart.png)
 
-## 4. Airflow Setup:
+## 4. Exploratory Data Analysis:
+
+- Loan Status across zip-codes 
+![Loan Status across zip-codes](Image/loan_status_zip.png)
+The bar chart provides a visual comparison of loan status counts across various zip codes. The blue bars represent the count of loans that have been fully paid, and the orange bars indicate the count of loans that have been charged off, which typically means the borrower has defaulted on the loan.
+It appears that loans are predominantly being fully paid across all zip codes shown, as the blue bars are significantly taller than the orange bars in each case. This suggests a general trend of loans being repaid rather than defaulting.
+
+- Loan Amount
+![Loan Amount](Image/loan_amt.png)
+The distribution of loan amounts appears to be multimodal, with several peaks indicating common loan amounts that are more frequently given out. The most prominent peaks are seen at around $10,000 and just below $20,000, suggesting that these amounts are the most common among the loans in this dataset. There are smaller peaks as well, which could indicate other common loan amounts.
+Additionally, there are fewer loans with higher amounts, as indicated by the decrease in frequency as the loan amount increases. The frequency of loans above $30,000 is quite low compared to lower loan amounts, which is typical since larger loans are less commonly issued.
+The distribution is not symmetrical; it's skewed to the right, meaning that there are more loans of lower amounts and fewer loans of higher amounts. This is a typical pattern for financial data as fewer borrowers take out larger loans.
+Overall, this analysis can help financial institutions understand the most common loan amounts they manage, which could influence product offerings, risk management, and marketing strategies.
+
+- Interest Rate
+![Airflow Chart](Image/interest_rate.png)
+This Interest-Rate histogram with an overlaid line graph displays the distribution of interest rates for loans in the dataset. 
+The distribution appears right-skewed, indicating that a majority of the loans have lower interest rates, with fewer loans having higher interest rates. The peak of the distribution is around 10-15%, suggesting that the most common interest rates for these loans fall within this range. The frequency then decreases as the interest rate increases, with very few loans having interest rates above 25%.
+The shape of the distribution might suggest that borrowers with better credit profiles, who typically receive lower interest rates, are well-represented in this dataset, or it could reflect the lending institution's general risk assessment and pricing strategy. High-interest rates are less frequent, which could mean the institution limits high-risk lending or that fewer borrowers qualify for or accept loans at higher rates.
+
+- Loan Grade
+
+![Airflow Chart](Image/loan_grade.png)
+This distribution  indicate that the lender's portfolio is weighted towards borrowers with moderate to high creditworthiness, with fewer loans extended to those with lower credit scores. It reflects a typical risk profile for many lending institutions, which may aim to balance loan volume with risk management by limiting exposure to high-risk loans.
+ 
+ 
+We observe the following:
+The most common loan grade is 'B', followed closely by 'C', indicating a concentration of loans in the mid-credit tier.
+Loan grade 'A', which represents the highest creditworthiness, has the third-highest count of loans, suggesting that a significant number of borrowers have good credit profiles.
+There is a steady decline in the count of loans from grade 'C' to 'D' and then a more pronounced drop-off from 'D' to 'E'.
+The least common grades are 'F' and 'G', which represent the lowest creditworthiness and are substantially less frequent compared to the higher grades.
+
+-  Home Ownership
+
+![Airflow Chart](Image/home_ownership.png)
+
+This depicts the count of loans by the home ownership status of the borrowers. The categories include 'RENT', 'MORTGAGE', 'OWN', 'OTHER', 'NONE', and 'ANY'.
+
+
+The majority of loans are held by borrowers with a mortgage, indicating they are homeowners paying off a home loan.
+The next largest group of borrowers are those who rent their homes.
+A significantly smaller number of loans are taken out by borrowers who fully own their homes without a mortgage.
+Very few loans are associated with the 'OTHER', 'NONE', and 'ANY' categories.
+This distribution might reflect the credit profile or stability associated with borrowers who have mortgages, as they might be perceived as more creditworthy by lenders. It could also suggest that borrowers with mortgages or those who rent are more likely to seek loans, possibly reflecting their financial needs or goals. The 'OTHER', 'NONE', and 'ANY' categories are less common, which could be due to these statuses being less typical or less likely to apply for or receive loans.
+
+- 
+![Airflow Chart](Image/corelation.png)
+
+- ![Airflow Chart](Image/loan_grade_amt.png)
+
+- ![Airflow Chart](Image/annual_amt_grade.png)
+
+## 5. Airflow Setup:
 
 In our data preprocessing workflow, Apache Airflow plays a critical role in automating and orchestrating tasks seamlessly. Leveraging Airflow's capabilities, we have designed a robust workflow automation system that manages Directed Acyclic Graphs (DAGs) efficiently.
 
@@ -35,11 +87,11 @@ Airflow's scheduler and web server components enable us to monitor and manage ou
 
 [Airflow Code Link](https://github.com/neelanap1999/MLOPSPROJECT/blob/main/dags/airflow.py)
 
-## 5. Data Pipeline Components:
+## 6. Data Pipeline Components:
 
 This project's data pipeline comprises multiple interconnected modules, each dedicated to executing specific data processing tasks. Our approach involves utilizing Airflow and Docker to orchestrate and encapsulate these modules within containers. Each module serves as an individual task within the primary data pipeline DAG (datapipeline), contributing to the seamless execution and management of our data processing workflows. The below chart explains that well. 
 
-**Image of chart**
+![Pipeline Chart](Image/flowchart.jpeg)
 
 1. Preprocessing Data: During this stage, the dataset undergoes several cleaning and preprocessing procedures to guarantee data quality and prepare it for analysis. The subsequent modules participate in this operation.
 
@@ -61,3 +113,4 @@ This project's data pipeline comprises multiple interconnected modules, each ded
 - term_map.py - Maps and categorizes loan terms for better analysis and modeling.
 - transform_emp_length.py - Transforms employment length data for better understanding and utilization in models.
 - zipcode_extract.py - Extracts relevant information from zip codes for geographical analysis and modeling purposes.
+
