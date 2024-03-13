@@ -28,7 +28,7 @@ def get_dummies(input_pickle_path=INPUT_PICKLE_PATH,
         raise FileNotFoundError(error_message)
 
     df=pd.get_dummies(df,columns=['sub_grade', 'verification_status', 'purpose', 'initial_list_status',
-           'application_type', 'home_ownership','zipcode'])
+           'application_type', 'home_ownership'])
 
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df, file)
