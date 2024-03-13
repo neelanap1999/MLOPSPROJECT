@@ -23,8 +23,6 @@ We have structured our data pipeline into distinct modules, starting from data i
 
 Our data pipeline is orchestrated using Apache Airflow, where we design a Directed Acyclic Graph (DAG) comprising our modularized components. This approach streamlines the execution of our pipeline and enhances its scalability and reliability.
 
-![Airflow Chart](Image/airflow_chart.png)
-
 ## 4. Exploratory Data Analysis:
 
 - Loan Status across zip-codes 
@@ -86,6 +84,8 @@ The Airflow platform, built with Python, streamlines the execution of data prepr
 Airflow's scheduler and web server components enable us to monitor and manage our workflows through a user-friendly web interface. This interface allows us to visualize the workflow, track task statuses, and troubleshoot any issues that may arise during execution. Below is the link to our code.
 
 [Airflow Code Link](https://github.com/neelanap1999/MLOPSPROJECT/blob/main/dags/airflow.py)
+
+![Airflow Chart](Image/airflow_chart.png)
 
 ## 6. Data Pipeline Components:
 
