@@ -1,0 +1,5 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = gs://initial_loan_data/initial_data.csv
+    credentialpath = ../data/gcp-service-config.json
