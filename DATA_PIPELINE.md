@@ -68,12 +68,39 @@ A significantly smaller number of loans are taken out by borrowers who fully own
 Very few loans are associated with the 'OTHER', 'NONE', and 'ANY' categories.
 This distribution might reflect the credit profile or stability associated with borrowers who have mortgages, as they might be perceived as more creditworthy by lenders. It could also suggest that borrowers with mortgages or those who rent are more likely to seek loans, possibly reflecting their financial needs or goals. The 'OTHER', 'NONE', and 'ANY' categories are less common, which could be due to these statuses being less typical or less likely to apply for or receive loans.
 
-- 
+- Correlation Matrix
+
 ![Airflow Chart](Image/corelation.png)
 
-- ![Airflow Chart](Image/loan_grade_amt.png)
+This heatmap represents the correlation matrix of different financial and credit-related variables from a loan dataset. 
+Key observations from the heatmap include:
+There is a very high positive correlation (0.95) between loan_amnt (loan amount) and installment, suggesting that higher loan amounts come with higher monthly payments, which is expected since installment amounts are typically calculated based on the loan amount, interest rate, and loan term.
+annual_inc (annual income) has a moderate positive correlation with loan_amnt (0.34) and installment (0.33), indicating that borrowers with higher incomes tend to take out larger loans and have higher installments.
+total_acc (total number of credit lines) has a strong positive correlation (0.68) with open_acc (number of open credit lines), which is logical as the more credit lines one has opened, the higher the total number of credit lines they will have.
+pub_rec (number of derogatory public records) and pub_rec_bankruptcies (number of public record bankruptcies) have a very high correlation (0.70), which is expected since bankruptcies are a type of derogatory public record.
+revol_bal (revolving balance) has a low to moderate positive correlation with loan_amnt (0.33) and installment (0.32), indicating that those with higher loan amounts and installments also tend to have higher revolving balances.
+Most variables have very low to no correlation with int_rate (interest rate), suggesting that the interest rate might not be directly influenced by these particular variables or that the relationship is not linear.
 
-- ![Airflow Chart](Image/annual_amt_grade.png)
+- Loan Grade
+
+![Airflow Chart](Image/loan_grade_amt.png)
+
+This  illustrates the distribution of loan amounts across different loan grades, from 'A' to 'G'. 
+Here's what we can observe from the boxplot:
+As the loan grade decreases from 'A' (highest creditworthiness) to 'G' (lowest creditworthiness), there's a general increase in the median loan amount.
+The median loan amount for grade 'A' is the lowest, and it gradually increases through to grade 'G'.
+The interquartile range (IQR), which indicates the spread of the middle 50% of the data, tends to increase with lower loan grades. This suggests more variability in the amount borrowed as creditworthiness decreases.
+There are outliers across all loan grades, indicated by the points above the whiskers, with a notable concentration of high outliers in grades 'B' and 'C'.
+This could suggest that borrowers with lower credit grades are taking out larger loans or that the lender is more willing to issue larger loans to higher-risk borrowers, which may be associated with higher interest rates to compensate for the increased risk.
+
+- Annual Amount Grade 
+
+![Airflow Chart](Image/annual_amt_grade.png)
+
+This  shows the distribution of borrowers' annual incomes across different loan grades (A to G) on a logarithmic scale, which helps to manage the wide range of incomes and better visualize the distribution.
+Here are some observations:
+The median income across all loan grades does not vary drastically, indicating that loan grade may not be solely determined by income.
+There's a wide range of incomes within each grade, as shown by the length of the whiskers and the presence of outliers. This suggests that borrowers of all income levels are present in each grade category
 
 ## 5. Airflow Setup:
 
