@@ -1,0 +1,160 @@
+[2024-03-12T19:52:31.053+0000] {processor.py:161} INFO - Started process (PID=38) to work on /opt/airflow/dags/airflow.py
+[2024-03-12T19:52:31.056+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2024-03-12T19:52:31.060+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:52:31.059+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2024-03-12T19:52:32.469+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:52:32.465+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/airflow.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/airflow.py", line 14, in <module>
+    from src.outlier_handle import handle_outliers
+  File "/opt/airflow/dags/src/outlier_handle.py", line 3, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-12T19:52:32.470+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/airflow.py
+[2024-03-12T19:52:32.514+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/airflow.py took 1.470 seconds
+[2024-03-12T19:53:02.790+0000] {processor.py:161} INFO - Started process (PID=96) to work on /opt/airflow/dags/airflow.py
+[2024-03-12T19:53:02.793+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2024-03-12T19:53:02.796+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:53:02.795+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2024-03-12T19:53:03.432+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:53:03.427+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/airflow.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/airflow.py", line 14, in <module>
+    from src.outlier_handle import handle_outliers
+  File "/opt/airflow/dags/src/outlier_handle.py", line 3, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-12T19:53:03.434+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/airflow.py
+[2024-03-12T19:53:03.502+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/airflow.py took 0.718 seconds
+[2024-03-12T19:53:33.546+0000] {processor.py:161} INFO - Started process (PID=153) to work on /opt/airflow/dags/airflow.py
+[2024-03-12T19:53:33.564+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2024-03-12T19:53:33.566+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:53:33.566+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2024-03-12T19:53:34.224+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:53:34.219+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/airflow.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/airflow.py", line 14, in <module>
+    from src.outlier_handle import handle_outliers
+  File "/opt/airflow/dags/src/outlier_handle.py", line 3, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-12T19:53:34.224+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/airflow.py
+[2024-03-12T19:53:34.268+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/airflow.py took 0.725 seconds
+[2024-03-12T19:54:05.048+0000] {processor.py:161} INFO - Started process (PID=210) to work on /opt/airflow/dags/airflow.py
+[2024-03-12T19:54:05.125+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2024-03-12T19:54:05.132+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:54:05.130+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2024-03-12T19:54:05.813+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:54:05.811+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/airflow.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/airflow.py", line 14, in <module>
+    from src.outlier_handle import handle_outliers
+  File "/opt/airflow/dags/src/outlier_handle.py", line 3, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-12T19:54:05.814+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/airflow.py
+[2024-03-12T19:54:05.853+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/airflow.py took 0.812 seconds
+[2024-03-12T19:54:36.547+0000] {processor.py:161} INFO - Started process (PID=267) to work on /opt/airflow/dags/airflow.py
+[2024-03-12T19:54:36.550+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2024-03-12T19:54:36.555+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:54:36.553+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2024-03-12T19:54:37.073+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:54:37.071+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/airflow.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/airflow.py", line 14, in <module>
+    from src.outlier_handle import handle_outliers
+  File "/opt/airflow/dags/src/outlier_handle.py", line 3, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-12T19:54:37.074+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/airflow.py
+[2024-03-12T19:54:37.106+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/airflow.py took 0.574 seconds
+[2024-03-12T19:55:07.166+0000] {processor.py:161} INFO - Started process (PID=325) to work on /opt/airflow/dags/airflow.py
+[2024-03-12T19:55:07.168+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2024-03-12T19:55:07.170+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:55:07.169+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2024-03-12T19:55:07.616+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:55:07.615+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/airflow.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/airflow.py", line 14, in <module>
+    from src.outlier_handle import handle_outliers
+  File "/opt/airflow/dags/src/outlier_handle.py", line 3, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-12T19:55:07.617+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/airflow.py
+[2024-03-12T19:55:07.652+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/airflow.py took 0.491 seconds
+[2024-03-12T19:55:38.202+0000] {processor.py:161} INFO - Started process (PID=382) to work on /opt/airflow/dags/airflow.py
+[2024-03-12T19:55:38.204+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2024-03-12T19:55:38.207+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:55:38.207+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2024-03-12T19:55:39.145+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:55:39.142+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/airflow.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/airflow.py", line 14, in <module>
+    from src.outlier_handle import handle_outliers
+  File "/opt/airflow/dags/src/outlier_handle.py", line 3, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-12T19:55:39.146+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/airflow.py
+[2024-03-12T19:55:40.855+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/airflow.py took 2.657 seconds
+[2024-03-12T19:56:11.709+0000] {processor.py:161} INFO - Started process (PID=439) to work on /opt/airflow/dags/airflow.py
+[2024-03-12T19:56:11.735+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2024-03-12T19:56:11.739+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:56:11.738+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2024-03-12T19:56:12.322+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:56:12.320+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/airflow.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/airflow.py", line 14, in <module>
+    from src.outlier_handle import handle_outliers
+  File "/opt/airflow/dags/src/outlier_handle.py", line 3, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-12T19:56:12.323+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/airflow.py
+[2024-03-12T19:56:12.369+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/airflow.py took 0.674 seconds
+[2024-03-12T19:56:43.044+0000] {processor.py:161} INFO - Started process (PID=502) to work on /opt/airflow/dags/airflow.py
+[2024-03-12T19:56:43.059+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2024-03-12T19:56:43.063+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:56:43.062+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2024-03-12T19:56:43.571+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:56:43.568+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/airflow.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/airflow.py", line 14, in <module>
+    from src.outlier_handle import handle_outliers
+  File "/opt/airflow/dags/src/outlier_handle.py", line 3, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-12T19:56:43.571+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/airflow.py
+[2024-03-12T19:56:43.609+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/airflow.py took 0.572 seconds
+[2024-03-12T19:57:13.889+0000] {processor.py:161} INFO - Started process (PID=561) to work on /opt/airflow/dags/airflow.py
+[2024-03-12T19:57:13.891+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/airflow.py for tasks to queue
+[2024-03-12T19:57:13.894+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:57:13.893+0000] {dagbag.py:540} INFO - Filling up the DagBag from /opt/airflow/dags/airflow.py
+[2024-03-12T19:57:14.390+0000] {logging_mixin.py:188} INFO - [2024-03-12T19:57:14.388+0000] {dagbag.py:350} ERROR - Failed to import: /opt/airflow/dags/airflow.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.8/site-packages/airflow/models/dagbag.py", line 346, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/airflow.py", line 14, in <module>
+    from src.outlier_handle import handle_outliers
+  File "/opt/airflow/dags/src/outlier_handle.py", line 3, in <module>
+    from sklearn.ensemble import IsolationForest
+ModuleNotFoundError: No module named 'sklearn'
+[2024-03-12T19:57:14.391+0000] {processor.py:842} WARNING - No viable dags retrieved from /opt/airflow/dags/airflow.py
+[2024-03-12T19:57:14.429+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/airflow.py took 0.547 seconds
