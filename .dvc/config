@@ -1,0 +1,5 @@
+[core]
+    remote = myremote
+['remote "myremote"']
+    url = gs://loan_data_all
+    credentialpath = ../dags/data/mlops-project.json

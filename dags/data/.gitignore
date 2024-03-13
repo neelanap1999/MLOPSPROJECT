@@ -1,0 +1,3 @@
+*.json
+/initial.csv:Zone.Identifier
+/initial_data.csv
