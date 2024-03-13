@@ -183,7 +183,7 @@ missing_values_task >> null_drop_task >> credit_year_task >> \
       emp_len_task >> scaler_task >> correlation_task >> analyze_pca_task
 
 logger.info("DAG tasks defined successfully.")
-notify_success()
+#notify_success()
 
 if __name__ == "__main__":
     dag.cli()
