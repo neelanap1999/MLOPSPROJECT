@@ -72,7 +72,7 @@ This distribution might reflect the credit profile or stability associated with 
 
 
 <p align="center">
-<img src="Image/corelation.png" alt="Correlation Matrix" height="300">
+<img src="Image/corelation.png" alt="Correlation Matrix" height="500">
 </p>
 This heatmap represents the correlation matrix of different financial and credit-related variables from a loan dataset. 
 Key observations from the heatmap include:
