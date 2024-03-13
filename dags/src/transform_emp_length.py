@@ -21,7 +21,7 @@ def map_years(years):
     else:
         return int(years.split()[0])
 
-def handle_outliers(input_pickle_path=INPUT_PICKLE_PATH,
+def emp_len_transform(input_pickle_path=INPUT_PICKLE_PATH,
                             output_pickle_path=OUTPUT_PICKLE_PATH):
 
     if os.path.exists(input_pickle_path):

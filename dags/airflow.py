@@ -13,7 +13,13 @@ from src.null_drop import drop_null
 from src.credit_year import extract_year
 from src.dummies import get_dummies
 from src.outlier_handle import handle_outliers
+from src.income_normalization import normalize_amount
+from src.transform_emp_length import emp_len_transform
+from src.scaling_data import scaler
+from src.correlation import correlation
+from src.pca import analyze_pca
 from src.dataload import DEFAULT_PICKLE_PATH
+from src.notification import notify_success, notify_failure
 
 # Configure logging
 LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -125,15 +131,59 @@ outlier_handle_task = PythonOperator(
     dag=dag,
 )
 
+income_normalize_task = PythonOperator(
+    task_id='income_normalize_task',
+    python_callable=normalize_amount,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="outlier_handle_task") }}',
+    },
+    dag=dag,
+)
 
+emp_len_task = PythonOperator(
+    task_id='emp_len_task',
+    python_callable=emp_len_transform,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="income_normalize_task") }}',
+    },
+    dag=dag,
+)
 
+scaler_task = PythonOperator(
+    task_id='scaler_task',
+    python_callable=scaler,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="emp_len_task") }}',
+    },
+    dag=dag,
+)
+
+correlation_task = PythonOperator(
+    task_id='correlation_task',
+    python_callable=correlation,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="scaler_task") }}',
+    },
+    dag=dag,
+)
+
+analyze_pca_task = PythonOperator(
+    task_id='analyze_pca_task',
+    python_callable=analyze_pca,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="scaler_task") }}',
+    },
+    dag=dag,
+)
 
 
 load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
 missing_values_task >> null_drop_task >> credit_year_task >> \
-      dummies_task >> outlier_handle_task 
+      dummies_task >> outlier_handle_task >> income_normalize_task >> \
+      emp_len_task >> scaler_task >> correlation_task >> analyze_pca_task
 
 logger.info("DAG tasks defined successfully.")
+notify_success()
 
 if __name__ == "__main__":
     dag.cli()

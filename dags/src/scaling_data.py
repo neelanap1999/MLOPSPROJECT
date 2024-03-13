@@ -5,7 +5,7 @@ from prompt_toolkit.shortcuts import yes_no_dialog
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', 'after_outlier_treatment.pickle')
+INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', 'after_transform_emp_length.pkl')
 OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', 'scaler_output.parquet')
 S_COLS = ['loan_amnt', 'int_rate', 'installment', 'annual_inc', 'dti', 
           'open_acc', 'pub_rec', 'revol_bal', 'total_acc', 'mort_acc', 'pub_rec_bankruptcies']

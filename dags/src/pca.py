@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.decomposition import PCA
 from prompt_toolkit.shortcuts import yes_no_dialog
+from src.notification import notify_failure
 
 # Loading Config File
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -13,7 +14,7 @@ OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR,'data', 'processed', 'pca_output.p
 NOT_COLUMNS = None
 THRESHOLD_CVR = 0.8
 
-def pc_analyzer(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH,
+def analyze_pca(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH,
                 drop_cols=NOT_COLUMNS, cvr_thresh=THRESHOLD_CVR):
 
     data = None
@@ -23,24 +24,29 @@ def pc_analyzer(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH,
         data = pd.read_parquet(in_path)
     except FileNotFoundError:
         raise FileNotFoundError(f"Unable to locate the file at {in_path}.") from None
+        notify_failure(f"Unable to locate the file at {in_path}.")
 
     # Check datatype
     if not isinstance(data, pd.DataFrame):
         raise TypeError("Unexpected data type. Unable to load DataFrame correctly.") from None
+        notify_failure("Unexpected data type. Unable to load DataFrame correctly.")
 
     # Check if all required columns exist in DataFrame
     try:
         assert all(col in data.columns for col in drop_cols)
     except AssertionError as exc:
         raise KeyError("Required column not found in the DataFrame.") from exc
+        notify_failure("Required column not found in the DataFrame.")
 
     # Check if the number of columns is less than 4, in which case PCA is not required
     if len(data.columns) < 4:
         raise ValueError("Number of columns is less than 4. PCA analysis is unnecessary.")
+        notify_failure("Number of columns is less than 4. PCA analysis is unnecessary.")
 
     # Value check for CVR_THRESHOLD
     if not 0 < cvr_thresh < 1:
         raise ValueError("Invalid value for CVR_THRESHOLD. It should be between 0 and 1.")
+        notify_failure("Invalid value for CVR_THRESHOLD. It should be between 0 and 1.")
 
     # Selecting columns in data for PCA
     data.set_index('CustomerID', inplace=True)
@@ -72,8 +78,10 @@ def pc_analyzer(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH,
         if result:
             pca_transformed_data.to_parquet(out_path)
             print(f"File saved successfully at the specified path: {out_path}.")
+            notify_failure(f"File saved successfully at the specified path: {out_path}.")
         else:
             print(f"Unable to save the file at the specified path: {out_path}.")
+            notify_failure(f"Unable to save the file at the specified path: {out_path}.")
 
     return out_path
 

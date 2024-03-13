@@ -12,6 +12,11 @@ from null_drop import drop_null
 from credit_year import extract_year
 from dummies import get_dummies
 from outlier_handle import handle_outliers
+from income_normalization import normalize_amount
+from transform_emp_length import emp_len_transform
+from scaling_data import scaler
+from correlation import correlation
+from pca import analyze_pca
 
 
 if __name__ == "__main__":
@@ -26,3 +31,9 @@ if __name__ == "__main__":
     CREDIT_YEAR_PATH = extract_year(input_pickle_path=NULL_DROP_PATH)
     DUMMIES_PATH = get_dummies(input_pickle_path=CREDIT_YEAR_PATH)
     OUTLIER_HANDLE_PATH = handle_outliers(input_pickle_path=DUMMIES_PATH)
+    INCOME_NORMAL_PATH = normalize_amount(input_pickle_path=OUTLIER_HANDLE_PATH)
+    EMP_LEN_PATH = emp_len_transform(input_pickle_path=INCOME_NORMAL_PATH)
+    SCALER_PATH = scaler(input_pickle_path=EMP_LEN_PATH)
+    CORR_PATH = correlation(input_pickle_path=SCALER_PATH)
+    PCA_PATH = analyze_pca(input_pickle_path=SCALER_PATH)
+
