@@ -3,4 +3,4 @@
     autostage = true
 ['remote "myremote"']
     url = gs://loan_data_all
-    credentialpath = ../dags/data/gcp-service-config.json
+    credentialpath = ../gcp-service-config.json
