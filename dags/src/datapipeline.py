@@ -35,5 +35,5 @@ if __name__ == "__main__":
     EMP_LEN_PATH = emp_len_transform(input_pickle_path=INCOME_NORMAL_PATH)
     SCALER_PATH = scaler(input_pickle_path=EMP_LEN_PATH)
     CORR_PATH = correlation(input_pickle_path=SCALER_PATH)
-    PCA_PATH = analyze_pca(input_pickle_path=SCALER_PATH)
+    #PCA_PATH = analyze_pca(input_pickle_path=SCALER_PATH)
 

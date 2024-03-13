@@ -11,7 +11,7 @@ os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)  # Ensure the directory ex
 logging.basicConfig(filename=LOG_PATH, level=logging.INFO, format=LOG_FORMAT)
 logger = logging.getLogger(LOG_PATH)
 
-INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_dummies.pkl')
+INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_transform_emp_length.pkl')
 OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_outlier.pkl')
 
 def handle_outliers(input_pickle_path=INPUT_PICKLE_PATH,

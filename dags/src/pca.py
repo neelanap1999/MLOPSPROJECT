@@ -49,19 +49,17 @@ def analyze_pca(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH,
         notify_failure("Invalid value for CVR_THRESHOLD. It should be between 0 and 1.")
 
     # Selecting columns in data for PCA
-    data.set_index('CustomerID', inplace=True)
-    data = data.drop(drop_cols, axis=1)
+    y = data['loan_status']
+    x = data.drop('loan_status', axis=1)  # Specify axis=1 to drop column
 
-    print(data)
-
-    n = pca_(data, cvr_thresh)
-    pca = PCA(n_components=n).fit(data)
+    n = pca_(x, cvr_thresh)
+    pca = PCA(n_components=n).fit(x)
 
     # Getting post-PCA data
-    reduced_data = pca.transform(data)
+    reduced_data = pca.transform(x)
     columns = [f'PC{i+1}' for i in range(pca.n_components_)]
     pca_transformed_data = pd.DataFrame(reduced_data, columns=columns)
-    pca_transformed_data.index = data.index
+    pca_transformed_data.index = x.index
     print(pca_transformed_data)
 
     # Saving data as parquet
@@ -87,20 +85,16 @@ def analyze_pca(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH,
 
 def pca_(data, thresh):
     n_components_range = np.arange(2, 9)
-    n = []
+    n = None  # Initialize n to None
     cumulative_var_ratio = [0]
     for n_components in n_components_range:
         if cumulative_var_ratio[-1] <= thresh:
             pca_check = PCA(n_components=n_components).fit(data)
             var_ratio = pca_check.explained_variance_ratio_
             cumulative_var_ratio.append(np.cumsum(var_ratio)[n_components-1])
-            n.append(n_components)
-            print(n[-1], cumulative_var_ratio[-1])
-        elif n_components == n_components_range[-1]:
-            n = n_components
-            break
+            n = n_components  # Update n in each iteration
+            print(n, cumulative_var_ratio[-1])
         else:
-            n = n_components
-            break
+            break  # Break the loop if the threshold is exceeded
     print(n, cumulative_var_ratio)
     return n

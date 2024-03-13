@@ -7,13 +7,15 @@ from sklearn.ensemble import IsolationForest
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_income_normalization.pkl')
+INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_dummies.pkl')
 OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_transform_emp_length.pkl')
 
 # Define mapping function
 def map_years(years):
     if pd.isna(years):  # Handle NaN values
         return np.nan
+    elif isinstance(years, int):  # If already an integer, return as is
+        return years
     elif years == '< 1 year':
         return 0
     elif years == '10+ years':
@@ -32,7 +34,7 @@ def emp_len_transform(input_pickle_path=INPUT_PICKLE_PATH,
 
     # Applying mapping function to the column
     df['emp_length'] = df['emp_length'].map(map_years)
-    df['emp_length'] = df['emp_length'].astype(int)
+    df['emp_length'] = df['emp_length']
 
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df, file)

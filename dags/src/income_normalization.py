@@ -21,10 +21,10 @@ def normalize_amount(input_pickle_path=INPUT_PICKLE_PATH,
         raise FileNotFoundError(f"No data found at the specified path: {input_pickle_path}")
         notify_failure(f"No data found at the specified path: {input_pickle_path}")
 
-    df['loan_amount'] = np.log(df['loan_amount'])
-    df['annual_income'] = np.log(df['annual_income']) 
+    df['loan_amnt'] = np.log(df['loan_amnt'])
+    df['annual_inc'] = np.log(df['annual_inc']) 
 
     with open(output_pickle_path, "wb") as file:
-        pickle.dump(df_cleaned, file)
+        pickle.dump(df, file)
     print(f"Data saved to {output_pickle_path}.")
     return output_pickle_path
