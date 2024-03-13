@@ -26,7 +26,10 @@ def handle_missing(input_pickle_path=INPUT_PICKLE_PATH,
         logger.error(error_message)
         raise FileNotFoundError(error_message)
 
-    df['mort_acc'].fillna(df['mort_acc'].mean())
+    df['mort_acc'].fillna(df['mort_acc'].mean(),inplace = True)
+    df['emp_length'].fillna(0,inplace = True)
+    df['revol_util'].fillna(0,inplace = True)
+    df['mort_acc'].fillna(0,inplace = True)
     
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df, file)

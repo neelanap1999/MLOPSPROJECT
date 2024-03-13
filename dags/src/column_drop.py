@@ -26,7 +26,7 @@ def drop_column(input_pickle_path=INPUT_PICKLE_PATH,
         logger.error(error_message)
         raise FileNotFoundError(error_message)
 
-    df.drop(['emp_length','grade','title','emp_title','issue_d'],axis=1,inplace=True)
+    df.drop(['grade','title','emp_title'],axis=1,inplace=True)
 
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df, file)
