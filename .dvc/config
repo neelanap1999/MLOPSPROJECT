@@ -1,5 +1,6 @@
 [core]
     remote = myremote
+    autostage = false
 ['remote "myremote"']
     url = gs://loan_data_all
-    credentialpath = dags/data/gcp-service-config.json
+    credentialpath = ../dags/data/gcp-service-config.json
