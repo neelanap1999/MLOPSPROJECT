@@ -24,6 +24,26 @@ OUTPUT_PICKLE_PATH = (IMAGE_PATH, CORR_PICKLE_PATH)
 
 # Function to calculate correlation
 def correlation(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH, correlation_threshold=THRESHOLD_CORR):
+
+      """
+      
+      Function: correlation
+      
+      Description:
+      This function calculates the correlation matrix for the input DataFrame, creates a heatmap visualization of the correlation matrix, 
+      and saves both the heatmap image and the correlation matrix as a Parquet file. It also validates the input and output paths and the 
+      correlation threshold. If the input file path is invalid or the DataFrame cannot be loaded, it raises FileNotFoundError or TypeError, 
+      respectively. It also raises TypeError if the output paths are not strings, and ValueError if the correlation threshold is not between 0 and 1.
+      
+      Parameters:
+      - in_path (str): Path to the input Parquet file containing the DataFrame. Default is INPUT_PICKLE_PATH.
+      - out_path (tuple of str): Tuple containing paths to save the heatmap image and the correlation matrix Parquet file, respectively. Default is OUTPUT_PICKLE_PATH.
+      - correlation_threshold (float): Threshold for correlation. Default is THRESHOLD_CORR.
+      
+      Returns:
+      None
+      
+      """
    
     data = None
 
@@ -76,6 +96,25 @@ def correlation(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH, correlat
 
 # Function to save heatmap image
 def save_heatmap(fig, path):
+
+   """
+   Function: save_heatmap
+   
+   Description:
+   This function saves the provided heatmap figure as an image file at the specified path. 
+   It first checks if the directory exists and creates it if it doesn't. If the file already exists, it prompts 
+   the user to confirm overwriting. If the user confirms, it saves the file; otherwise, it prints a message 
+   indicating the failure to save.
+   
+   Parameters:
+   - fig (matplotlib.figure.Figure): The figure object representing the heatmap.
+   - path (str): The path to save the heatmap image.
+   
+   Returns:
+   None
+   
+   """
+   
     try:
         p = os.path.dirname(path)
         if not os.path.exists(p):
@@ -93,6 +132,24 @@ def save_heatmap(fig, path):
 
 # Function to save correlations as Parquet file
 def save_correlations_as_parquet(data, path):
+
+   """
+   Function: save_correlations_as_parquet
+   
+   Description:
+   This function saves the provided DataFrame as a Parquet file at the specified path. 
+   It first checks if the directory exists and creates it if it doesn't. If the file already exists, 
+   it prompts the user to confirm overwriting. If the user confirms, it saves the file; otherwise, 
+   it prints a message indicating the failure to save. It also checks if the input data is a DataFrame before saving.
+   
+   Parameters:
+   - data (pandas.DataFrame): The DataFrame containing the correlation matrix.
+   - path (str): The path to save the Parquet file.
+   
+   Returns:
+   None
+   """
+   
     try:
         p = os.path.dirname(path)
         if not os.path.exists(p):
