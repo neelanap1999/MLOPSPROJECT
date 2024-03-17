@@ -36,7 +36,6 @@ def load_data(pickle_path=DEFAULT_PICKLE_PATH, excel_path=None):
     str: Path to the saved or re-saved pickle file containing the DataFrame.
     """
 
-  
     logger.info("Loading data...")
     if excel_path is None:
         excel_path = DEFAULT_EXCEL_PATH

@@ -3,6 +3,7 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from prompt_toolkit.shortcuts import yes_no_dialog
 
+# Configure logging
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', 'after_income_normalization.pkl')
@@ -12,6 +13,22 @@ S_COLS = ['loan_amnt', 'int_rate', 'installment', 'annual_inc', 'dti',
 
 def scaler(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH, cols_to_scale=S_COLS):
     
+    """
+    Scaling specified columns of a DataFrame using StandardScaler and saving the scaled DataFrame to a parquet file.
+
+    Args:
+        in_path (str): The file path to the input pickle file containing the DataFrame (Defaults to INPUT_PICKLE_PATH).
+        out_path (str): The file path to save the output parquet file containing the scaled DataFrame (Defaults to OUTPUT_PICKLE_PATH).
+        cols_to_scale (list): A list of column names to be scaled (Defaults to S_COLS).
+
+    Returns:
+        str: The file path where the scaled DataFrame is saved.
+        
+    Raises:
+        FileNotFoundError: If no data is found at the specified input path.
+        TypeError: If the save path is not a string or if the file did not load DataFrame correctly.
+        KeyError: If columns listed to be scaled are not found in the DataFrame.
+    """
     data = None
 
     try:
