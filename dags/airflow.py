@@ -19,7 +19,7 @@ from src.scaling_data import scaler
 from src.correlation import correlation
 from src.pca import analyze_pca
 from src.dataload import DEFAULT_PICKLE_PATH
-from src.notification import notify_success, notify_failure
+from airflow.operators.email_operator import EmailOperator
 
 # Configure logging
 LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -31,11 +31,10 @@ logger = logging.getLogger(LOG_PATH)
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'src', 'data', 'initial.csv')
 
-# Enable pickle support for XCom, allowing data to be passed between tasks
+# Enabling pickle support for XCom, allowing data to be passed between tasks
 conf.set('core', 'enable_xcom_pickling', 'True')
 
-
-# Define default arguments for your DAG
+# Defining the default arguments for DAG
 default_args = {
     'owner': 'your_name',
     'start_date': datetime(2024, 3, 4),
@@ -43,13 +42,44 @@ default_args = {
     'retry_delay': timedelta(minutes=5), # Delay before retries
 }
 
-# Create a DAG instance named 'datapipeline' with the defined default arguments
+def notify_success(context):
+    success_email = EmailOperator(
+        task_id='success_email',
+        to='guptavishesh264@gmail.com',
+        subject='Success Notification from Airflow',
+        html_content='<p>The task succeeded.</p>',
+        dag=context['dag']
+    )
+    success_email.execute(context=context)
+ 
+def notify_failure(context):
+    failure_email = EmailOperator(
+        task_id='failure_email',
+        to='guptavishesh264@gmail.com',
+        subject='Failure Notification from Airflow',
+        html_content='<p>The task failed.</p>',
+        dag=context['dag']
+    )
+    failure_email.execute(context=context)
+
+# Creating a DAG instance named 'datapipeline' with the defined default arguments
 dag = DAG(
     'datapipeline',
     default_args=default_args,
     description='Airflow DAG for the datapipeline',
     schedule_interval=None,  # Set the schedule interval or use None for manual triggering
     catchup=False,
+)
+
+# Defining the email task to send notification
+send_email = EmailOperator(
+    task_id='send_email',
+    to='guptavishesh264@gmail.com',    # Email address of the recipient
+    subject='Notification from Airflow',
+    html_content='<p>This is a notification email sent from Airflow.</p>',
+    dag=dag,
+    on_failure_callback=notify_failure,
+    on_success_callback=notify_success
 )
 
 load_data_task = PythonOperator(
@@ -149,8 +179,6 @@ income_normalize_task = PythonOperator(
     dag=dag,
 )
 
-
-
 scaler_task = PythonOperator(
     task_id='scaler_task',
     python_callable=scaler,
@@ -168,6 +196,7 @@ correlation_task = PythonOperator(
     },
     dag=dag,
 )
+
 '''
 analyze_pca_task = PythonOperator(
     task_id='analyze_pca_task',
@@ -182,10 +211,9 @@ analyze_pca_task = PythonOperator(
 load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
 missing_values_task >> null_drop_task >> credit_year_task >> \
     dummies_task >> emp_len_task >> outlier_handle_task >> income_normalize_task >> \
-    scaler_task >> correlation_task
+    scaler_task >> correlation_task >> send_email
 
 logger.info("DAG tasks defined successfully.")
-#notify_success()
 
 if __name__ == "__main__":
     dag.cli()

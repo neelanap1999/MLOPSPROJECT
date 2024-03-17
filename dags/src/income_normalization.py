@@ -3,7 +3,6 @@ import pickle
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import IsolationForest
-from src.notification import notify_failure
 
 # Configure logging
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,7 +34,6 @@ def normalize_amount(input_pickle_path=INPUT_PICKLE_PATH,
             df = pickle.load(file)
     else:
         raise FileNotFoundError(f"No data found at the specified path: {input_pickle_path}")
-        notify_failure(f"No data found at the specified path: {input_pickle_path}")
 
     df['loan_amnt'] = np.log(df['loan_amnt'])
     df['annual_inc'] = np.log(df['annual_inc']) 
