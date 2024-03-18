@@ -9,7 +9,7 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_PATH = os.path.join(PROJECT_DIR, 'logs', 'datapipeline.log')
 os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)  # Ensure the directory exists
 logging.basicConfig(filename=LOG_PATH, level=logging.DEBUG, filemode='w', format=LOG_FORMAT)
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(LOG_PATH)
 
 INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_term.pkl')
 OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_dropcol.pkl')
