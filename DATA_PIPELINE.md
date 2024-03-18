@@ -116,6 +116,16 @@ Airflow's scheduler and web server components enable us to monitor and manage ou
 
 ![Airflow Chart](Image/airflow_chart2.png)
 
+------------------------------------------------------------------------------
+
+Email Notification when the pipeline has started execution:
+![Airflow_Notification](Image/Airflow_Notification.png)
+
+------------------------------------------------------------------------------
+
+Email Notification when the pipeline has successfully executed:
+![Success_Notification](Image/Success_Notification.png)
+
 ## 6. Data Pipeline Components:
 
 This project's data pipeline comprises multiple interconnected modules, each dedicated to executing specific data processing tasks. Our approach involves utilizing Airflow and Docker to orchestrate and encapsulate these modules within containers. Each module serves as an individual task within the primary data pipeline DAG (datapipeline), contributing to the seamless execution and management of our data processing workflows. The below chart explains that well. 
