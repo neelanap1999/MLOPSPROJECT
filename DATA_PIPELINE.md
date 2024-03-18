@@ -114,7 +114,7 @@ Airflow's scheduler and web server components enable us to monitor and manage ou
 
 [Airflow Code Link](https://github.com/neelanap1999/MLOPSPROJECT/blob/main/dags/airflow.py)
 
-![Airflow Chart](Image/airflow_chart.png)
+![Airflow Chart](Image/airflow_chart2.png)
 
 ## 6. Data Pipeline Components:
 
