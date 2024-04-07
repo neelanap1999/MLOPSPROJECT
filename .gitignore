@@ -1,5 +1,6 @@
 *.pyc
 dags/__pycache__/airflow.cpython-39.pyc
+__pycache__/
 dags/src/__pycache__/__init__.cpython-39.pyc
 dags/src/__pycache__/column_drop.cpython-39.pyc
 dags/src/__pycache__/credit_year.cpython-39.pyc
