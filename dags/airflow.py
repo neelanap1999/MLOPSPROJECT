@@ -185,7 +185,7 @@ encode_task = PythonOperator(
     task_id='encode_task',
     python_callable=encode,
     op_kwargs={
-        'input_pickle_path': '{{ ti.xcom_pull(task_ids=income_normalize") }}',
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="income_normalize_task") }}',
     },
     dag=dag,
 )
@@ -197,6 +197,7 @@ split_task= PythonOperator(
         'input_pickle_path': '{{ ti.xcom_pull(task_ids="encode_task") }}',
     },
     dag=dag,
+)
 
 scaler_task = PythonOperator(
     task_id='scaler_task',

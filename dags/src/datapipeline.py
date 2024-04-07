@@ -23,7 +23,7 @@ from pca import analyze_pca
 """ pipeline for data preprocessing and transformation: Each step takes the output of the previous step as input and saves the processed DataFrame to a pickle file."""
 if __name__ == "__main__":
     PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'src', 'data', 'initial.csv')
+    DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'src', 'data', 'initial_data.csv')
     LOADED_DATA_PATH = load_data(excel_path=DEFAULT_EXCEL_PATH)
     EXTRACT_ZIPCODE_PATH = extract_zipcode(input_pickle_path=LOADED_DATA_PATH)
     TERM_MAP_PATH = map_term(input_pickle_path=EXTRACT_ZIPCODE_PATH)

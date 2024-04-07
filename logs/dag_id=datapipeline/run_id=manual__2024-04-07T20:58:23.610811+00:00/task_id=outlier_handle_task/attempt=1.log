@@ -1,0 +1,18 @@
+[2024-04-07T16:58:53.032-0400] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: datapipeline.outlier_handle_task manual__2024-04-07T20:58:23.610811+00:00 [queued]>
+[2024-04-07T16:58:53.037-0400] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: datapipeline.outlier_handle_task manual__2024-04-07T20:58:23.610811+00:00 [queued]>
+[2024-04-07T16:58:53.037-0400] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-04-07T16:58:53.048-0400] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): outlier_handle_task> on 2024-04-07 20:58:23.610811+00:00
+[2024-04-07T16:58:53.052-0400] {standard_task_runner.py:60} INFO - Started process 62561 to run task
+[2024-04-07T16:58:53.055-0400] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'datapipeline', 'outlier_handle_task', 'manual__2024-04-07T20:58:23.610811+00:00', '--job-id', '342', '--raw', '--subdir', 'DAGS_FOLDER/airflow.py', '--cfg-path', '/tmp/tmp2h6ajty_']
+[2024-04-07T16:58:53.056-0400] {standard_task_runner.py:88} INFO - Job 342: Subtask outlier_handle_task
+[2024-04-07T16:58:53.081-0400] {task_command.py:423} INFO - Running <TaskInstance: datapipeline.outlier_handle_task manual__2024-04-07T20:58:23.610811+00:00 [running]> on host Naveen.
+[2024-04-07T16:58:53.131-0400] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='your_name' AIRFLOW_CTX_DAG_ID='datapipeline' AIRFLOW_CTX_TASK_ID='outlier_handle_task' AIRFLOW_CTX_EXECUTION_DATE='2024-04-07T20:58:23.610811+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-07T20:58:23.610811+00:00'
+[2024-04-07T16:58:54.592-0400] {logging_mixin.py:188} WARNING - /home/pasala_n/MLOPS_Credit_latest/MLOPSPROJECT/dags/src/outlier_handle.py:46 SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+[2024-04-07T16:58:54.754-0400] {outlier_handle.py:50} INFO - Data saved to /home/pasala_n/MLOPS_Credit_latest/MLOPSPROJECT/dags/data/processed/after_outlier.pkl.
+[2024-04-07T16:58:54.759-0400] {python.py:201} INFO - Done. Returned value was: /home/pasala_n/MLOPS_Credit_latest/MLOPSPROJECT/dags/data/processed/after_outlier.pkl
+[2024-04-07T16:58:54.830-0400] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=datapipeline, task_id=outlier_handle_task, execution_date=20240407T205823, start_date=20240407T205853, end_date=20240407T205854
+[2024-04-07T16:58:54.878-0400] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-04-07T16:58:54.896-0400] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

@@ -28,6 +28,8 @@ def split(input_pickle_path=INPUT_PICKLE_PATH,
     y=df['loan_status']
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=101)
+    y_train = pd.DataFrame(y_train)
+    y_test = pd.DataFrame(y_test)
 
     X_train.to_parquet(xtrain_path)
     X_test.to_parquet(xtest_path)
