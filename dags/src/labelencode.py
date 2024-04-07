@@ -18,3 +18,5 @@ def encode(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH):
     data.to_parquet(out_path)
 
     return out_path
+
+
