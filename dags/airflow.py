@@ -19,7 +19,7 @@ from src.scaling_data import scaler
 from src.correlation import correlation
 from src.pca import analyze_pca
 from src.dataload import DEFAULT_PICKLE_PATH
-from airflow.operators.email_operator import EmailOperator
+from airflow.operators.email import EmailOperator
 
 # Configure logging
 LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
