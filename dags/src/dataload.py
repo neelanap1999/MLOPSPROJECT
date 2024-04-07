@@ -14,7 +14,7 @@ logger = logging.getLogger(LOG_PATH)
 
 DEFAULT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data',
                                    'processed', 'initial.pkl')
-DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'data', 'initial.csv')
+DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'data', 'initial_data.csv')
 
 def load_data(pickle_path=DEFAULT_PICKLE_PATH, excel_path=None):
   
