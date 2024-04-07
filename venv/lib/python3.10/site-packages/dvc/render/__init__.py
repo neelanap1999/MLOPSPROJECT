@@ -1,8 +1,0 @@
-INDEX = "step"
-REVISION = "rev"
-FILENAME = "filename"
-FIELD = "field"
-REVISIONS = "revisions"
-ANCHOR_DEFINITIONS = "anchor_definitions"
-TYPE_KEY = "type"
-SRC = "src"
