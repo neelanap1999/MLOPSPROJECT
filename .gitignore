@@ -4,7 +4,7 @@ src/__pycache__
 dags/src/__pycache__
 venv/
 *.cfg
-#logs
+logs
 #logs/*
 *.cpython
 *.pyc
