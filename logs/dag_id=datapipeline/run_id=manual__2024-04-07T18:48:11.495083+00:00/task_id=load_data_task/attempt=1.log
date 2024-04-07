@@ -1,0 +1,16 @@
+[2024-04-07T18:48:13.509+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: datapipeline.load_data_task manual__2024-04-07T18:48:11.495083+00:00 [queued]>
+[2024-04-07T18:48:13.520+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: datapipeline.load_data_task manual__2024-04-07T18:48:11.495083+00:00 [queued]>
+[2024-04-07T18:48:13.520+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2024-04-07T18:48:13.538+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): load_data_task> on 2024-04-07 18:48:11.495083+00:00
+[2024-04-07T18:48:13.549+0000] {standard_task_runner.py:60} INFO - Started process 1165 to run task
+[2024-04-07T18:48:13.554+0000] {standard_task_runner.py:87} INFO - Running: ['***', 'tasks', 'run', 'datapipeline', 'load_data_task', 'manual__2024-04-07T18:48:11.495083+00:00', '--job-id', '84', '--raw', '--subdir', 'DAGS_FOLDER/main.py', '--cfg-path', '/tmp/tmpxcgezhn7']
+[2024-04-07T18:48:13.558+0000] {standard_task_runner.py:88} INFO - Job 84: Subtask load_data_task
+[2024-04-07T18:48:13.615+0000] {task_command.py:423} INFO - Running <TaskInstance: datapipeline.load_data_task manual__2024-04-07T18:48:11.495083+00:00 [running]> on host b8ee1329d304
+[2024-04-07T18:48:14.016+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='your_name' AIRFLOW_CTX_DAG_ID='datapipeline' AIRFLOW_CTX_TASK_ID='load_data_task' AIRFLOW_CTX_EXECUTION_DATE='2024-04-07T18:48:11.495083+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-07T18:48:11.495083+00:00'
+[2024-04-07T18:48:14.017+0000] {dataload.py:39} INFO - Loading data...
+[2024-04-07T18:48:14.118+0000] {dataload.py:47} INFO - Data loaded successfully from /opt/***/dags/data/processed/initial.pkl.
+[2024-04-07T18:48:14.276+0000] {dataload.py:60} INFO - Data saved to /opt/***/dags/data/processed/initial.pkl for future use.
+[2024-04-07T18:48:14.292+0000] {python.py:202} INFO - Done. Returned value was: /opt/***/dags/data/processed/initial.pkl
+[2024-04-07T18:48:14.330+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=datapipeline, task_id=load_data_task, execution_date=20240407T184811, start_date=20240407T184813, end_date=20240407T184814
+[2024-04-07T18:48:14.371+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-04-07T18:48:14.577+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check
