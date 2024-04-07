@@ -18,6 +18,7 @@ from src.transform_emp_length import emp_len_transform
 from src.scaling_data import scaler
 from src.correlation import correlation
 from src.pca import analyze_pca
+from src.labelencode import encode
 from src.dataload import DEFAULT_PICKLE_PATH
 from airflow.operators.email_operator import EmailOperator
 
@@ -207,6 +208,15 @@ analyze_pca_task = PythonOperator(
     dag=dag,
 )
 '''
+
+encode_task = PythonOperator(
+    task_id='encode_task',
+    python_callable=encode,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="scaler_task") }}',
+    },
+    dag=dag,
+)
 
 load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
 missing_values_task >> null_drop_task >> credit_year_task >> \
