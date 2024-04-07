@@ -41,7 +41,7 @@ def extract_zipcode(input_pickle_path=INPUT_PICKLE_PATH,
         logger.error(error_message)
         raise FileNotFoundError(error_message)
 
-    df['zipcode']=df['address'].apply(lambda x:str(x[-5]))
+    df['zipcode']=df['address'].apply(lambda x:str(x[-5:]))
 
     df.drop('address',axis=1,inplace=True)
 
