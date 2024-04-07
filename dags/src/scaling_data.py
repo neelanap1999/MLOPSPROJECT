@@ -53,23 +53,19 @@ def scaler(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH, cols_to_scale
     cols_to_keep = [col for col in data.columns if col not in cols_to_scale]
 
     scaler_std = StandardScaler()
-    data_std = scaler_std.fit_transform(data[cols_to_scale])
-    std_df = pd.DataFrame(data_std, columns=cols_to_scale)
-
-    scaled_data = pd.concat([std_df, data[cols_to_keep]], axis=1)
-
+    data[cols_to_scale] = scaler_std.fit_transform(data[cols_to_scale])
     try:
         p = os.path.dirname(out_path)
         if not os.path.exists(p):
             os.makedirs(p)
-        scaled_data.to_parquet(out_path)
+        data.to_parquet(out_path)
         print(f"File saved successfully at Path: {out_path}.")
     except FileExistsError:
         result = yes_no_dialog(
             title='File Exists Error',
             text="Existing file in use. Please close to overwrite the file. Error:.").run()
         if result:
-            scaled_data.to_parquet(out_path)
+            data.to_parquet(out_path)
             print(f"File saved successfully at Path: {out_path}.")
         else:
             print(f"Could not save File at Path: {out_path}.")
