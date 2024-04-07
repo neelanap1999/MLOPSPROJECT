@@ -4,6 +4,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow import configuration as conf
 import os
+from src.download_data import ingest_data
 from src.dataload import load_data
 from src.zipcode_extract import extract_zipcode
 from src.term_map import map_term
@@ -82,10 +83,20 @@ send_email = EmailOperator(
     on_success_callback=notify_success
 )
 
+'''
+# Task to download data from source, calls the 'ingest_data' Python function
+ingest_data_task = PythonOperator(
+    task_id='ingest_data_task',
+    python_callable=ingest_data,
+    op_args=["https://drive.google.com/file/d/1NAn7I7iJGxy2AhrmfkVdo37GY1dtGLzw/view?usp=sharing"],
+    dag=dag,
+)
+'''
+
 load_data_task = PythonOperator(
     task_id='load_data_task',
     python_callable=load_data,
-    op_kwargs={'pickle_path': DEFAULT_PICKLE_PATH},
+    op_kwargs={'pickle_path':  '{{ ti.xcom_pull(task_ids="ingest_data_task") }}'},
     dag=dag,
 )
 
