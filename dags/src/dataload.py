@@ -37,6 +37,7 @@ def load_data(pickle_path=DEFAULT_PICKLE_PATH, excel_path=None):
     """
 
     logger.info("Loading data...")
+
     if excel_path is None:
         excel_path = DEFAULT_EXCEL_PATH
     df = None

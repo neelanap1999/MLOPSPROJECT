@@ -83,7 +83,7 @@ send_email = EmailOperator(
     on_success_callback=notify_success
 )
 
-'''
+
 # Task to download data from source, calls the 'ingest_data' Python function
 ingest_data_task = PythonOperator(
     task_id='ingest_data_task',
@@ -91,12 +91,11 @@ ingest_data_task = PythonOperator(
     op_args=["https://drive.google.com/file/d/1NAn7I7iJGxy2AhrmfkVdo37GY1dtGLzw/view?usp=sharing"],
     dag=dag,
 )
-'''
 
 load_data_task = PythonOperator(
     task_id='load_data_task',
     python_callable=load_data,
-    op_kwargs={'pickle_path':  '{{ ti.xcom_pull(task_ids="ingest_data_task") }}'},
+    op_kwargs={'excel_path': ingest_data_task.output},
     dag=dag,
 )
 
@@ -219,7 +218,7 @@ analyze_pca_task = PythonOperator(
 )
 '''
 
-load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
+ingest_data_task >> load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
 missing_values_task >> null_drop_task >> credit_year_task >> \
     dummies_task >> emp_len_task >> outlier_handle_task >> income_normalize_task >> \
     scaler_task >> correlation_task >> send_email

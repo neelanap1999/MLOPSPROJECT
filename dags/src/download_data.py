@@ -27,7 +27,7 @@ def ingest_data(file_url=DEFAULT_FILE_URL):
     root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
     # Path to store the csv
-    csvfile_path=os.path.join(root_dir, 'data','data.csv')
+    csvfile_path=os.path.join(root_dir, 'data','initial_data.csv')
     file_id = file_url.split("/")[-2]
     prefix = 'https://drive.google.com/uc?/export=download&id='
 
@@ -43,7 +43,7 @@ def ingest_data(file_url=DEFAULT_FILE_URL):
     try:
         # Save file to data
         gdown.download(prefix+file_id,csvfile_path)
-        print(f"File downloaded successfully. Zip file available under {csvfile_path}")
+        # print(f"File downloaded successfully. Zip file available under {csvfile_path}")
     except Exception as e:
             raise e
     return csvfile_path

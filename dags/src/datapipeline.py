@@ -3,6 +3,7 @@ Modularized Data pipeline to form DAGs in the future
 """
 import logging
 import os
+from download_data import ingest_data
 from dataload import load_data
 from zipcode_extract import extract_zipcode
 from term_map import map_term
@@ -21,8 +22,10 @@ from pca import analyze_pca
 """ pipeline for data preprocessing and transformation: Each step takes the output of the previous step as input and saves the processed DataFrame to a pickle file."""
 if __name__ == "__main__":
     PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'src', 'data', 'initial.csv')
-    LOADED_DATA_PATH = load_data(excel_path=DEFAULT_EXCEL_PATH)
+    DEFAULT_FILE_URL = "https://drive.google.com/file/d/1NAn7I7iJGxy2AhrmfkVdo37GY1dtGLzw/view?usp=sharing"
+    #DEFAULT_EXCEL_PATH = os.path.join(PROJECT_DIR, 'src', 'data', 'initial.csv')
+    DOWNLOAD_DATA_PATH = ingest_data(file_url = DEFAULT_FILE_URL)
+    LOADED_DATA_PATH = load_data(excel_path=DOWNLOAD_DATA_PATH)
     EXTRACT_ZIPCODE_PATH = extract_zipcode(input_pickle_path=LOADED_DATA_PATH)
     TERM_MAP_PATH = map_term(input_pickle_path=EXTRACT_ZIPCODE_PATH)
     COLUMN_DROP_PATH = drop_column(input_pickle_path=TERM_MAP_PATH)
