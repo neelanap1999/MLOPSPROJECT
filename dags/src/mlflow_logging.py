@@ -38,6 +38,7 @@ if __name__ == "__main__":
     X_test=pd.read_parquet(XTEST_PATH)
     y_test=pd.read_parquet(YTEST_PATH)
     # The predicted column is "quality" which is a scalar from [3, 9]
+
     n_estimators = [25, 50, 100, 150]
     max_features = ['sqrt', 'log2', None]
     max_depth = [3, 6, 9]
@@ -46,29 +47,7 @@ if __name__ == "__main__":
         for b in max_features:
             for c in max_depth:
                 for d in max_leaf_nodes:
-    n_estimators = [25, 50, 100, 150]
-    max_features = ['sqrt', 'log2', None]
-    max_depth = [3, 6, 9]
-    max_leaf_nodes = [3, 6, 9]
-    for a in n_estimators:
-        for b in max_features:
-            for c in max_depth:
-                for d in max_leaf_nodes:
 
-                    with mlflow.start_run(run_name='RandomForestClassifier'):
-                        lr = RandomForestClassifier(n_estimators=a, max_features=b, max_depth=c, max_leaf_nodes=d, random_state=42)
-                        lr.fit(X_train, y_train)
-                        y_pred = lr.predict(X_test)
-                        print(f"  Accuracy: {accuracy_score(y_test,y_pred)}")
-                        print(f"  Roc_auc_score: {roc_auc_score(y_test,y_pred)}")
-
-                        mlflow.log_param('n_estimators',a)
-                        mlflow.log_param('max_features',b)
-                        mlflow.log_param('max_depth',c)
-                        mlflow.log_param('max_leaf_nodes',d)
-
-                        mlflow.log_metric("accuracy", accuracy_score(y_test,y_pred))
-                        mlflow.log_metric('roc_auc_score',roc_auc_score(y_test,y_pred))
                     with mlflow.start_run(run_name='RandomForestClassifier'):
                         lr = RandomForestClassifier(n_estimators=a, max_features=b, max_depth=c, max_leaf_nodes=d, random_state=42)
                         lr.fit(X_train, y_train)
