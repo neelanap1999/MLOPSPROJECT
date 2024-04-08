@@ -26,3 +26,4 @@ dags/src/__pycache__/zipcode_extract.cpython-39.pyc
 .vscode
 *.pkl
 *.parquet
+dags/data/processed/
