@@ -5,7 +5,7 @@ src/__pycache__
 dags/src/__pycache__
 venv/
 *.cfg
-logs/
+logs/*
 #logs/*
 *.cpython
 *.pyc
@@ -23,3 +23,5 @@ dags/src/__pycache__/term_map.cpython-39.pyc
 dags/src/__pycache__/zipcode_extract.cpython-39.pyc
 *.Identifier
 .vscode
+*.pkl
+*.parquet

@@ -19,8 +19,11 @@ from src.transform_emp_length import emp_len_transform
 from src.scaling_data import scaler
 from src.correlation import correlation
 from src.pca import analyze_pca
+from src.labelencode import encode
+from src.split import split
 from src.dataload import DEFAULT_PICKLE_PATH
-from airflow.operators.email import EmailOperator
+from src.download_data import ingest_data
+from airflow.operators.email_operator import EmailOperator
 
 # Configure logging
 LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
@@ -82,7 +85,6 @@ send_email = EmailOperator(
     on_failure_callback=notify_failure,
     on_success_callback=notify_success
 )
-
 
 # Task to download data from source, calls the 'ingest_data' Python function
 ingest_data_task = PythonOperator(
@@ -189,11 +191,29 @@ income_normalize_task = PythonOperator(
     dag=dag,
 )
 
+encode_task = PythonOperator(
+    task_id='encode_task',
+    python_callable=encode,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="income_normalize_task") }}',
+    },
+    dag=dag,
+)
+
+split_task= PythonOperator(
+    task_id='split_task',
+    python_callable=split,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="encode_task") }}',
+    },
+    dag=dag,
+)
+
 scaler_task = PythonOperator(
     task_id='scaler_task',
     python_callable=scaler,
     op_kwargs={
-        'input_pickle_path': '{{ ti.xcom_pull(task_ids="income_normalize_task") }}',
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="split_task") }}',
     },
     dag=dag,
 )
@@ -207,6 +227,8 @@ correlation_task = PythonOperator(
     dag=dag,
 )
 
+
+
 '''
 analyze_pca_task = PythonOperator(
     task_id='analyze_pca_task',
@@ -218,10 +240,11 @@ analyze_pca_task = PythonOperator(
 )
 '''
 
+
 ingest_data_task >> load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
 missing_values_task >> null_drop_task >> credit_year_task >> \
-    dummies_task >> emp_len_task >> outlier_handle_task >> income_normalize_task >> \
-    scaler_task >> correlation_task >> send_email
+    dummies_task >> emp_len_task >> outlier_handle_task >> income_normalize_task >> encode_task \
+    >> split_task >> scaler_task >> correlation_task >> send_email 
 
 logger.info("DAG tasks defined successfully.")
 
