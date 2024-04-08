@@ -12,7 +12,7 @@ sns.set_style('whitegrid')
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Define the input and output file paths
-INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', 'scaler_output.parquet')
+INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', 'X_train_final.parquet')
 IMAGE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', "images", 'correlation_heatmap.png')
 CORR_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', "correlation_matrix.parquet")
 
@@ -68,9 +68,7 @@ def correlation(in_path=INPUT_PICKLE_PATH, out_path=OUTPUT_PICKLE_PATH, correlat
     if not 0 < correlation_threshold < 1:
         raise ValueError("The correlation threshold should be between 0 and 1.")
 
-    y = data['loan_status']
-    x = data.drop('loan_status', axis=1)  # Specify axis=1 to drop column
-    corr = x.corr()
+    corr = data.corr()
 
     # Create a mask for the upper triangle
     mask = np.zeros_like(corr)
