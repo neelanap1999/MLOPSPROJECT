@@ -43,7 +43,7 @@ def extract_year(input_pickle_path=INPUT_PICKLE_PATH,
         raise FileNotFoundError(error_message)
 
     df['earliest_cr_line']=df['earliest_cr_line'].apply(lambda x:int(x[-4:]))
-    df['issue_d']=df['issue_d'].apply(lambda x:int(x[-4:]))
+    df['issue_d']=df['issue_d'].apply(lambda x:int(x[0:4]))
     
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df, file)
