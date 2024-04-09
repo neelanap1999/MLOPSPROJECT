@@ -10,6 +10,10 @@ logging.basicConfig(filename='scaling_data.log', level=logging.INFO, format=LOG_
 logger = logging.getLogger(LOG_PATH)
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+LOG_PATH = os.path.join(PROJECT_DIR, 'logs', 'datapipeline.log')
+os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)  # Ensure the directory exists
+logging.basicConfig(filename='scaling_data.log', level=logging.INFO, format=LOG_FORMAT)
+logger = logging.getLogger(LOG_PATH)
 
 XTRAIN_INPUT_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', 'X_train.parquet')
 XTEST_INPUT_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', 'X_test.parquet')
@@ -31,7 +35,7 @@ def scaler(xtrain_inpath=XTRAIN_INPUT_PATH, xtest_inpath=XTEST_INPUT_PATH, xtrai
         error_message = f"No data found at the specified path: {xtrain_inpath} or {xtest_inpath}"
         logger.error(error_message)
         raise FileNotFoundError(error_message)
-    
+
     cols_to_keep = [col for col in X_train.columns if col not in cols_to_scale]
 
     scaler_std = StandardScaler()
@@ -41,4 +45,5 @@ def scaler(xtrain_inpath=XTRAIN_INPUT_PATH, xtest_inpath=XTEST_INPUT_PATH, xtrai
     X_train.to_parquet(xtrain_outpath)
     X_test.to_parquet(xtest_outpath)
     logger.info(">>>>> Scaling Train and Test Data Completed <<<<<<<<")
+
     return (xtrain_outpath,xtest_outpath)

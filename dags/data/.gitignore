@@ -4,4 +4,3 @@
 processed/
 *.pkl
 *.parquet
-/processed

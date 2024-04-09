@@ -1,3 +1,10 @@
+__pycache__/
+dags/__pycache__
+.vscode/
+logs
+venv/
+dags/data/processed/
+data/
 __pycache__
 /*__pycache__
 dags/__pycache__
@@ -28,3 +35,5 @@ dags/src/mlruns
 *.pkl
 *.parquet
 dags/data/processed/
+*.pkl
+*.parquet

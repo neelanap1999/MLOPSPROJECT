@@ -48,7 +48,7 @@ def validate_data_tfdv(xtrain_inpath=XTRAIN_INPUT_PATH, xtest_inpath=XTEST_INPUT
     # Display the inferred schema
     print(">>>>>>>>>>>>>> Train Schema <<<<<<<<<<<<<<<<<")
     tfdv.display_schema(X_train_schema)
-
+    
     print(">>>>>>>>>>>>>> Test Schema <<<<<<<<<<<<<<<<<")
     tfdv.display_schema(X_test_schema)
 
@@ -58,3 +58,5 @@ def validate_data_tfdv(xtrain_inpath=XTRAIN_INPUT_PATH, xtest_inpath=XTEST_INPUT
     # Visualize anomalies
     tfdv.display_anomalies(X_train_anomalies)
     tfdv.display_anomalies(X_test_anomalies)
+
+

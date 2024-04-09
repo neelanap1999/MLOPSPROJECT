@@ -19,7 +19,10 @@ from scaling_data import scaler
 from correlation import correlation
 from labelencode import encode
 from split import split
+from labelencode import encode
+from split import split
 from pca import analyze_pca
+from download_data import ingest_data
 from download_data import ingest_data
 
 """ pipeline for data preprocessing and transformation: Each step takes the output of the previous step as input and saves the processed DataFrame to a pickle file."""

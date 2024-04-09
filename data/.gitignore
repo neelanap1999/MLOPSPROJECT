@@ -4,3 +4,7 @@ processed/
 *.pkl
 *.parquet
 /initial_data.csv
+
+processed/
+*.pkl
+*.parquet
