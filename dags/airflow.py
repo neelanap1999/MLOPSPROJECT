@@ -20,6 +20,7 @@ from src.correlation import correlation
 from src.pca import analyze_pca
 from src.labelencode import encode
 from src.split import split
+from src.perform_tfdv import validate_data_tfdv
 from src.dataload import DEFAULT_PICKLE_PATH
 from src.download_data import ingest_data
 from airflow.operators.email_operator import EmailOperator
@@ -208,6 +209,15 @@ split_task= PythonOperator(
     dag=dag,
 )
 
+perform_tfdv_task = PythonOperator(
+    task_id='perform_tfdv_task',
+    python_callable=validate_data_tfdv,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="split_task") }}',
+    },
+    dag=dag,
+)
+
 scaler_task = PythonOperator(
     task_id='scaler_task',
     python_callable=scaler,
@@ -243,7 +253,7 @@ analyze_pca_task = PythonOperator(
 ingest_data_task >> load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
 missing_values_task >> null_drop_task >> credit_year_task >> \
     dummies_task >> emp_len_task >> outlier_handle_task >> income_normalize_task >> encode_task \
-    >> split_task >> scaler_task >> correlation_task >> send_email 
+    >> split_task >> perform_tfdv_task >> scaler_task >> correlation_task >> send_email 
 
 logger.info("DAG tasks defined successfully.")
 
