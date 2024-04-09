@@ -40,6 +40,7 @@ if __name__ == "__main__":
     INCOME_NORMAL_PATH = normalize_amount(input_pickle_path=OUTLIER_HANDLE_PATH)
     ENCODE_PATH = encode(input_pickle_path=INCOME_NORMAL_PATH)
     (XTRAIN_PATH,XTEST_PATH,YTRAIN_PATH,YTEST_PATH)=split(input_pickle_path=ENCODE_PATH)
+    validate_data_tfdv(xtrain_inpath=XTRAIN_PATH,xtest_inpath=XTEST_PATH)
     (XTRAIN_FINAL,XTEST_FINAL) = scaler(xtrain_inpath=XTRAIN_PATH,xtest_inpath=XTEST_PATH)
     CORR_PATH = correlation(input_pickle_path=XTRAIN_FINAL)
 
