@@ -4,6 +4,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow import configuration as conf
 import os
+from src.download_data import ingest_data
 from src.dataload import load_data
 from src.zipcode_extract import extract_zipcode
 from src.term_map import map_term
@@ -218,6 +219,33 @@ perform_tfdv_task = PythonOperator(
     dag=dag,
 )
 
+encode_task = PythonOperator(
+    task_id='encode_task',
+    python_callable=encode,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="income_normalize_task") }}',
+    },
+    dag=dag,
+)
+
+split_task= PythonOperator(
+    task_id='split_task',
+    python_callable=split,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="encode_task") }}',
+    },
+    dag=dag,
+)
+
+perform_tfdv_task = PythonOperator(
+    task_id='perform_tfdv_task',
+    python_callable=validate_data_tfdv,
+    op_kwargs={
+        'input_pickle_path': '{{ ti.xcom_pull(task_ids="split_task") }}',
+    },
+    dag=dag,
+)
+
 scaler_task = PythonOperator(
     task_id='scaler_task',
     python_callable=scaler,
@@ -249,6 +277,8 @@ analyze_pca_task = PythonOperator(
 )
 '''
 
+
+ingest_data_task >> load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
 
 ingest_data_task >> load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
 missing_values_task >> null_drop_task >> credit_year_task >> \

@@ -1,0 +1,33 @@
+stages:
+  data_ingestion:
+    cmd: python src/stages/stage_01_data_ingestion.py
+    deps:
+      - src/stages/stage_01_data_ingestion.py
+      - config.yaml
+    outs:
+      - data/initial_data.csv
+      - data/initial_data.pkl
+  
+  feature_extraction:
+    cmd: python src/stages/stage_02_feature_extraction.py
+    deps:
+      - src/stages/stage_02_feature_extraction.py
+      - config.yaml
+    outs:
+      - data/after_zipcode.pkl
+      - data/after_term.pkl
+      - data/after_dropcol.pkl
+      - data/after_fillna.pkl
+      - data/after_dropna.pkl
+      - data/after_year.pkl
+      - data/after_dummies.pkl
+      - data/after_transform_emp_length.pkl
+      - data/after_outlier.pkl
+      - data/after_income_normalization.pkl
+      - data/encoder_output.parquet
+      - data/X_train.parquet
+      - data/X_test.parquet
+      - data/y_train.parquet
+      - data/y_test.parquet
+      - data/X_train_final.parquet
+      - data/X_test_final.parquet

@@ -6,11 +6,14 @@ venv/
 dags/data/processed/
 data/
 __pycache__
-dags/__pycache__/
+/*__pycache__
+dags/__pycache__
 src/__pycache__
 dags/src/__pycache__
+.vscode/
 venv/
-#logs
+*.cfg
+logs/*
 #logs/*
 *.cpython
 *.pyc
@@ -29,5 +32,8 @@ dags/src/__pycache__/zipcode_extract.cpython-39.pyc
 dags/src/mlruns
 *.Identifier
 .vscode
+*.pkl
+*.parquet
+dags/data/processed/
 *.pkl
 *.parquet
