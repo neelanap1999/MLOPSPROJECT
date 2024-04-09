@@ -5,10 +5,6 @@ from sklearn.preprocessing import StandardScaler
 
 # Configure logging
 LOG_FORMAT = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-LOG_PATH = os.path.join(PROJECT_DIR, 'logs', 'datapipeline.log')
-os.makedirs(os.path.dirname(LOG_PATH), exist_ok=True)  # Ensure the directory exists
-logging.basicConfig(filename='scaling_data.log', level=logging.INFO, format=LOG_FORMAT)
-logger = logging.getLogger(LOG_PATH)
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG_PATH = os.path.join(PROJECT_DIR, 'logs', 'datapipeline.log')

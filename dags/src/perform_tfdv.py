@@ -21,9 +21,9 @@ XTEST_INPUT_PATH = os.path.join(PROJECT_DIR, 'data', 'processed', 'X_test.parque
 OUTPUT_DIR = os.path.join(PROJECT_DIR, 'data', 'processed') # Directory to store output files
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-def save_visualization(visualization, filename):
+def save_stats(X_stats, filename):
     output_path = os.path.join(OUTPUT_DIR, filename)
-    visualization.write_html(output_path)
+    tfdv.write_stats_text(X_stats, output_path)
     logger.info(">>>>>>>>>>>>>>>> Saved Visualizations <<<<<<<<<<<<<<<<<<<")
 
 def save_schema(schema, filename):
@@ -35,7 +35,7 @@ def save_schema(schema, filename):
 def save_anomalies(anomalies, filename):
     output_path = os.path.join(OUTPUT_DIR, filename)
     with open(output_path, 'w') as f:
-        f.write(anomalies.SerializeToString())
+        f.write(str(anomalies))
     logger.info(">>>>>>>>>>>>>>>> Saved Anomalies <<<<<<<<<<<<<<<<<<<")
 
 def validate_data_tfdv(xtrain_inpath=XTRAIN_INPUT_PATH, xtest_inpath=XTEST_INPUT_PATH):
@@ -54,17 +54,21 @@ def validate_data_tfdv(xtrain_inpath=XTRAIN_INPUT_PATH, xtest_inpath=XTEST_INPUT
     X_test_stats = tfdv.generate_statistics_from_dataframe(X_test)
 
     # Comparing Visualizing statistics of Train and Test
-    visualization = tfdv.visualize_statistics(
+    tfdv.visualize_statistics(
             lhs_statistics=X_train_stats,  
             rhs_statistics=X_test_stats, 
             lhs_name="Train Data",
             rhs_name="Test Data"
         )
-    save_visualization(visualization, 'data_comparison.html')
+    save_stats(X_train_stats, 'train_stats.txt')
+    save_stats(X_test_stats, 'test_stats.txt')
 
     # Infer schema from the computed statistics.
     X_train_schema = tfdv.infer_schema(statistics=X_train_stats)
     X_test_schema = tfdv.infer_schema(statistics=X_test_stats)
+
+    tfdv.display_schema(schema=X_train_schema)
+    tfdv.display_schema(schema=X_test_schema)
 
     # Save the inferred schemas
     save_schema(X_train_schema, 'train_schema.pbtxt')
