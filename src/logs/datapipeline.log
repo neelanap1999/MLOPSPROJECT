@@ -586,3 +586,21 @@ x==========x
 2024-04-08 23:40:22,655 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
 2024-04-08 23:40:22,971 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
 2024-04-08 23:40:22,991 - root - ERROR - name 'logger' is not defined
+2024-04-09 13:55:25,646 - root - INFO - ------Stage Data ingestion------------
+2024-04-09 13:55:25,647 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-09 13:55:29,766 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-09 13:55:30,823 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-09 13:55:31,161 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-09 13:55:31,179 - root - ERROR - name 'logger' is not defined
+2024-04-09 13:55:39,836 - root - INFO - ------Stage Feature Extraction------------
+2024-04-09 13:55:40,847 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-09 13:55:41,568 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-09 13:55:42,067 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-09 13:55:42,347 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-09 13:55:42,891 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-09 13:55:43,445 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-09 13:55:45,368 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-09 13:55:52,068 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-09 13:55:58,413 - root - INFO - >>>>>> stage Feature Extraction completed <<<<<<
+
+x==========x
