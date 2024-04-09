@@ -279,8 +279,6 @@ analyze_pca_task = PythonOperator(
 
 
 ingest_data_task >> load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
-
-ingest_data_task >> load_data_task >> extract_zipcode_task >> term_map_task >> column_drop_task >> \
 missing_values_task >> null_drop_task >> credit_year_task >> \
     dummies_task >> emp_len_task >> outlier_handle_task >> income_normalize_task >> encode_task \
     >> split_task >> perform_tfdv_task >> scaler_task >> correlation_task >> send_email 
