@@ -1,0 +1,7 @@
+__pycache__/
+dags/__pycache__
+.vscode/
+logs
+venv/
+dags/data/processed/
+data/
