@@ -31,3 +31,12 @@ stages:
       - data/y_test.parquet
       - data/X_train_final.parquet
       - data/X_test_final.parquet
+
+  training:
+      cmd: python src/stages/stage_03_training.py
+      deps:
+        - src/stages/stage_03_training.py
+        - config.yaml
+      outs:
+        - working_data/model.pkl
+        - working_data/scores.json

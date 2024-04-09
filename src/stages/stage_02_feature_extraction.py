@@ -54,7 +54,6 @@ try:
     encode(income_normal, label)
     split(label, x_train, x_test, y_train, y_test) 
     scaler(x_train, x_test, scaled_Xtrain, scaled_Xtest )   
-
     logging.info(f">>>>>> stage {Stage_name} completed <<<<<<\n\nx==========x")
     
 except Exception as e:

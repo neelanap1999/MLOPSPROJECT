@@ -5,8 +5,8 @@ stages:
     deps:
     - path: config.yaml
       hash: md5
-      md5: dacaa0d888d5f19eea80734a8e023e69
-      size: 876
+      md5: 89bca9c8d6fce0c1aa5aa2016d436a3f
+      size: 962
     - path: src/stages/stage_01_data_ingestion.py
       hash: md5
       md5: 469f3f32148c9f58ddf7fb7a9d0e899d
@@ -25,12 +25,12 @@ stages:
     deps:
     - path: config.yaml
       hash: md5
-      md5: dacaa0d888d5f19eea80734a8e023e69
-      size: 876
+      md5: 89bca9c8d6fce0c1aa5aa2016d436a3f
+      size: 962
     - path: src/stages/stage_02_feature_extraction.py
       hash: md5
-      md5: 1dbd7ea14a12b16da676a7558ef42aa4
-      size: 2357
+      md5: 562f5a1797e580d3d8a1fbcda23a5465
+      size: 2356
     outs:
     - path: data/X_test.parquet
       hash: md5
@@ -100,3 +100,23 @@ stages:
       hash: md5
       md5: 2cd7a6db96082a3b48a54b39e8644cdb
       size: 847832
+  training:
+    cmd: python src/stages/stage_03_training.py
+    deps:
+    - path: config.yaml
+      hash: md5
+      md5: 89bca9c8d6fce0c1aa5aa2016d436a3f
+      size: 962
+    - path: src/stages/stage_03_training.py
+      hash: md5
+      md5: 87a07c8ff9bbfd78c8aa13581f4127da
+      size: 1575
+    outs:
+    - path: working_data/model.pkl
+      hash: md5
+      md5: 87ee2d5ddf205355ed9db630f3aa4e00
+      size: 267369
+    - path: working_data/scores.json
+      hash: md5
+      md5: 8cd4e7af44632883089eb02563ceb6d2
+      size: 69

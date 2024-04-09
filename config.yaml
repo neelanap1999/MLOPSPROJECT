@@ -25,5 +25,9 @@ feature_extraction:
   scaled_XTRAIN: data/X_train_final.parquet
   scaled_XTEST: data/X_test_final.parquet
 
+training:
+  model_path: working_data/model.pkl
+  json_path: working_data/scores.json
+
 
 
