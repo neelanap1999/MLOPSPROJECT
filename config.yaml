@@ -1,0 +1,29 @@
+artifacts_root: data/
+
+data_ingestion:
+  root_dir: data/
+  source_url: https://drive.google.com/file/d/1NAn7I7iJGxy2AhrmfkVdo37GY1dtGLzw/view?usp=sharing
+  raw_pkl: data/initial_data.pkl
+
+feature_extraction:
+  raw_data: data/initial_data.pkl
+  zipcodes: data/after_zipcode.pkl
+  terms: data/after_term.pkl
+  column_drop: data/after_dropcol.pkl
+  not_null: data/after_fillna.pkl
+  drop_null: data/after_dropna.pkl
+  years: data/after_year.pkl
+  dummies: data/after_dummies.pkl
+  emp_len: data/after_transform_emp_length.pkl
+  outlier: data/after_outlier.pkl
+  income_normal: data/after_income_normalization.pkl
+  label: data/encoder_output.parquet
+  XTRAIN_PATH: data/X_train.parquet
+  XTEST_PATH: data/X_test.parquet
+  YTRAIN_PATH: data/y_train.parquet
+  YTEST_PATH: data/y_test.parquet
+  scaled_XTRAIN: data/X_train_final.parquet
+  scaled_XTEST: data/X_test_final.parquet
+
+
+

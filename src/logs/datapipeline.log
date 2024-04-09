@@ -1,0 +1,588 @@
+2024-04-08 19:34:13,053 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 19:34:13,053 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 19:35:05,859 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 19:35:05,859 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 19:36:07,395 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 19:36:07,395 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 19:53:04,026 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 19:53:04,026 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 19:53:23,647 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 19:53:23,647 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 19:54:22,763 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 19:54:22,763 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 19:54:29,337 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 19:54:29,337 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 20:03:31,377 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 20:03:31,378 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 20:04:04,156 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 20:04:04,157 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 20:15:17,516 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 20:15:17,516 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 20:16:16,325 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 20:16:16,325 - root - ERROR - "'ConfigBox' object has no attribute 'artifacts'"
+2024-04-08 20:25:11,771 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 20:35:41,206 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 20:35:41,207 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 20:35:43,149 - root - ERROR - [Errno 2] No such file or directory: 'data/data_ingestion/data'
+2024-04-08 20:37:38,382 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 20:37:38,382 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 20:37:41,569 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 20:37:43,313 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 20:37:43,528 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to /home/kush_210/MLOPSPROJECT/src/data/processed/initial.pkl for future use.
+2024-04-08 20:37:43,546 - root - ERROR - name 'logger' is not defined
+2024-04-08 20:38:04,468 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 20:38:04,468 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 20:38:06,858 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 20:38:08,313 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 20:38:08,528 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to /home/kush_210/MLOPSPROJECT/src/data/processed/initial.pkl for future use.
+2024-04-08 20:38:08,542 - root - ERROR - name 'logger' is not defined
+2024-04-08 20:39:48,773 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 20:39:48,774 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 20:39:51,695 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 20:39:53,308 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 20:39:53,552 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to /home/kush_210/MLOPSPROJECT/src/data/processed/initial.pkl for future use.
+2024-04-08 20:39:53,566 - root - ERROR - name 'logger' is not defined
+2024-04-08 20:40:29,748 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 20:40:29,748 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 20:40:32,421 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 20:40:33,456 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 20:40:33,708 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to /home/kush_210/MLOPSPROJECT/src/data/processed/initial.pkl for future use.
+2024-04-08 20:40:33,720 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:04:02,893 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:04:02,894 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:04:05,901 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:04:07,007 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:04:07,291 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to /home/kush_210/MLOPSPROJECT/src/data/processed/initial.pkl for future use.
+2024-04-08 21:04:07,306 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:07:43,397 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:07:43,397 - root - ERROR - could not find MARK
+2024-04-08 21:07:44,362 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:07:44,362 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:07:47,587 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:07:48,777 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:07:49,048 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to /home/kush_210/MLOPSPROJECT/src/data/processed/initial.pkl for future use.
+2024-04-08 21:07:49,065 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:14:42,845 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:14:42,846 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:14:45,564 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:14:46,624 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:14:46,918 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:14:46,933 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:15:06,396 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:15:06,396 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:15:08,752 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:15:09,829 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:15:10,108 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:15:10,125 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:15:13,590 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:15:14,027 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:15:14,041 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:16:47,765 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:16:48,163 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:16:48,175 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:20:51,681 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:20:51,681 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:20:54,913 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:20:55,911 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:20:56,205 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:20:56,224 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:21:15,516 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:21:15,901 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:21:15,912 - root - ERROR - name 'zip_code' is not defined
+2024-04-08 21:22:07,238 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:22:07,238 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:22:10,072 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:22:11,272 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:22:11,550 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:22:11,562 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:22:13,726 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:22:14,209 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:22:14,220 - root - ERROR - name 'zip_code' is not defined
+2024-04-08 21:24:54,130 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:24:54,131 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:24:56,367 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:24:57,371 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:24:57,657 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:24:57,671 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:25:00,229 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:25:00,695 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:25:00,706 - root - ERROR - name 'zip_code' is not defined
+2024-04-08 21:26:46,855 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:26:47,258 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:26:47,628 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:26:47,652 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:29:17,628 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:29:17,628 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:29:21,849 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:29:22,967 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:29:23,234 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:29:23,251 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:29:25,527 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:29:26,010 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:29:26,339 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:29:26,351 - root - ERROR - name 'columns_drop' is not defined
+2024-04-08 21:29:44,272 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:29:44,678 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:29:45,050 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:29:45,356 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 21:29:45,365 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:32:28,117 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:32:28,532 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:32:28,921 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:32:29,177 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 21:32:29,421 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 21:32:29,433 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:32:31,584 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:32:31,584 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:32:33,803 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:32:34,995 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:32:35,274 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:32:35,289 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:36:24,143 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:36:24,143 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:36:26,571 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:36:27,699 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:36:27,937 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:36:27,951 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:36:30,271 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:36:30,744 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:36:31,061 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:36:31,301 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 21:36:31,515 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 21:36:31,830 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 21:36:31,837 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:38:07,325 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:38:07,325 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:38:10,827 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:38:11,934 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:38:12,240 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:38:12,257 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:38:14,541 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:38:15,024 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:38:15,380 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:38:15,644 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 21:38:16,064 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 21:38:16,414 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 21:38:16,426 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:39:16,177 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:39:16,577 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:39:16,908 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:39:17,162 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 21:39:17,370 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 21:39:17,735 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 21:39:18,112 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 21:39:18,121 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:41:22,067 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:41:22,458 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:41:22,842 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:41:23,101 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 21:41:23,346 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 21:41:23,695 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 21:41:24,067 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 21:41:24,465 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 21:41:24,470 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:41:26,357 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:41:26,358 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:41:29,540 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:41:30,722 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:41:30,974 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:41:30,987 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:44:55,977 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:44:56,342 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:44:56,710 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:44:56,940 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 21:44:57,133 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 21:44:57,469 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 21:44:57,836 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 21:44:58,244 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 21:44:58,578 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:45:01,367 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:45:01,368 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:45:03,843 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:45:05,119 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:45:05,385 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:45:05,400 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:47:57,323 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:47:57,323 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:48:00,504 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:48:01,607 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:48:01,877 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:48:01,894 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:48:04,210 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:48:04,649 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:48:05,004 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:48:05,247 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 21:48:05,478 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 21:48:05,804 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 21:48:06,122 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 21:48:06,500 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 21:48:10,257 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 21:48:10,265 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:50:04,837 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 21:50:04,838 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 21:50:07,223 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 21:50:08,473 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 21:50:08,729 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 21:50:08,743 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:50:24,800 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:50:25,195 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:50:25,497 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:50:25,738 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 21:50:25,945 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 21:50:26,284 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 21:50:26,639 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 21:50:27,010 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 21:50:30,618 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 21:50:30,906 - root - ERROR - name 'logger' is not defined
+2024-04-08 21:57:43,814 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 21:57:44,229 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 21:57:44,599 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 21:57:44,836 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 21:57:45,053 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 21:57:45,461 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 21:57:45,847 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 21:57:46,363 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 21:57:50,138 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 21:57:50,410 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:01:58,696 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 22:01:58,696 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 22:02:01,515 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 22:02:02,577 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 22:02:02,830 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 22:02:02,844 - root - ERROR - name 'logger' is not defined
+2024-04-08 22:02:05,072 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:02:05,553 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:02:05,865 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:02:06,100 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:02:06,305 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:02:06,617 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:02:07,010 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:02:07,347 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:02:11,691 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:02:11,952 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:03:40,365 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:03:40,788 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:03:41,166 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:03:41,408 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:03:41,613 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:03:41,940 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:03:42,309 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:03:42,682 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:03:46,382 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:03:46,535 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:04:29,963 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:04:30,349 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:04:30,719 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:04:30,992 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:04:31,193 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:04:31,513 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:04:31,883 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:04:32,261 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:04:35,851 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:04:36,034 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:12:05,088 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 22:12:05,088 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 22:12:07,616 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 22:12:08,646 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 22:12:08,862 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 22:12:08,878 - root - ERROR - name 'logger' is not defined
+2024-04-08 22:12:11,057 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:12:11,514 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:12:11,879 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:12:12,191 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:12:12,417 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:12:12,679 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:12:13,074 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:12:13,435 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:12:17,375 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:12:17,707 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:16:46,556 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:16:46,955 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:16:47,270 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:16:47,582 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:16:47,783 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:16:48,071 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:16:48,417 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:16:48,806 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:16:52,344 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:16:52,638 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:17:27,063 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:17:27,409 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:17:27,774 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:17:28,016 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:17:28,233 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:17:28,597 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:17:28,976 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:17:29,377 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:17:32,992 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:17:33,273 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:21:32,156 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:21:32,601 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:21:32,898 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:21:33,135 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:21:33,329 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:21:33,666 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:21:34,008 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:21:34,333 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:21:37,834 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:21:38,053 - root - ERROR - name 'input_pickle_path' is not defined
+2024-04-08 22:22:09,213 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 22:22:09,213 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 22:22:11,998 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 22:22:13,044 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 22:22:13,294 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 22:22:13,307 - root - ERROR - name 'logger' is not defined
+2024-04-08 22:22:15,628 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:22:16,070 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:22:16,436 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:22:16,723 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:22:16,934 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:22:17,212 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:22:17,557 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:22:17,924 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:22:21,390 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:22:21,579 - root - ERROR - name 'input_pickle_path' is not defined
+2024-04-08 22:24:00,052 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:24:00,453 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:24:00,892 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:24:01,139 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:24:01,320 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:24:01,575 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:24:01,914 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:24:02,321 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:24:05,754 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:24:05,924 - root - ERROR - name 'pickle' is not defined
+2024-04-08 22:24:35,737 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:24:36,160 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:24:36,493 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:24:36,734 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:24:36,937 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:24:37,185 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:24:37,532 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:24:37,857 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:24:41,498 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:24:41,694 - root - ERROR - name 'pickle' is not defined
+2024-04-08 22:25:36,208 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:25:36,591 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:25:36,937 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:25:37,201 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:25:37,406 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:25:37,708 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:25:38,062 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:25:38,425 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:25:41,873 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:25:42,054 - root - ERROR - name 'pickle' is not defined
+2024-04-08 22:26:54,893 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:26:55,328 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:26:55,753 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:26:56,041 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:26:56,296 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:26:56,751 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:26:57,176 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:26:57,598 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:27:01,603 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:27:01,824 - root - ERROR - name 'pickle' is not defined
+2024-04-08 22:27:17,337 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:27:17,817 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:27:18,138 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:27:18,372 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:27:18,577 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:27:18,884 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:27:19,234 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:27:19,589 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:27:23,101 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:27:23,288 - root - ERROR - name 'pickle' is not defined
+2024-04-08 22:30:00,692 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:30:01,106 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:30:01,439 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:30:01,704 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:30:01,924 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:30:02,190 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:30:02,504 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:30:02,905 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:30:06,551 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:30:06,877 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:31:17,759 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:31:18,176 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:31:18,518 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:31:18,803 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:31:19,010 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:31:19,252 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:31:19,545 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:31:19,937 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:31:23,553 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:31:23,853 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:32:30,170 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:32:30,556 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:32:31,022 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:32:31,251 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:32:31,456 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:32:31,727 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:32:32,073 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:32:32,427 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:32:35,943 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:32:36,251 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:35:05,582 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:35:06,112 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:35:06,557 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:35:06,894 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:35:07,092 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:35:07,406 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:35:07,792 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:35:08,247 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:35:12,039 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:35:12,373 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:35:37,960 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:35:38,344 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:35:38,698 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:35:39,000 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:35:39,202 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:35:39,493 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:35:39,831 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:35:40,214 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:35:43,827 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:35:44,119 - root - ERROR - Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2024-04-08 22:36:53,342 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:36:53,696 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:36:54,015 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:36:54,277 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:36:54,472 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:36:54,765 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:36:55,141 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:36:55,540 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:36:59,809 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:38:52,819 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:38:53,212 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:38:53,575 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:38:53,827 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:38:54,038 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:38:54,383 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:38:54,726 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:38:55,184 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:38:58,982 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:40:13,505 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:40:13,902 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:40:14,363 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:40:14,677 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:40:14,949 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:40:15,387 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:40:15,881 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:40:16,351 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:40:20,218 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:40:22,946 - root - INFO - >>>>>> stage Feature Extraction completed <<<<<<
+
+x==========x
+2024-04-08 22:45:11,085 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 22:45:11,085 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 22:45:13,424 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 22:45:14,531 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 22:45:14,791 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 22:45:14,805 - root - ERROR - name 'logger' is not defined
+2024-04-08 22:45:17,282 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 22:45:17,727 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 22:45:18,143 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 22:45:18,404 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 22:45:18,660 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 22:45:18,999 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 22:45:19,356 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 22:45:19,733 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 22:45:23,818 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 22:45:26,812 - root - INFO - >>>>>> stage Feature Extraction completed <<<<<<
+
+x==========x
+2024-04-08 23:34:59,886 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 23:35:01,256 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 23:35:01,867 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 23:35:02,403 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 23:35:02,900 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 23:35:03,416 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 23:35:03,860 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 23:35:05,063 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 23:35:10,435 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 23:35:15,670 - root - INFO - >>>>>> stage Feature Extraction completed <<<<<<
+
+x==========x
+2024-04-08 23:35:53,680 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 23:35:53,680 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 23:35:56,637 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 23:35:57,853 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 23:35:58,110 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 23:35:58,126 - root - ERROR - name 'logger' is not defined
+2024-04-08 23:36:41,626 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 23:36:41,626 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 23:36:44,768 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 23:36:46,310 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 23:36:46,582 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 23:36:46,600 - root - ERROR - name 'logger' is not defined
+2024-04-08 23:37:42,016 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 23:37:42,017 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 23:37:45,318 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 23:37:46,410 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 23:37:46,666 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 23:37:46,686 - root - ERROR - name 'logger' is not defined
+2024-04-08 23:38:18,424 - root - INFO - ------Stage Feature Extraction------------
+2024-04-08 23:38:18,811 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_zipcode.pkl.
+2024-04-08 23:38:19,147 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_term.pkl.
+2024-04-08 23:38:19,389 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropcol.pkl.
+2024-04-08 23:38:19,603 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_fillna.pkl.
+2024-04-08 23:38:19,932 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dropna.pkl.
+2024-04-08 23:38:20,278 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_year.pkl.
+2024-04-08 23:38:20,728 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_dummies.pkl.
+2024-04-08 23:38:24,406 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/after_outlier.pkl.
+2024-04-08 23:38:27,909 - root - INFO - >>>>>> stage Feature Extraction completed <<<<<<
+
+x==========x
+2024-04-08 23:40:18,454 - root - INFO - ------Stage Data ingestion------------
+2024-04-08 23:40:18,454 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Download data...
+2024-04-08 23:40:21,608 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Loading data...
+2024-04-08 23:40:22,655 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data loaded from data/initial_data.csv.
+2024-04-08 23:40:22,971 - /home/kush_210/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to data/initial_data.pkl for future use.
+2024-04-08 23:40:22,991 - root - ERROR - name 'logger' is not defined

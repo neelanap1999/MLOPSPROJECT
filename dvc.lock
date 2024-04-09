@@ -1,0 +1,102 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/stages/stage_01_data_ingestion.py
+    deps:
+    - path: config.yaml
+      hash: md5
+      md5: dacaa0d888d5f19eea80734a8e023e69
+      size: 876
+    - path: src/stages/stage_01_data_ingestion.py
+      hash: md5
+      md5: 469f3f32148c9f58ddf7fb7a9d0e899d
+      size: 608
+    outs:
+    - path: data/initial_data.csv
+      hash: md5
+      md5: 61b6d2e7516569738859d4dc3df039a3
+      size: 43271012
+    - path: data/initial_data.pkl
+      hash: md5
+      md5: 6b3b4f10d1fb1993aad1a1230e004efa
+      size: 38173502
+  feature_extraction:
+    cmd: python src/stages/stage_02_feature_extraction.py
+    deps:
+    - path: config.yaml
+      hash: md5
+      md5: dacaa0d888d5f19eea80734a8e023e69
+      size: 876
+    - path: src/stages/stage_02_feature_extraction.py
+      hash: md5
+      md5: 1dbd7ea14a12b16da676a7558ef42aa4
+      size: 2357
+    outs:
+    - path: data/X_test.parquet
+      hash: md5
+      md5: 8667165a4f2d247fb0658182225ba1c3
+      size: 1350226
+    - path: data/X_test_final.parquet
+      hash: md5
+      md5: ed1ae44e56fd5e2dd1f729d642c2845c
+      size: 1487952
+    - path: data/X_train.parquet
+      hash: md5
+      md5: 828299c1fe8ddbb440a74883ffb2d0cb
+      size: 3672499
+    - path: data/X_train_final.parquet
+      hash: md5
+      md5: 6d6fb52dd1280916ba2f6b65726a9e9e
+      size: 3893213
+    - path: data/after_dropcol.pkl
+      hash: md5
+      md5: 6d9e49444a561714f5ce2fb31cb4bc84
+      size: 27226653
+    - path: data/after_dropna.pkl
+      hash: md5
+      md5: 162a28bbd0d25de2bc7bba6da6934f62
+      size: 28456189
+    - path: data/after_dummies.pkl
+      hash: md5
+      md5: 5caad5071fab6facf7ff32bf61c7cab0
+      size: 105580239
+    - path: data/after_fillna.pkl
+      hash: md5
+      md5: 349303d83f8d41bb532d291abcd7ad71
+      size: 27179093
+    - path: data/after_income_normalization.pkl
+      hash: md5
+      md5: 970f380384e9ea592f6d17eff39eb7c7
+      size: 101270851
+    - path: data/after_outlier.pkl
+      hash: md5
+      md5: ea226da264e525f24036e6a253fe4e75
+      size: 101270648
+    - path: data/after_term.pkl
+      hash: md5
+      md5: f559739ddc867fbe62fc6681905dd7a4
+      size: 32406291
+    - path: data/after_transform_emp_length.pkl
+      hash: md5
+      md5: bd8f3e6733f2f62714f69c0830b4874a
+      size: 106601102
+    - path: data/after_year.pkl
+      hash: md5
+      md5: 4eeea5f7ed3c5d72b86582698ebc28dc
+      size: 29457677
+    - path: data/after_zipcode.pkl
+      hash: md5
+      md5: b9c227859afcb3092cc67a56f71ee6ac
+      size: 31391239
+    - path: data/encoder_output.parquet
+      hash: md5
+      md5: a32c9c9f5a66d11bedcb3709621a9c1e
+      size: 4522474
+    - path: data/y_test.parquet
+      hash: md5
+      md5: 0d56031b72d8646a35852108807476d3
+      size: 279167
+    - path: data/y_train.parquet
+      hash: md5
+      md5: 2cd7a6db96082a3b48a54b39e8644cdb
+      size: 847832
