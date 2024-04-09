@@ -1,2 +1,5 @@
 /loan_data.csv
 /test_data.csv
+processed/
+*.pkl
+*.parquet

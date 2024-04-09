@@ -17,6 +17,21 @@ OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_zipcod
 def extract_zipcode(input_pickle_path=INPUT_PICKLE_PATH,
                             output_pickle_path=OUTPUT_PICKLE_PATH):
 
+    """
+    Function: extract_zipcode
+    
+    Description:
+    This function loads a pandas DataFrame from a specified pickle file, extracts the zip code 
+    from the 'address' column, removes the 'address' column, and saves the modified DataFrame 
+    back to a pickle file. If the input file path does not exist, it logs an error and raises FileNotFoundError.
+    
+    Parameters:
+    - input_pickle_path (str): Path to the input pickle file containing the DataFrame. Default is INPUT_PICKLE_PATH.
+    - output_pickle_path (str): Path to save the modified DataFrame as a pickle file. Default is OUTPUT_PICKLE_PATH.
+    
+    Returns:
+    str: Path to the saved pickle file containing the modified DataFrame.
+    """
 
     if os.path.exists(input_pickle_path):
         with open(input_pickle_path, "rb") as file:
@@ -26,7 +41,7 @@ def extract_zipcode(input_pickle_path=INPUT_PICKLE_PATH,
         logger.error(error_message)
         raise FileNotFoundError(error_message)
 
-    df['zipcode']=df['address'].apply(lambda x:str(x[-5]))
+    df['zipcode']=df['address'].apply(lambda x:str(x[-5:]))
 
     df.drop('address',axis=1,inplace=True)
 

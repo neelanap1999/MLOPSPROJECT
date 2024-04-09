@@ -1,0 +1,14 @@
+[2024-04-07T17:12:36.755-0400] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: datapipeline.credit_year_task manual__2024-04-07T21:12:15.499387+00:00 [queued]>
+[2024-04-07T17:12:36.761-0400] {taskinstance.py:1956} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: datapipeline.credit_year_task manual__2024-04-07T21:12:15.499387+00:00 [queued]>
+[2024-04-07T17:12:36.761-0400] {taskinstance.py:2170} INFO - Starting attempt 1 of 1
+[2024-04-07T17:12:36.773-0400] {taskinstance.py:2191} INFO - Executing <Task(PythonOperator): credit_year_task> on 2024-04-07 21:12:15.499387+00:00
+[2024-04-07T17:12:36.777-0400] {standard_task_runner.py:60} INFO - Started process 69591 to run task
+[2024-04-07T17:12:36.779-0400] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'datapipeline', 'credit_year_task', 'manual__2024-04-07T21:12:15.499387+00:00', '--job-id', '364', '--raw', '--subdir', 'DAGS_FOLDER/airflow.py', '--cfg-path', '/tmp/tmpgud0okpx']
+[2024-04-07T17:12:36.781-0400] {standard_task_runner.py:88} INFO - Job 364: Subtask credit_year_task
+[2024-04-07T17:12:36.811-0400] {task_command.py:423} INFO - Running <TaskInstance: datapipeline.credit_year_task manual__2024-04-07T21:12:15.499387+00:00 [running]> on host Naveen.
+[2024-04-07T17:12:36.863-0400] {taskinstance.py:2480} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='your_name' AIRFLOW_CTX_DAG_ID='datapipeline' AIRFLOW_CTX_TASK_ID='credit_year_task' AIRFLOW_CTX_EXECUTION_DATE='2024-04-07T21:12:15.499387+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-04-07T21:12:15.499387+00:00'
+[2024-04-07T17:12:37.011-0400] {credit_year.py:50} INFO - Data saved to /home/pasala_n/MLOPS_Credit_latest/MLOPSPROJECT/dags/data/processed/after_year.pkl.
+[2024-04-07T17:12:37.016-0400] {python.py:201} INFO - Done. Returned value was: /home/pasala_n/MLOPS_Credit_latest/MLOPSPROJECT/dags/data/processed/after_year.pkl
+[2024-04-07T17:12:37.030-0400] {taskinstance.py:1138} INFO - Marking task as SUCCESS. dag_id=datapipeline, task_id=credit_year_task, execution_date=20240407T211215, start_date=20240407T211236, end_date=20240407T211237
+[2024-04-07T17:12:37.074-0400] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-04-07T17:12:37.088-0400] {taskinstance.py:3280} INFO - 1 downstream tasks scheduled from follow-on schedule check

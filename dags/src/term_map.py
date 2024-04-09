@@ -16,7 +16,19 @@ OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_term.p
 
 def map_term(input_pickle_path=INPUT_PICKLE_PATH,
                             output_pickle_path=OUTPUT_PICKLE_PATH):
+    """
+    Mapping term values in a DataFrame to numerical values and saving the updated DataFrame to a pickle file.
 
+    Args:
+        input_pickle_path (str): The file path to the input pickle file containing the DataFrame (Defaults to INPUT_PICKLE_PATH).
+        output_pickle_path (str): The file path to save the output pickle file containing the updated DataFrame (Defaults to OUTPUT_PICKLE_PATH).
+
+    Returns:
+        str: The file path where the updated DataFrame is saved.
+        
+    Raises:
+        FileNotFoundError: If no data is found at the specified input path.
+    """
 
     if os.path.exists(input_pickle_path):
         with open(input_pickle_path, "rb") as file:
