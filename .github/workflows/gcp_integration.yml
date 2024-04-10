@@ -37,6 +37,6 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           pwd
-          cd mlproject/
+          cd mlproject
           pwd
           git pull origin main
