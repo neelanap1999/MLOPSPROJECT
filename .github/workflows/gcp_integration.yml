@@ -36,5 +36,7 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.SSH_PORT }}
         script: |
+          pwd
+          ls
           cd mlproject/
           git pull origin main
