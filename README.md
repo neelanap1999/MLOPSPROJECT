@@ -8,7 +8,6 @@
 - Neel Shirish Anap
 - Vishesh Gupta
 
-
 ## 1. Introduction
 The Credit Risk Assessment is a MLops project that aims to leverage machine learning and modern DevOps practices to develop a robust and scalable pipeline for predicting loan status. Lending Club, a peer-to-peer lending platform, provides an extensive dataset containing various borrower attributes, such as loan amount, interest rate, employment details, and more. The primary goal of this project is to build a machine learning model that accurately predicts whether a loan application will be approved or denied.
 
