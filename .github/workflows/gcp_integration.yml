@@ -37,6 +37,6 @@ jobs:
         port: ${{ secrets.SSH_PORT }}
         script: |
           pwd
-          ls
+          cd kush2101999
           cd mlproject/
           git pull origin main
