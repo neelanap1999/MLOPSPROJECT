@@ -4,6 +4,9 @@ stages:
     deps:
       - src/stages/stage_01_data_ingestion.py
       - config.yaml
+      - src/utils/config.py
+      - src/modules/download_data.py
+      - src/modules/dataload.py
     outs:
       - data/initial_data.csv
       - data/initial_data.pkl

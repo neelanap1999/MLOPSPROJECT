@@ -1,5 +1,5 @@
 import logging
-
+import sys
 from src.utils.config import load_config
 from src.modules.download_data import ingest_data
 from src.modules.dataload import load_data
@@ -13,7 +13,7 @@ try:
     logging.info(f"------Stage {Stage_name}------------")
     excel_path = ingest_data(file_url = SOURCE_URL)
     load_data(pickle_path = PICKLE_PATH, excel_path = excel_path)
-    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+    logging.info(f">>>>>> stage {Stage_name} completed <<<<<<\n\nx==========x")
     
 except Exception as e:
         logging.error(e)
