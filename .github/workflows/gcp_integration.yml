@@ -40,3 +40,4 @@ jobs:
           cd mlproject
           pwd
           git pull origin main
+          ls
