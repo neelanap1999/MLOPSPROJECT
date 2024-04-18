@@ -1,6 +1,0 @@
-[core]
-    remote = myremote
-    autostage = true
-['remote "myremote"']
-    url = gs://mlops_loan_data
-    credentialpath = ../dags/data/mlops-project.json
