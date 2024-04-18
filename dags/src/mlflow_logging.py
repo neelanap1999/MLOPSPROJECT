@@ -8,10 +8,10 @@ import pandas as pd
 from sklearn.linear_model import ElasticNet
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_auc_score
-from sklearn.metrics import roc_auc_score
+
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import precision_score
 import os
 
 import mlflow
@@ -48,12 +48,12 @@ if __name__ == "__main__":
             for c in max_depth:
                 for d in max_leaf_nodes:
 
-                    with mlflow.start_run(run_name='RandomForestClassifier'):
+                    with mlflow.start_run(run_name='RandomForestClassifierPrecision'):
                         lr = RandomForestClassifier(n_estimators=a, max_features=b, max_depth=c, max_leaf_nodes=d, random_state=42)
                         lr.fit(X_train, y_train)
                         y_pred = lr.predict(X_test)
                         print(f"  Accuracy: {accuracy_score(y_test,y_pred)}")
-                        print(f"  Roc_auc_score: {roc_auc_score(y_test,y_pred)}")
+                        print(f"  Precision: {precision_score(y_test,y_pred)}")
 
                         mlflow.log_param('n_estimators',a)
                         mlflow.log_param('max_features',b)
@@ -61,10 +61,8 @@ if __name__ == "__main__":
                         mlflow.log_param('max_leaf_nodes',d)
 
                         mlflow.log_metric("accuracy", accuracy_score(y_test,y_pred))
-                        mlflow.log_metric('roc_auc_score',roc_auc_score(y_test,y_pred))
+                        mlflow.log_metric('precision',precision_score(y_test,y_pred))
 
-                        predictions = lr.predict(X_train)
-                        signature = infer_signature(X_train, predictions)
                         predictions = lr.predict(X_train)
                         signature = infer_signature(X_train, predictions)
 
