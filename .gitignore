@@ -38,3 +38,4 @@ dags/src/mlruns
 dags/data/processed/
 *.pkl
 *.parquet
+/data.xml
