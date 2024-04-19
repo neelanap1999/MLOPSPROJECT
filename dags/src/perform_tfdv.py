@@ -81,11 +81,9 @@ def validate_data_tfdv(xtrain_inpath=XTRAIN_INPUT_PATH, xtest_inpath=XTEST_INPUT
     print(">>>>>>>>>>>>>> Test Schema <<<<<<<<<<<<<<<<<")
     print(X_test_schema)
 
-    X_train_anomalies =  tfdv.validate_statistics(statistics=X_train_stats, schema=X_train_schema)
-    X_test_anomalies =  tfdv.validate_statistics(statistics=X_test_stats, schema=X_test_schema)
+    X_test_anomalies =  tfdv.validate_statistics(statistics=X_test_stats, schema=X_train_schema)
 
     # Save anomalies
-    save_anomalies(X_train_anomalies, 'train_anomalies.pbtxt')
     save_anomalies(X_test_anomalies, 'test_anomalies.pbtxt')
 
     # Visualize anomalies
