@@ -53,13 +53,15 @@ def preprocess(train_data, output_filepath, normalization_stats_gcs_path):
     train_data = get_dummies(train_data)
     train_data = handle_outliers(train_data)
     
+    # print(train_data.head())
 
     #Generate stats on numerical columns only - >  export to JSON
     stats_to_json(train_data, normalization_stats_gcs_path)
 
     #save preprocessed data to output_file path
-    with fs.open(output_filepath, 'w') as f:
-            train_data.to_csv(output_filepath)
+    if not train_data.empty:
+        with fs.open(output_filepath, 'w') as f:
+            train_data.to_csv(f, index=False)            
     logging.info(f">>>>>> stage {Stage_name} completed <<<<<<\n\nx==========x")
 
 

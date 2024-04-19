@@ -18,6 +18,7 @@ fs = gcsfs.GCSFileSystem()
 storage_client = storage.Client()
 bucket_name = os.getenv("BUCKET_NAME")
 MODEL_DIR = os.environ['AIP_STORAGE_URI']
+# MODEL_DIR = "gs://mlops_loan_data/model"
 
 def load_data(gcs_train_data_path):
     """
@@ -30,7 +31,7 @@ def load_data(gcs_train_data_path):
     DataFrame: A pandas DataFrame containing the training data.
     """
     with fs.open(gcs_train_data_path) as f:
-        df = pd.read_csv(f)
+        df = pd.read_csv(gcs_train_data_path)
     
     return df
 
@@ -46,7 +47,11 @@ def normalize_data(data, stats):
     DataFrame: A pandas DataFrame containing the normalized data.
     """
     normalized_data = {}
-    for column in data.columns:
+
+    Num_cols = ['loan_amnt', 'int_rate', 'installment', 'annual_inc', 'dti', 
+          'open_acc', 'pub_rec', 'revol_bal', 'total_acc', 'mort_acc', 'pub_rec_bankruptcies']
+    
+    for column in Num_cols:
         mean = stats["mean"][column]
         std = stats["std"][column]
         
