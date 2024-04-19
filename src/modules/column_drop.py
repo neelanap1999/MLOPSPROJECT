@@ -14,8 +14,7 @@ logger = logging.getLogger(LOG_PATH)
 INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_term.pkl')
 OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_dropcol.pkl')
 
-def drop_column(input_pickle_path=INPUT_PICKLE_PATH,
-                            output_pickle_path=OUTPUT_PICKLE_PATH):
+def drop_column(df):
 
     """
     Function: drop_column
@@ -31,17 +30,9 @@ def drop_column(input_pickle_path=INPUT_PICKLE_PATH,
     str: Path to the saved pickle file containing the modified DataFrame.
     """
 
-    if os.path.exists(input_pickle_path):
-        with open(input_pickle_path, "rb") as file:
-            df = pickle.load(file)
-    else:
-        error_message = f"No data found at the specified path: {input_pickle_path}"
-        logger.error(error_message)
-        raise FileNotFoundError(error_message)
 
-    df.drop(['grade','title','emp_title'],axis=1,inplace=True)
+    df.drop(['sub_grade','title','emp_title'],axis=1,inplace=True)
 
-    with open(output_pickle_path, "wb") as file:
-        pickle.dump(df, file)
-    logger.info(f"Data saved to {output_pickle_path}.")
-    return output_pickle_path
+    
+    logger.info(f"Data saved to df.")
+    return df

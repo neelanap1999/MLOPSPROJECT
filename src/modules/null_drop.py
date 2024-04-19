@@ -15,8 +15,7 @@ INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_fillna.
 OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_dropna.pkl')
 
 # function to drop null values
-def drop_null(input_pickle_path=INPUT_PICKLE_PATH,
-                            output_pickle_path=OUTPUT_PICKLE_PATH):
+def drop_null(df):
     """
     Droping the rows with missing values (NaN) from a DataFrame and saving the cleaned DataFrame to a pickle file.
 
@@ -31,17 +30,8 @@ def drop_null(input_pickle_path=INPUT_PICKLE_PATH,
         FileNotFoundError: If no data is found at the specified input path.
     """
 
-    if os.path.exists(input_pickle_path):
-        with open(input_pickle_path, "rb") as file:
-            df = pickle.load(file)
-    else:
-        error_message = f"No data found at the specified path: {input_pickle_path}"
-        logger.error(error_message)
-        raise FileNotFoundError(error_message)
 
     df.dropna(inplace=True)
     
-    with open(output_pickle_path, "wb") as file:
-        pickle.dump(df, file)
-    logger.info(f"Data saved to {output_pickle_path}.")
-    return output_pickle_path
+    logger.info(f"Data saved to df after dropping nulls.")
+    return df

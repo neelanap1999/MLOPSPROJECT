@@ -15,8 +15,7 @@ logger = logging.getLogger(LOG_PATH)
 INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_year.pkl')
 OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_dummies.pkl')
 
-def get_dummies(input_pickle_path=INPUT_PICKLE_PATH,
-                            output_pickle_path=OUTPUT_PICKLE_PATH):
+def get_dummies(df):
     """
     -----
     Function: get_dummies
@@ -33,18 +32,8 @@ def get_dummies(input_pickle_path=INPUT_PICKLE_PATH,
     -----
     """
 
-    if os.path.exists(input_pickle_path):
-        with open(input_pickle_path, "rb") as file:
-            df = pickle.load(file)
-    else:
-        error_message = f"No data found at the specified path: {input_pickle_path}"
-        logger.error(error_message)
-        raise FileNotFoundError(error_message)
-
-    df=pd.get_dummies(df,columns=['sub_grade', 'verification_status', 'purpose', 'initial_list_status',
+    df=pd.get_dummies(df,columns=['grade', 'verification_status', 'purpose', 'initial_list_status',
            'application_type', 'home_ownership'],dtype=int)
 
-    with open(output_pickle_path, "wb") as file:
-        pickle.dump(df, file)
-    logger.info(f"Data saved to {output_pickle_path}.")
-    return output_pickle_path
+    logger.info(f"Data saved as dataframe after converting to dummy columns.")
+    return df

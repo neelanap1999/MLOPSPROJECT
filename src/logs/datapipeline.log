@@ -604,3 +604,51 @@ x==========x
 2024-04-09 13:55:58,413 - root - INFO - >>>>>> stage Feature Extraction completed <<<<<<
 
 x==========x
+2024-04-18 21:12:35,770 - root - INFO - ------Stage Feature Extraction------------
+2024-04-18 21:12:36,561 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after extracting year.
+2024-04-18 21:12:36,735 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df.
+2024-04-18 21:12:36,741 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after removing missing values.
+2024-04-18 21:12:36,893 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after dropping nulls.
+2024-04-18 21:12:36,991 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved as dataframe after converting to dummy columns.
+2024-04-18 21:12:36,994 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - >>>>>>>>> Started handling outliers <<<<<<<<<<<<<<<<.
+2024-04-18 21:14:23,258 - root - INFO - ------Stage Feature Extraction------------
+2024-04-18 21:14:24,024 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after extracting year.
+2024-04-18 21:14:24,202 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df.
+2024-04-18 21:14:24,207 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after removing missing values.
+2024-04-18 21:14:24,349 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after dropping nulls.
+2024-04-18 21:14:24,421 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved as dataframe after converting to dummy columns.
+2024-04-18 21:14:24,423 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - >>>>>>>>> Started handling outliers <<<<<<<<<<<<<<<<.
+2024-04-18 21:14:27,093 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - >>>>>>>>>> Data saved as dataframe after handling outliers <<<<<<<<<<
+2024-04-18 21:14:27,331 - root - INFO - >>>>>> stage Feature Extraction completed <<<<<<
+
+x==========x
+2024-04-18 21:38:26,831 - root - INFO - ------Stage Feature Extraction------------
+2024-04-18 21:38:27,579 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after extracting year.
+2024-04-18 21:38:27,789 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df.
+2024-04-18 21:38:27,793 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after removing missing values.
+2024-04-18 21:38:27,961 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after dropping nulls.
+2024-04-18 21:38:28,059 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved as dataframe after converting to dummy columns.
+2024-04-18 21:38:28,063 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - >>>>>>>>> Started handling outliers <<<<<<<<<<<<<<<<.
+2024-04-18 21:38:30,847 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - >>>>>>>>>> Data saved as dataframe after handling outliers <<<<<<<<<<
+2024-04-18 21:38:59,584 - root - INFO - ------Stage Feature Extraction------------
+2024-04-18 21:39:00,343 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after extracting year.
+2024-04-18 21:39:00,522 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df.
+2024-04-18 21:39:00,525 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after removing missing values.
+2024-04-18 21:39:00,671 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after dropping nulls.
+2024-04-18 21:39:00,767 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved as dataframe after converting to dummy columns.
+2024-04-18 21:39:00,770 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - >>>>>>>>> Started handling outliers <<<<<<<<<<<<<<<<.
+2024-04-18 21:39:03,266 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - >>>>>>>>>> Data saved as dataframe after handling outliers <<<<<<<<<<
+2024-04-18 21:39:03,462 - root - INFO - >>>>>> stage Feature Extraction completed <<<<<<
+
+x==========x
+2024-04-18 22:10:50,991 - root - INFO - ------Stage Feature Extraction------------
+2024-04-18 22:10:51,089 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after extracting year.
+2024-04-18 22:10:51,222 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df.
+2024-04-18 22:10:51,225 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after removing missing values.
+2024-04-18 22:10:51,338 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved to df after dropping nulls.
+2024-04-18 22:10:51,409 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - Data saved as dataframe after converting to dummy columns.
+2024-04-18 22:10:51,409 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - >>>>>>>>> Started handling outliers <<<<<<<<<<<<<<<<.
+2024-04-18 22:10:53,467 - /home/pasala_n/MLOPS_Credit_New/MLOPSPROJECT/src/logs/datapipeline.log - INFO - >>>>>>>>>> Data saved as dataframe after handling outliers <<<<<<<<<<
+2024-04-18 22:10:53,675 - root - INFO - >>>>>> stage Feature Extraction completed <<<<<<
+
+x==========x
