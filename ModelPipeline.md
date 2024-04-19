@@ -50,4 +50,4 @@ We rely on MLflow for managing models for Archiving, Staging, and Production as 
   
   #### Model Efficacy Report and Visuals  
   These are the acquired feature importance from the RFC model.
-  ![Feature Importance](Image/feature_importance.jpeg)
+  ![Feature Importance](Image/feature_importance.png)
