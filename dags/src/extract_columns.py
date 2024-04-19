@@ -14,7 +14,7 @@ logger = logging.getLogger(LOG_PATH)
 INPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_dropna.pkl')
 OUTPUT_PICKLE_PATH = os.path.join(PROJECT_DIR, 'data', 'processed','after_year.pkl')
 
-def extract_year(input_pickle_path=INPUT_PICKLE_PATH,
+def extract_task(input_pickle_path=INPUT_PICKLE_PATH,
                             output_pickle_path=OUTPUT_PICKLE_PATH):
 
     """
@@ -33,6 +33,7 @@ def extract_year(input_pickle_path=INPUT_PICKLE_PATH,
     str: Path to the saved pickle file containing the modified DataFrame.
     """
 
+    logger.info(">>>>>>>>>>>>>>>>>>>>>>>> Started Extract Task <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
 
     if os.path.exists(input_pickle_path):
         with open(input_pickle_path, "rb") as file:
@@ -43,8 +44,13 @@ def extract_year(input_pickle_path=INPUT_PICKLE_PATH,
         raise FileNotFoundError(error_message)
 
     df['earliest_cr_line']=df['earliest_cr_line'].apply(lambda x:int(x[-4:]))
-    df['issue_d']=df['issue_d'].apply(lambda x:int(x[0:4]))
-    
+    #df['issue_d']=df['issue_d'].apply(lambda x:int(x[0:4]))
+
+    df['zipcode']=df['address'].apply(lambda x:str(x[-5:]))
+    df.drop('address',axis=1,inplace=True)
+
+    logger.info(">>>>>>>>>>>>>>>>>>>>>>>> Extract Task Completed <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df, file)
     logger.info(f"Data saved to {output_pickle_path}.")
