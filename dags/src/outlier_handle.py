@@ -30,6 +30,8 @@ def handle_outliers(input_pickle_path=INPUT_PICKLE_PATH,
     Raises:
         FileNotFoundError: If no data is found at the specified input path.
     """
+    logger.info(f">>>>>>>>>>>>>>> Started handling outliers Task <<<<<<<<<<<<<<<<")
+
     if os.path.exists(input_pickle_path):
         with open(input_pickle_path, "rb") as file:
             df = pickle.load(file)
@@ -40,10 +42,12 @@ def handle_outliers(input_pickle_path=INPUT_PICKLE_PATH,
 
     model = IsolationForest(contamination=0.05, random_state=0)
 
-    df['Outlier_Scores'] = model.fit_predict(df.drop('loan_status',axis=1).to_numpy())
+    df['Outlier_Scores'] = model.fit_predict(df.drop(['loan_status','issue_d'],axis=1).to_numpy())
     df['Is_Outlier'] = [1 if x == -1 else 0 for x in df['Outlier_Scores']]
     df_cleaned = df[df['Is_Outlier'] == 0]
     df_cleaned.drop(['Is_Outlier','Outlier_Scores'],axis=1,inplace=True)
+
+    logger.info(f">>>>>>>>>>>>>>> outliers Task Completed <<<<<<<<<<<<<<<<")
 
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df_cleaned, file)
