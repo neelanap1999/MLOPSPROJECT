@@ -44,8 +44,10 @@ We rely on MLflow for managing models for Archiving, Staging, and Production as 
    The model has four hyper-parameters namely n_estimators, max_leaf_nodes, max_depth, max_features.
    
   #### Model Analysis 
-  The model is analysed by the Silhouette_Analysis function.
+  We evaluate the model based on accuracy and precision scores. The RFC model produced 90% precision score.
 
 
   
   #### Model Efficacy Report and Visuals  
+  These are the acquired feature importance from the RFC model.
+  ![Feature Importance](Image/feature_importance.jpeg)
