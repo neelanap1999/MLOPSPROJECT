@@ -27,10 +27,8 @@ def drop_column(input_pickle_path=INPUT_PICKLE_PATH,
     - input_pickle_path (str): Path to the input pickle file containing the DataFrame. Default is INPUT_PICKLE_PATH.
     - output_pickle_path (str): Path to save the modified DataFrame as a pickle file. Default is OUTPUT_PICKLE_PATH.
 
-    Returns:
-    str: Path to the saved pickle file containing the modified DataFrame.
     """
-
+    logger.info(">>>>>>>>>>>>>>>>>>>>>> Started Column Drop Task <<<<<<<<<<<<<<<<<<<<<<")
     if os.path.exists(input_pickle_path):
         with open(input_pickle_path, "rb") as file:
             df = pickle.load(file)
@@ -41,6 +39,7 @@ def drop_column(input_pickle_path=INPUT_PICKLE_PATH,
 
     df.drop(['sub_grade','title','emp_title'],axis=1,inplace=True)
 
+    logger.info(">>>>>>>>>>>>>>>>>>>>>> Column Drop Task Completed <<<<<<<<<<<<<<<<<<<<<<")
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df, file)
     logger.info(f"Data saved to {output_pickle_path}.")
