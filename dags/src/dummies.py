@@ -32,6 +32,7 @@ def get_dummies(input_pickle_path=INPUT_PICKLE_PATH,
     str: Path to the saved pickle file containing the modified DataFrame.
     -----
     """
+    logger.info(">>>>>>>>>>>>>>>>>>>>>> Started Get Dummies Task <<<<<<<<<<<<<<<<<<<<<<<<<<<")
 
     if os.path.exists(input_pickle_path):
         with open(input_pickle_path, "rb") as file:
@@ -41,8 +42,10 @@ def get_dummies(input_pickle_path=INPUT_PICKLE_PATH,
         logger.error(error_message)
         raise FileNotFoundError(error_message)
 
-    df=pd.get_dummies(df,columns=['sub_grade', 'verification_status', 'purpose', 'initial_list_status',
+    df=pd.get_dummies(df,columns=['grade', 'verification_status', 'purpose', 'initial_list_status',
            'application_type', 'home_ownership'],dtype=int)
+    
+    logger.info(">>>>>>>>>>>>>>>>>>>>>> Get Dummies Task Completed <<<<<<<<<<<<<<<<<<<<<<<<<<<")
 
     with open(output_pickle_path, "wb") as file:
         pickle.dump(df, file)
