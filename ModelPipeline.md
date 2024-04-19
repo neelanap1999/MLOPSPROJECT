@@ -26,7 +26,9 @@ We chose Precision score (higher the better) to choose our final model parameter
 
 
 ## Staging, Production and Archived models (MLFLOW)
+We rely on MLflow for managing models for Archiving, Staging, and Production as it allows us to reuse the models from artifacts regietry and serve it on a predefined port on-the-go. Our 
 
+![MLFlow Dashboard](Image/MLFLOW_Experiments.png)
 
 ## Model Pipeline
    #### Train the model 
