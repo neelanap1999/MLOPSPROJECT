@@ -7,7 +7,7 @@ from modules.missing_values import handle_missing
 from modules.null_drop import drop_null
 from modules.dummies import get_dummies
 from modules.outlier_handle import handle_outliers
-from modules.income_normalization import normalize_amount
+# from modules.income_normalization import normalize_amount
 from modules.labelencode import encode
 from modules.split import split
 from modules.scaling_data import scaler

@@ -30,7 +30,7 @@ def load_data(gcs_train_data_path):
     DataFrame: A pandas DataFrame containing the training data.
     """
     with fs.open(gcs_train_data_path) as f:
-        df = pd.read_parquet(f)
+        df = pd.read_csv(f)
     
     return df
 
@@ -132,7 +132,7 @@ def main():
     and uploading the model to Google Cloud Storage.
     """
     # Load and transform data
-    gcs_train_data_path = "gs://mlops_loan_data/data/train/train_data.csv"
+    gcs_train_data_path = "gs://mlops_loan_data/data/train/preprocess/train_data_preprocessed.csv"
     df = load_data(gcs_train_data_path)
     X_train, X_test, y_train, y_test = data_transform(df)
 
