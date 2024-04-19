@@ -30,9 +30,7 @@ def drop_column(df):
     str: Path to the saved pickle file containing the modified DataFrame.
     """
 
-
     df.drop(['sub_grade','title','emp_title'],axis=1,inplace=True)
-
     
     logger.info(f"Data saved to df.")
     return df
