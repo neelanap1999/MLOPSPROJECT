@@ -20,7 +20,7 @@ We have implemented our machine learning pipeline on Google Cloud Platform (GCP)
 ## Experimental tracking pipeline (MLFLOW)
 
 For tracking our experimental machine learning pipeline, we use MLflow, Docker, and Python.
-![MLFlow Parallel Plot Image](Image/MLFLOW_Experiments.png)
+![MLFlow Parallel Plot Image](Image/MLFLOW_Hyperparameters.jpeg)
 We chose Precision score (higher the better) to choose our final model parameters from the plot below.
 
 
