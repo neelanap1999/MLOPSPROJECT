@@ -30,6 +30,9 @@ We rely on MLflow for managing models for Archiving, Staging, and Production as 
 
 ![MLFlow Dashboard](Image/MLFLOW_Experiments.png)
 
+![MLFlow Staging Area](Image/MLFLOW_Staging.jpeg)
+
+
 ## Model Pipeline
    #### Train the model 
    The model is trained using K-Means_Clustering function. It takes 3 inputs and gives 2 outputs. The three inputs are PCA dataframe, transaction dataframe and number of clusters. The outputs are PCA dataframe and transaction dataframe with 'cluster' columns.
