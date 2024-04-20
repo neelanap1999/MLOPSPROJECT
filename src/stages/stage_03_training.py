@@ -36,7 +36,7 @@ def main():
         accuracy = accuracy_score(y_test,y_pred)
         precision = precision_score(y_test,y_pred)
 
-        scores = {'accuracy': accuracy, 'roc_auc_score': precision}
+        scores = {'accuracy': accuracy, 'precision': precision}
 
         with open(json_file_path,'w') as json_file:
             json.dump(scores,json_file)
