@@ -103,6 +103,128 @@ docker run --rm "debian:bullseye-slim" bash -c 'numfmt --to iec $(echo $(($(getc
 ```
 <hr>
 
+
+# Tools Used for MLOps
+
+- GitHub Actions
+- Docker
+- Airflow
+- DVC
+- Google Cloud Platform (GCP)
+- MLflow
+- TensorFlow
+- Flask
+
+## GitHub Actions
+GitHub Actions workflows are set on push and pull requests for all branches, including feature and main. On pushing a new commit, the workflow triggers a build involving `pytest` and `pylint`, generating test reports in XML format. Feature branches merge with main only after successful builds.
+
+## Docker and Airflow
+Inside the `docker-compose.yaml` file, you'll find the necessary code to execute Airflow. Utilizing Docker and containerization enables us to package our data pipeline along with its essential dependencies. This ensures platform independence, allowing our data pipeline to operate seamlessly on Windows, macOS, or Linux systems.
+
+
+## DVC
+Data Version Control facilitates the versioning of datasets and machine learning models, capturing snapshots of the data utilized in training and its associated code. This capability enables reproducibility and traceability, ensuring the ability to recreate any past state of your project. DVC exclusively stores metadata, while the actual data resides in cloud storage or other remote locations. By seamlessly integrating with Git, DVC enables the utilization of Git repositories for code management and DVC repositories for data and model management. This dual-repository method aids in maintaining a tidy and efficient codebase.
+
+![How DVC works](Image/dvc_diagram_workflow.png)
+
+## MLFlow
+MLflow empowered us with a unified and reproducible setup for exploring supervised learning algorithms. It facilitated us effortless tracking, comparison, and storage of various parameters, metrics, experiments, and machine learning models as reusable artifacts. MLflow seamlessly integrated with frameworks such as scikit-learn and TensorFlow, enabling efficient model tuning by visualizing optimal parameter sets to enhance each metric.
+
+## Google Cloud Platform (GCP)
+
+Our data version control is managed and hosted on the Google Cloud Platform (GCP). GCP seamlessly handles the hosting and versioning of large datasets, facilitating the development of robust ETL pipelines. With support for concurrent access and updates by multiple users, coupled with built-in versioning, retrieving older versions is effortless.
+
+GCP enabled us to efficiently implement the ETL process while preserving intermediary files for each modularized task.
+
+1. To leverage Google Cloud Platform services, simply initialize a service account.
+2. Similar to other remotes, downloading an SSH key is required for remote access.
+
+[Link to view our Files tracked by DVC on Google Cloud Platform]([https://console.cloud.google.com/storage/browser/custseg_dvc_store)
+
+
+![Need to Implement](Image/blank.avif)
+
+Pictured: Our data files tracked by DVC in GCP
+
+
+## Overall ML Project PipeLine
+![Need to Implement](Image/blank.avif)
+
+## Data Pipeline
+We've structured our data pipeline into modular components, spanning from data ingestion to preprocessing, ensuring our data is primed for modeling. Each module undergoes rigorous testing, adhering to the principles of Test Driven Development (TDD), to ensure its smooth functioning.
+
+Our pipeline is orchestrated using Apache Airflow, where we construct a Directed Acyclic Graph (DAG) incorporating these modules.
+
+![Need to Implement](Image/blank.avif)
+Pictured: Our Airflow DAG
+
+
+The following is the explanation of our Data pipeline DAG
+
+
+## Data Pipeline Components
+
+![Model Pipeline](Image/blank.avif)
+
+In this project, the data pipeline comprises numerous interconnected modules, each designed to execute distinct data processing tasks. We employ Airflow and Docker to organize and encapsulate these modules, with each one serving as a task within the primary data pipeline Directed Acyclic Graph (DAG) (`datapipeline`).
+
+
+## DVC
+
+Steps for initializing and tracking files using DVC:
+
+1. Initialize DVC in the parent directory of your local repository.
+    ```bash
+    dvc remote add -d temp /tmp/dvcstore
+    ```
+
+2. Configure a remote bucket.
+    ```bash
+    dvc remote add -d temp /tmp/dvcstore
+    ```
+
+3. Set the default location for your remote bucket.
+    ```bash
+    dvc remote add -d myremote gs://<mybucket>/<path>
+    ```
+
+4. Ensure to update your credentials.
+    ```bash
+    dvc remote modify --lab2 credentialpath <YOUR JSON TOKEN>
+    ```
+---  
+
+## MLFlow
+
+Key configurations in the code:
+
+1. Specify the tracking URI for MLFlow.
+    ```python
+    mlflow.set_tracking_uri("http://127.0.0.1:5001")
+    ```
+
+2. Establish the logging threshold; only warnings and higher (errors, critical) will be logged.
+    ```python
+    logging.basicConfig(level=logging.WARN)
+    ```
+
+3. Configure the logger.
+    ```python
+    logger = logging.getLogger(__name__)
+    ```
+
+4. Additionally, you have the option to suppress warnings.
+    ```python
+    warnings.filterwarnings("ignore")
+    ```
+---
+
+
+
+
+
+
+
 ## 3. Data Planning and Splits
 Our dataset has 396k data points. We plan to use 100k for initial model development to get us metrics for the first iteration. The rest of the dataset will be grouped in batches of 10k and will be treated as new data for continuous training of our selected model.
 
