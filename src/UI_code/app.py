@@ -7,6 +7,9 @@ app = Flask(__name__)
 # Mock sample file paths (replace with actual logic from random_sample.py)
 SAMPLE_FILE_PATHS = [f"sample_{i}.csv" for i in range(1, 6)]
 
+'''
+This module creates the UI screen to select a predict file
+'''
 @app.route("/")
 def index():
     selected_file = request.args.get("selected_file")
