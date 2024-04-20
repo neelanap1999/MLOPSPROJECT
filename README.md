@@ -168,6 +168,38 @@ The following is the explanation of our Data pipeline DAG
 
 In this project, the data pipeline comprises numerous interconnected modules, each designed to execute distinct data processing tasks. We employ Airflow and Docker to organize and encapsulate these modules, with each one serving as a task within the primary data pipeline Directed Acyclic Graph (DAG) (`datapipeline`).
 
+## 1. Downloading and Preparing Data:
+The initial stage is to obtain the dataset and ready it for preprocessing. This involves the following scripts:
+
+- `download_data.py`: Handles the downloading of the dataset from the provided online source.
+- `dataload.py`: Loads the data into the working environment and verifies its integrity.
+
+## 2. Data Cleaning and Preprocessing:
+This phase is crucial as it involves cleaning the data to ensure its quality and effectiveness for analysis. The scripts involved are:
+
+- `missing_values.py`: Detects and addresses missing data within the dataset.
+- `dummies.py`: Converts categorical variables into dummy/indicator variables for analysis.
+- `outlier_handle.py`: Identifies and manages outliers in the data.
+- `scaling_data.py`: Scales the data, standardizing or normalizing values for better comparison.
+- `column_drop.py`: Drops unnecessary columns ('grade', 'title', 'emp_title') from the dataframe.
+- `null_drop.py`: Removes rows or columns with Null values to maintain dataset integrity.
+
+## 3. Data Analysis:
+Post-cleaning, our dataset is then analyzed to extract meaningful insights. The analysis scripts include:
+
+- `correlation.py`: Investigates the correlation between different variables in the dataset.
+- `pca.py`: Performs Principal Component Analysis for dimensionality reduction.
+
+## 4. Data Transformation and Feature Engineering:
+To improve model performance, we engineer and transform features using the following scripts:
+
+- `extract_columns.py`: Extracts specific columns needed for further processing.
+- `labelencode.py`: Encodes categorical labels with value between 0 and n_classes-1.
+- `split.py`: Splits the dataset into training and testing sets.
+
+
+The integration of these scripts ensures a seamless transition from raw data to insights, enabling us to derive maximum value from our data. Each script reads from a designated input path, processes the data, and outputs it to a specified output path, facilitating the creation of a robust and reproducible data pipeline.
+
 
 ## DVC
 
