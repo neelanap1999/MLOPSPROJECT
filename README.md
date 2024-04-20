@@ -1,17 +1,17 @@
 # Credit Risk Assessment - MLOps
 
-[Kush Suryavanshi](https://github.com/Kush210/)  | [Aryan Fernandes](https://github.com/aryanf12122000/) | [Naveen Pasala](https://github.com/visheshgupta-BA/)  |  [Shiva Naga Jyothi Cherukuri](https://github.com/ShivaNagaJyothi-Cherukuri/)  | [Neel Shirish Anap](https://github.com/neelanap1999/)  | [Vishesh Gupta](https://github.com/visheshgupta-BA/)
+[Kush Suryavanshi](https://github.com/Kush210/)  | [Aryan Fernandes](https://github.com/aryanf12122000/) | [Naveen Pasala](https://github.com/------/)  |  [Shiva Naga Jyothi Cherukuri](https://github.com/ShivaNagaJyothi-Cherukuri/)  | [Neel Shirish Anap](https://github.com/neelanap1999/)  | [Vishesh Gupta](https://github.com/visheshgupta-BA/)
 
 
 <p align="center">  
     <br>
 	<a href="#">
-	      <img src="https://raw.githubusercontent.com/Thomas-George-T/Thomas-George-T/master/assets/python.svg" alt="Python" title="Python" width ="120" />
+	<img height=130 src="https://github.com/neelanap1999/MLOPSPROJECT/blob/main/Image/python.png" alt="Docker" title="Docker" hspace=20 />
         <img height=100 src="https://cdn.svgporn.com/logos/airflow-icon.svg" alt="Airflow" title="Airflow" hspace=20 /> 
-        <img height=100 src="https://cdn.svgporn.com/logos/tensorflow.svg" alt="Tensorflow" title="Tensorflow" hspace=20 /> 
-        <img height=100 src="https://cdn.svgporn.com/logos/docker-icon.svg" alt="Docker" title="Docker" hspace=20 />
+        <img height=150 src="https://github.com/neelanap1999/MLOPSPROJECT/blob/main/Image/flow.svg" title="Tensorflow" hspace=20 /> 
         <img height=100 src="https://cdn.svgporn.com/logos/google-cloud.svg" alt="Google Cloud Platform" title="Google Cloud Platform" hspace=20 /> 
-        <img height=100 src="https://www.svgrepo.com/svg/473611/flask" alt="Flask" title="Flask" hspace=20 /> 
+        <img height=130 src="https://github.com/neelanap1999/MLOPSPROJECT/blob/main/Image/Docker.png" alt="Flask" title="Flask" hspace=20 /> 
+ 
   </a>	
 </p>
 <br>
