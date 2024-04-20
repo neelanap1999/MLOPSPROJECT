@@ -202,7 +202,6 @@ The integration of these scripts ensures a seamless transition from raw data to 
 
 <hr>
 
-
 # Machine Learning Modeling Pipeline
 
 We successfully established our machine learning pipeline on Google Cloud Platform (GCP). We uploaded our codebase, crafted Docker images, and securely stored them in the Artifact Registry. Following this, we proceeded to train and deploy our model using the powerful capabilities of Vertex AI.
@@ -260,6 +259,12 @@ The model pipeline will automate the process of training and serving by using sc
 - `inference.py : It will send a json input to the model to predict the results.
 
 <hr>
+
+
+
+
+
+
 
 
 
