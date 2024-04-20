@@ -1,13 +1,33 @@
-# Credit Risk Assessment
+# Credit Risk Assessment - MLOps
 
-Kush Suryavanshi | Aryan Fernandes | Naveen Pasala | Shiva Naga Jyothi Cherukuri | Neel Shirish Anap | Vishesh Gupta
+[Kush Suryavanshi](https://github.com/Kush210/)  | [Aryan Fernandes](https://github.com/aryanf12122000/) | [Naveen Pasala](https://github.com/visheshgupta-BA/)  |  [Shiva Naga Jyothi Cherukuri](https://github.com/ShivaNagaJyothi-Cherukuri/)  | [Neel Shirish Anap](https://github.com/neelanap1999/)  | [Vishesh Gupta](https://github.com/visheshgupta-BA/)
+
+
+<p align="center">  
+    <br>
+	<a href="#">
+	      <img src="https://raw.githubusercontent.com/Thomas-George-T/Thomas-George-T/master/assets/python.svg" alt="Python" title="Python" width ="120" />
+        <img height=100 src="https://cdn.svgporn.com/logos/airflow-icon.svg" alt="Airflow" title="Airflow" hspace=20 /> 
+        <img height=100 src="https://cdn.svgporn.com/logos/tensorflow.svg" alt="Tensorflow" title="Tensorflow" hspace=20 /> 
+        <img height=100 src="https://cdn.svgporn.com/logos/docker-icon.svg" alt="Docker" title="Docker" hspace=20 />
+        <img height=100 src="https://cdn.svgporn.com/logos/google-cloud.svg" alt="Google Cloud Platform" title="Google Cloud Platform" hspace=20 /> 
+        <img height=100 src="https://www.svgrepo.com/svg/473611/flask" alt="Flask" title="Flask" hspace=20 /> 
+  </a>	
+</p>
+<br>
+
 
 ## 1. Introduction
-The Credit Risk Assessment is a MLops project that aims to leverage machine learning and modern DevOps practices to develop a robust and scalable pipeline for predicting loan status. Lending Club, a peer-to-peer lending platform, provides an extensive dataset containing various borrower attributes, such as loan amount, interest rate, employment details, and more. The primary goal of this project is to build a machine learning model that accurately predicts whether a loan application will be approved or denied.
 
-To achieve this goal, the project utilizes a comprehensive stack of tools and technologies, including Python for coding, TensorFlow for model development, Airflow for workflow automation, DataFlow for data processing in GCP, and more. The pipeline encompasses data collection, preprocessing, model training, deployment, and monitoring, ensuring end-to-end automation and scalability. Additionally, tools like MLflow and Git facilitate experiment tracking, version control, and project management, enhancing collaboration and reproducibility.
+Assessing credit risk is a critical task for any lending institution. That's why we've embarked on an ambitious project that combines the latest machine learning innovations with modern software engineering best practices. Our goal? To build a robust, scalable system capable of accurately predicting loan outcomes.
 
-By implementing this MLops pipeline, the project aims to streamline the loan prediction process, improve decision-making accuracy, and ensure compliance with regulatory requirements.
+At the heart of our approach lies a powerful stack of tools and technologies. We're harnessing the flexibility of Python and the might of frameworks like TensorFlow to construct highly accurate predictive models. But we're not stopping there – we're employing cutting-edge techniques like transfer learning, ensemble methods, and neural architecture search to push the boundaries of model performance.
+
+What truly sets our project apart, however, is its holistic nature. We've engineered an automated pipeline that streamlines the entire data science lifecycle, from data ingestion and preprocessing to model deployment and monitoring. With orchestration tools like Airflow and data processing engines like Google Cloud Dataflow, we've achieved unparalleled levels of automation, scalability, and reproducibility.
+
+Embracing the principles of DevOps, we've adopted containerization with Docker, continuous integration and deployment with GitHub Actions, and rigorous testing with pytest. Version control with Git and experiment tracking with MLflow foster an environment of collaboration, iteration, and knowledge-sharing among our team of data scientists and engineers.
+
+Our ultimate goal? To deliver a best-in-class lending experience that empowers both borrowers and lenders. By combining machine learning innovation with software engineering excellence, we're poised to transform the credit risk assessment landscape, ensuring accurate decision-making, regulatory compliance, and a superior overall experience for all stakeholders.
 
 ## 2. Dataset Information
 
