@@ -25,7 +25,7 @@ At the heart of our approach lies a powerful stack of tools and technologies. We
 
 What truly sets our project apart, however, is its holistic nature. We've engineered an automated pipeline that streamlines the entire data science lifecycle, from data ingestion and preprocessing to model deployment and monitoring. With orchestration tools like Airflow and data processing engines like Google Cloud Dataflow, we've achieved unparalleled levels of automation, scalability, and reproducibility.
 
-Embracing the principles of DevOps, we've adopted containerization with Docker, continuous integration and deployment with GitHub Actions, and rigorous testing with pytest. Version control with Git and experiment tracking with MLflow foster an environment of collaboration, iteration, and knowledge-sharing among our team of data scientists and engineers.
+Embracing the principles of DevOps, we've adopted containerization with Docker, continuous integration and deployment with GitHub Actions, and rigorous testing with Tensorflow. Version control with Git and experiment tracking with MLflow foster an environment of collaboration, iteration, and knowledge-sharing among our team of data scientists and engineers.
 
 Our ultimate goal? To deliver a best-in-class lending experience that empowers both borrowers and lenders. By combining machine learning innovation with software engineering excellence, we're poised to transform the credit risk assessment landscape, ensuring accurate decision-making, regulatory compliance, and a superior overall experience for all stakeholders.
 
@@ -34,23 +34,74 @@ Our ultimate goal? To deliver a best-in-class lending experience that empowers b
 ### 2.1. Dataset Introduction:
 The dataset consists of 28 features for each applicant where loan_status is our target variable. The target variable has Fully_Paid and Charged_Off values indicating that the applicant either paid back the entire loan on time or missed all payments. Here Charged_Off is the class of interest as we want to identify potential risks in time.
 
-<p align="center">
-<img src="https://github.com/neelanap1999/MLOPSPROJECT/blob/main/Image/Class%20Distribution.png" alt="ML Project class" height="300">
-</p>
-
-
 ### 2.2. Data Card:
 The dataset has 396,030 entries where each entry corresponds to one applicant. There are 12 numeric features and 16 categorical features.
 
+| Variable Name | Role | Type | Description |
+|---------------|------|------|-------------|
+| loan_amnt | Feature | Continuous | The listed amount of the loan applied for by the borrower. If at some point in time, the credit department reduces the loan amount, then it will be reflected in this value. |
+| term | Feature | Categorical | The number of payments on the loan. Values are in months and can be either 36 or 60. |
+| int_rate | Feature | Continuous | Interest Rate on the loan |
+| installment | Feature | Continuous | The monthly payment owed by the borrower if the loan originates. |
+| grade | Feature | Categorical | LC assigned loan grade |
+| sub_grade | Feature | Categorical | LC assigned loan subgrade |
+| emp_title | Feature | Categorical | The job title supplied by the Borrower when applying for the loan. |
+| emp_length | Feature | Ordinal | Employment length in years. Possible values are between 0 and 10 where 0 means less than one year and 10 means ten or more years. |
+| home_ownership | Feature | Categorical | The home ownership status provided by the borrower during registration or obtained from the credit report. Our values are: RENT, OWN, MORTGAGE, OTHER |
+| annual_inc | Feature | Continuous | The self-reported annual income provided by the borrower during registration. |
+| verification_status | Feature | Categorical | Indicates if income was verified by LC, not verified, or if the income source was verified |
+| issue_d | Feature | Date | The month which the loan was funded |
+| loan_status | Feature | Categorical | Current status of the loan |
+| purpose | Feature | Categorical | A category provided by the borrower for the loan request. |
+| title | Feature | Categorical | The loan title provided by the borrower |
+| zip_code | Feature | Categorical | The first 3 numbers of the zip code provided by the borrower in the loan application. |
+| addr_state | Feature | Categorical | The state provided by the borrower in the loan application |
+| dti | Feature | Continuous | A ratio calculated using the borrower's total monthly debt payments on the total debt obligations, excluding mortgage and the requested LC loan, divided by the borrower's self-reported monthly income. |
+| earliest_cr_line | Feature | Date | The month the borrower's earliest reported credit line was opened |
+| open_acc | Feature | Integer | The number of open credit lines in the borrower's credit file. |
+| pub_rec | Feature | Integer | Number of derogatory public records |
+| revol_bal | Feature | Continuous | Total credit revolving balance |
+| revol_util | Feature | Continuous | Revolving line utilization rate, or the amount of credit the borrower is using relative to all available revolving credit. |
+| total_acc | Feature | Integer | The total number of credit lines currently in the borrower's credit file |
+| initial_list_status | Feature | Categorical | The initial listing status of the loan. Possible values are – W, F |
+| application_type | Feature | Categorical | Indicates whether the loan is an individual application or a joint application with two co-borrowers |
+| mort_acc | Feature | Integer | Number of mortgage accounts. |
+| pub_rec_bankruptcies | Feature | Integer | Number of public record bankruptcies |
 
-![Data Card](https://github.com/neelanap1999/MLOPSPROJECT/blob/main/Image/Data%20Card.png)
 
 ### 2.3. Data Source:
 The dataset is a public dataset owned by [Lending Club](https://www.lendingclub.com/personal-savings/founder-savings)
 
-Below is the URL for data:
-
+Attached is the URL for data:
 [Dataset Link](https://www.kaggle.com/code/faressayah/lending-club-loan-defaulters-prediction/input?select=lending_club_loan_two.csv)
+
+
+# Setup Instructions
+Please confirm that `Python >= 3.8` or a later version is present on your system prior to installation. This software is designed to be compatible with Windows, Linux, and macOS platforms.
+
+# Prerequisities
+1. git
+2. python>=3.8
+3. docker daemon/desktop is running
+4. apache-airflow==2.8.3
+5. Flask==2.2.5
+
+## Installation Steps for Users
+To install for users, follow these steps:
+
+1. Clone the repository to your local machine:
+```
+git clone https://github.com/Thomas-George-T/Ecommerce-Data-MLOps](https://github.com/neelanap1999/MLOPSPROJECT.git
+```
+2. Ensure that your Python version is 3.8 or above:
+```python
+python --version
+```
+3. Check if your system has sufficient memory:
+```docker
+docker run --rm "debian:bullseye-slim" bash -c 'numfmt --to iec $(echo $(($(getconf _PHYS_PAGES) * $(getconf PAGE_SIZE))))'
+```
+<hr>
 
 ## 3. Data Planning and Splits
 Our dataset has 396k data points. We plan to use 100k for initial model development to get us metrics for the first iteration. The rest of the dataset will be grouped in batches of 10k and will be treated as new data for continuous training of our selected model.
