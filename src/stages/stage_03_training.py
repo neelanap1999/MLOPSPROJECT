@@ -2,7 +2,7 @@ import json
 import os
 import logging
 import pandas as pd
-from sklearn.metrics import accuracy_score,roc_auc_score
+from sklearn.metrics import accuracy_score,precision_score
 from src.modules.train import create_model, save_and_upload_model
 from src.utils.config import load_config
 
@@ -34,9 +34,9 @@ def main():
         y_pred = model.predict(X_test)
 
         accuracy = accuracy_score(y_test,y_pred)
-        roc_auc = roc_auc_score(y_test,y_pred)
+        precision = precision_score(y_test,y_pred)
 
-        scores = {'accuracy': accuracy, 'roc_auc_score': roc_auc}
+        scores = {'accuracy': accuracy, 'roc_auc_score': precision}
 
         with open(json_file_path,'w') as json_file:
             json.dump(scores,json_file)
