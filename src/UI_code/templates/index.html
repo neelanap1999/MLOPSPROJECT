@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MLOps Sample Selection</title>
+    <style>
+        body {
+            background-color: #f0eeee; /* Professional background color */
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin: 40px 0;
+            font-size: 45px; /* Increase font size for h1 */
+        }
+
+        h2 {
+            margin: 40px 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: auto;
+            width: 100%;  /* Adjust width as needed */
+        }
+
+        th, td {
+            border: 1px solid #171212;
+            padding: 4px;  /* Reduce padding for potentially long content */
+            white-space: nowrap;  /* Prevent text wrapping within cells */
+            text-overflow: ellipsis;  /* Truncate long content with ellipsis (...) */
+        }
+
+        th {
+            background-color: #ea8756;
+        }
+
+        /* Custom styles for buttons */
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        /* Custom styles for Predict button */
+        .predict-button {
+            background-color: #f44336; /* Red */
+        }
+
+        /* Custom styles for image */
+        .credit-risk-assessment-image {
+            width: 100px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        /* Custom styles for dropdown */
+        select {
+            width: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            appearance: none; /* Remove default dropdown arrow */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-color: #fff;
+            /*background-image: url('arrow.png'); *//* Add custom dropdown arrow */
+            background-position: right center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+        }
+
+        /* Add hover effect to dropdown */
+        select:hover {
+            border-color: #999;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Credit Risk Assessment</h1>
+    <form action="/">
+        <select name="selected_file">
+            {% for file in selected_file_options %}
+                <option value="{{ file }}" {% if selected_file == file %}selected{% endif %}>{{ file }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="button">Select</button>
+    </form>
+
+    {% if sample_data %}
+        <h2>Sample Test Data </h2>
+        <table>
+            <thead>
+                <tr>
+                    {% for label in column_labels %}
+                        <th>{{ label }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in sample_data %}
+                    <tr>
+                        {% for value in row %}
+                            <td>{{ value }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <button onclick="generateSamples()" class="button">Generate New Samples</button>
+        <button onclick="predict()" class="button predict-button">Predict</button> <!-- New Predict button -->
+    {% endif %}
+
+    <script>
+        function displayPopup(message) {
+            alert(message); // Display popup alert
+        }
+
+        function generateSamples() {
+            // Make an AJAX request to Flask route for generating new samples
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/generate_new_samples", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    // Display popup when new samples are generated
+                    displayPopup("New samples generated!");
+                }
+            };
+            xhr.send();
+        }
+
+        function predict() {
+            // Get the selected sample file from the dropdown
+            var selectedFile = document.querySelector('select[name="selected_file"]').value;
+
+            // Make an AJAX request to Flask route for predicting
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/predict?selected_file=" + encodeURIComponent(selectedFile), true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        displayPopup("Predict data saved as predict_data.csv!");
+                    } else {
+                        displayPopup("Error occurred while predicting!");
+                    }
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</body>
+</html>
