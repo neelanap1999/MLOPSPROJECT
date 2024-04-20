@@ -200,6 +200,69 @@ To improve model performance, we engineer and transform features using the follo
 
 The integration of these scripts ensures a seamless transition from raw data to insights, enabling us to derive maximum value from our data. Each script reads from a designated input path, processes the data, and outputs it to a specified output path, facilitating the creation of a robust and reproducible data pipeline.
 
+<hr>
+
+
+# Machine Learning Modeling Pipeline
+
+We successfully established our machine learning pipeline on Google Cloud Platform (GCP). We uploaded our codebase, crafted Docker images, and securely stored them in the Artifact Registry. Following this, we proceeded to train and deploy our model using the powerful capabilities of Vertex AI.
+
+![ML_Pipeline_Graph_Image](Image/blank.avif)
+
+## Machine Learning Pipeline Components
+
+### 1. Data Ingestion and Preprocessing
+This part of your pipeline deals with preparing the data for machine learning tasks. It includes several steps to manage and prepare your data:
+- **data_preprocess.py**: This script imports data from Google Cloud Storage, processes it through several modules like handling missing values, encoding, and outlier removal, and finally writes the preprocessed data back to the cloud.
+
+### Components
+
+- **Modules**:
+  - `extract_columns.py` - Extracts relevant columns.
+  - `column_drop.py` - Drops unnecessary columns.
+  - `missing_values.py` - Handles missing values.
+  - `null_drop.py` - Removes rows with null values.
+  - `dummies.py` - Converts categorical variables into dummy variables.
+  - `outlier_handle.py` - Handles outliers in the data.
+  - `labelencode.py` - Encodes labels with value between 0 and n_classes-1.
+ 
+
+- **Feature Extraction**: Calculating statistics for normalization and saving them to Google Cloud Storage.
+- **Google Cloud Storage (GCS)**: Utilized for storing raw data, processed data, and statistical data.
+
+### 2. Trainer
+This component includes training a machine learning model based on the preprocessed data:
+
+- **trainer.py**: Creates the model and saves it on Google Cloud after using the train data from Google Cloud.
+  - `Random Forest Classifier`: Used for predicting loan defaults.
+  - `Data Normalization`: Using precomputed stats to normalize the data before training.
+  - `Model Training and Evaluation`: Splits data into training and validation sets, trains a Random Forest model, and evaluates its performance.
+  - `Google Cloud Storage`: Stores the trained model in a specified bucket.
+  - `Dockerfile` : Used to host the training job.
+
+
+### 3. Serving
+The model trained in the previous step is served using a Flask application, making it possible to predict new instances in real-time:
+
+- **predict.py**:
+- `Flask Application`: To create endpoints for health checks and predictions.
+- `Model Deployment`: Loads the trained model from GCS and predicts output for new incoming data in JSON format.
+- `Environment Initialization`: Setting up Google Cloud client and other necessary configurations.
+- - `Dockerfile` : Used to host the serving module.
+
+
+### 3. Model Pipeline
+The model pipeline will automate the process of training and serving by using scripts or workflow tools (like Google Cloud's Vertex AI or similar) to sequence the tasks described above. This component isn’t fully described in your details but would typically include:
+- `build.py` : Will create a training job using the images from the above trainer and serve in Vertex AI. At the end of the job it wil deploy to the endpoint where it will serve the model.
+- `build.py` :  A script to initiate training jobs, handle deployment on Google Cloud, and ensure the model is updated and served correctly.
+
+### 4. Inference
+- `inference.py : It will send a json input to the model to predict the results.
+
+<hr>
+
+
+
 
 ## DVC
 
