@@ -1,11 +1,25 @@
 from flask import Flask, render_template, request, jsonify
-from random_sample import create_sample_files
+#from random_sample import create_sample_files
 import random
+import os
 import pandas as pd
 app = Flask(__name__)
+import requests
+
+PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Mock sample file paths (replace with actual logic from random_sample.py)
 SAMPLE_FILE_PATHS = [f"sample_{i}.csv" for i in range(1, 6)]
+predict_url  = 'http://127.0.0.1:8080/predict'
+
+# Define function to create sample files
+def create_sample_files(original_data, num_samples, num_records_per_sample):
+    for i in range(num_samples):
+        sample_data = original_data.sample(n=num_records_per_sample)
+        '''SAMPLE_PATH = os.path.join(PROJECT_DIR, 'data','sample_test_data_{i+1}.csv')
+        sample_data.to_csv(SAMPLE_PATH, index=False)'''
+        sample_data.to_csv(f'sample_{i+1}.csv', index=False)
+        print(f'Sample test data {i+1} created successfully.')
 
 '''
 This module creates the UI screen to select a predict file
@@ -39,7 +53,7 @@ def generate_new_samples():
     original_data = pd.read_csv("test_data.csv")
     # Define parameters
     num_samples = 5
-    num_records_per_sample = 1000
+    num_records_per_sample = 4
     create_sample_files(original_data, num_samples, num_records_per_sample)
     return "New samples generated!"  # Placeholder message
 
@@ -51,7 +65,19 @@ def predict():
             # Read selected file into a pandas DataFrame
             sample_df = pd.read_csv(selected_file)
             # Save DataFrame as predict_data.csv
-            sample_df.to_csv("predict_data.csv", index=False)
+            json_data = sample_df.to_json(orient="records")
+            data = {
+              "instances": json_data
+            }
+            json_file_path = "predict_data.json"
+            print(data["instances"])
+            data_json = jsonify(data)            
+            with open(json_file_path, "w") as json_file:
+                json_file.write(json_data)
+            
+            #response_predict = requests.post(predict_url, json=data)
+            #predict_status = response_predict.json()
+            #sample_df.to_csv("predict_data.csv", index=False)
             return jsonify({"success": True})
         except FileNotFoundError:
             return jsonify({"success": False, "error": "File not found"})
@@ -59,4 +85,10 @@ def predict():
         return jsonify({"success": False, "error": "No file selected"})
 
 if __name__ == "__main__":
+    original_data = pd.read_csv("test_data.csv")
+    # Define parameters
+    num_samples = 5
+    num_records_per_sample = 4
+    create_sample_files(original_data, num_samples, num_records_per_sample)
     app.run(debug=True)
+
