@@ -4,6 +4,9 @@ import joblib
 import os
 import json
 from dotenv import load_dotenv
+import pandas as pd
+import numpy as np
+from sklearn.preprocessing import LabelEncoder
 
 load_dotenv()
 
@@ -82,21 +85,88 @@ def fetch_latest_model(bucket_name, prefix="model/model_"):
     return latest_blob_name
 
 
-def normalize_data(instance, stats):
+def normalize_data(data, stats):
     """
-    Normalizes a data instance using provided statistics.
-    Args:
-        instance (dict): A dictionary representing the data instance.
-        stats (dict): A dictionary with 'mean' and 'std' keys for normalization.
+    Normalizes the data using the provided statistics.
+
+    Parameters:
+    data (DataFrame): The data to be normalized.
+    stats (dict): A dictionary containing the feature means and standard deviations.
+
     Returns:
-        dict: A dictionary representing the normalized instance.
+    DataFrame: A pandas DataFrame containing the normalized data.
     """
-    normalized_instance = {}
-    for feature, value in instance.items():
-        mean = stats["mean"].get(feature, 0)
-        std = stats["std"].get(feature, 1)
-        normalized_instance[feature] = (value - mean) / std
-    return normalized_instance
+    normalized_data = {}
+
+    Num_cols = ['loan_amnt', 'int_rate', 'installment', 'annual_inc', 'dti', 
+          'open_acc', 'pub_rec', 'revol_bal', 'total_acc', 'mort_acc', 'pub_rec_bankruptcies']
+    
+    for column in data.columns:
+        if column not in Num_cols:
+            mean = stats["mean"][column]
+            std = stats["std"][column]
+            normalized_data[column] = [(value - mean) / std for value in data[column]]
+        else:
+            # Keep categorical data unchanged
+            normalized_data[column] = data[column]
+    
+    # Convert normalized_data dictionary back to a DataFrame
+    normalized_df = pd.DataFrame(normalized_data, index=data.index)
+    return normalized_df
+
+def map_years(years):
+    """
+    Mapping employment length values to numerical values.
+
+    Args:
+        years (str or int): The employment length value.
+
+    Returns:
+        int or np.nan: The mapped numerical value for employment length, or np.nan if input is NaN.
+
+    Raises:
+        None
+    """
+    if pd.isna(years):  # Handle NaN values
+        return np.nan
+    elif isinstance(years, int):  # If already an integer, return as is
+        return years
+    elif years == '< 1 year':
+        return 0
+    elif years == '10+ years':
+        return 10
+    else:
+        return int(years.split()[0])
+
+def encode(df):
+
+    dic = {' 36 months':36, ' 60 months':60}
+    df['term'] = df.term.map(dic)
+
+    # Applying mapping function to the column
+    df['emp_length'] = df['emp_length'].map(map_years)
+
+    # Label encoding for 'loan_status' column
+    le=LabelEncoder()
+    df['loan_status'] = le.fit_transform(df['loan_status'])
+
+    # print(f"Data saved to df after encoding.")
+    return df
+
+def preprocess( df):
+    df['earliest_cr_line']=df['earliest_cr_line'].apply(lambda x:int(x[-4:]))
+    df['zipcode']=df['address'].apply(lambda x:str(x[-5:]))
+    df.drop('address',axis=1,inplace=True)
+    df = encode(df)
+    df.drop(['sub_grade','title','emp_title'],axis=1,inplace=True)
+    df['mort_acc'].fillna(df['mort_acc'].mean(),inplace = True)
+    df['emp_length'].fillna(0,inplace = True)
+    df['revol_util'].fillna(0,inplace = True)
+    df['mort_acc'].fillna(0,inplace = True)
+    df = pd.get_dummies(df,columns=['grade', 'verification_status', 'purpose', 'initial_list_status',
+           'application_type', 'home_ownership'],dtype=int)   
+    
+    return df
 
 @app.route(os.environ['AIP_HEALTH_ROUTE'], methods=['GET'])
 def health_check():
@@ -115,32 +185,46 @@ def predict():
     """
     request_json = request.get_json()
     request_instances = request_json['instances']
+    # instance = request_instances.to_dict()
+    
+    # Convert the dictionary to a list of dictionaries (Flask returns data as strings)
+    # data = [instance]
+    
+    # Convert the list of dictionaries to a DataFrame
+    df = pd.DataFrame(request_instances)
+    # df = preprocess(df)
+    # df = normalize_data(df,stats)
 
+    print(stats)
+    print(df.columns)
     # Normalize and format each instance
-    formatted_instances = []
-    for instance in request_instances:
-        normalized_instance = normalize_data(instance, stats)
-        formatted_instance = [
-            normalized_instance['PT08.S1(CO)'],
-            normalized_instance['NMHC(GT)'],
-            normalized_instance['C6H6(GT)'],
-            normalized_instance['PT08.S2(NMHC)'],
-            normalized_instance['NOx(GT)'],
-            normalized_instance['PT08.S3(NOx)'],
-            normalized_instance['NO2(GT)'],
-            normalized_instance['PT08.S4(NO2)'],
-            normalized_instance['PT08.S5(O3)'],
-            normalized_instance['T'],
-            normalized_instance['RH'],
-            normalized_instance['AH']
-        ]
-        formatted_instances.append(formatted_instance)
+    # formatted_instances = []
+    # for instance in request_instances:
+        # print(instance)
+        # print(stats)
+        # normalized_instance  = normalize_data(instance, stats)  
+    #     formatted_instance = [
+    #         normalized_instance['PT08.S1(CO)'],
+    #         normalized_instance['NMHC(GT)'],
+    #         normalized_instance['C6H6(GT)'],
+    #         normalized_instance['PT08.S2(NMHC)'],
+    #         normalized_instance['NOx(GT)'],
+    #         normalized_instance['PT08.S3(NOx)'],
+    #         normalized_instance['NO2(GT)'],
+    #         normalized_instance['PT08.S4(NO2)'],
+    #         normalized_instance['PT08.S5(O3)'],
+    #         normalized_instance['T'],
+    #         normalized_instance['RH'],
+    #         normalized_instance['AH']
+    #     ]
+    #     formatted_instances.append(formatted_instance)
 
     # Make predictions with the model
-    prediction = model.predict(formatted_instances)
+    prediction = model.predict(df)
     prediction = prediction.tolist()
     output = {'predictions': [{'result': pred} for pred in prediction]}
     return jsonify(output)
+    # return "recieve data"
 
 project_id, bucket_name = initialize_variables()
 storage_client, bucket = initialize_client_and_bucket(bucket_name)

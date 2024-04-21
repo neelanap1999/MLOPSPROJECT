@@ -17,8 +17,8 @@ load_dotenv()
 fs = gcsfs.GCSFileSystem()
 storage_client = storage.Client()
 bucket_name = os.getenv("BUCKET_NAME")
-MODEL_DIR = os.environ['AIP_STORAGE_URI']
-# MODEL_DIR = "gs://mlops_loan_data/model"
+# MODEL_DIR = os.getenv("AIP_STORAGE_URI")
+MODEL_DIR = "gs://mlops_loan_data/model"
 
 def load_data(gcs_train_data_path):
     """
@@ -51,11 +51,14 @@ def normalize_data(data, stats):
     Num_cols = ['loan_amnt', 'int_rate', 'installment', 'annual_inc', 'dti', 
           'open_acc', 'pub_rec', 'revol_bal', 'total_acc', 'mort_acc', 'pub_rec_bankruptcies']
     
-    for column in Num_cols:
-        mean = stats["mean"][column]
-        std = stats["std"][column]
-        
-        normalized_data[column] = [(value - mean) / std for value in data[column]]
+    for column in data.columns:
+        if column in Num_cols:
+            mean = stats["mean"][column]
+            std = stats["std"][column]
+            normalized_data[column] = [(value - mean) / std for value in data[column]]
+        else:
+            # Keep categorical data unchanged
+            normalized_data[column] = data[column]
     
     # Convert normalized_data dictionary back to a DataFrame
     normalized_df = pd.DataFrame(normalized_data, index=data.index)
@@ -87,7 +90,7 @@ def data_transform(df):
     client = storage.Client()
     bucket_name = os.getenv("BUCKET_NAME")
     blob_path = 'scaler/normalization_stats.json' # Change this to your blob path where the data is stored
-    bucket = client.get_bucket("mlops_loan_data")
+    bucket = client.get_bucket(bucket_name)
     blob = bucket.blob(blob_path)
 
     # Download the json as a string

@@ -46,11 +46,19 @@ def normalize_data(data, stats):
     DataFrame: A pandas DataFrame containing the normalized data.
     """
     normalized_data = {}
+
+    Num_cols = ['loan_amnt', 'int_rate', 'installment', 'annual_inc', 'dti', 
+          'open_acc', 'pub_rec', 'revol_bal', 'total_acc', 'mort_acc', 'pub_rec_bankruptcies']
+    
     for column in data.columns:
-        mean = stats["mean"][column]
-        std = stats["std"][column]
-        
-        normalized_data[column] = [(value - mean) / std for value in data[column]]
+        if column not in Num_cols:
+            mean = stats["mean"][column]
+            std = stats["std"][column]
+            normalized_data[column] = [(value - mean) / std for value in data[column]]
+        else:
+            # Keep categorical data unchanged
+            normalized_data[column] = data[column]
+
     
     # Convert normalized_data dictionary back to a DataFrame
     normalized_df = pd.DataFrame(normalized_data, index=data.index)
