@@ -17,8 +17,8 @@ load_dotenv()
 fs = gcsfs.GCSFileSystem()
 storage_client = storage.Client()
 bucket_name = os.getenv("BUCKET_NAME")
-# MODEL_DIR = os.getenv("AIP_STORAGE_URI")
-MODEL_DIR = "gs://mlops_loan_data/model"
+MODEL_DIR = os.getenv("AIP_STORAGE_URI")
+# MODEL_DIR = "gs://mlops_loan_data/model"
 
 def load_data(gcs_train_data_path):
     """
@@ -78,13 +78,14 @@ def data_transform(df):
     """
 
     # Splitting the data into training and validation sets (80% training, 20% validation)
+    df ['zipcode'] = df.zipcode.astype('category')
+    
     X = df.drop('loan_status',axis=1)
     y = df['loan_status']
 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.25, random_state=101)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.08, random_state=101)
     y_train = pd.DataFrame(y_train)
     y_test = pd.DataFrame(y_test)
-
 
      # Get the json from GCS
     client = storage.Client()
@@ -99,7 +100,6 @@ def data_transform(df):
 
     # Normalize the data using the statistics from the training set
     X_train_scaled = normalize_data(X_train, stats)
-    
     return X_train_scaled, X_test, y_train, y_test
 
 

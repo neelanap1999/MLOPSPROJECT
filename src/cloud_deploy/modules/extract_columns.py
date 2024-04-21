@@ -45,6 +45,7 @@ def extract_task(df):
     #df['issue_d']=df['issue_d'].apply(lambda x:int(x[0:4]))
 
     df['zipcode']=df['address'].apply(lambda x:str(x[-5:]))
+    df["zipcode"] = df['zipcode'].astype ('category')
     df.drop('address',axis=1,inplace=True)
 
     # logger.info(f"Data saved to df after extracting year.")

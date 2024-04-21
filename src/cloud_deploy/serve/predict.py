@@ -6,7 +6,8 @@ import json
 from dotenv import load_dotenv
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import LabelEncoder
+import pickle
+# from sklearn.preprocessing import LabelEncoder
 
 load_dotenv()
 
@@ -48,6 +49,40 @@ def load_stats(bucket, SCALER_BLOB_NAME='scaler/normalization_stats.json'):
     stats = json.loads(stats_str)
     return stats
 
+def load_encoders(bucket):
+
+     # Specify the paths of the pickled encoder files in the bucket
+    le_blob_path = "scaler/label_encoder.pkl"
+    oe_blob_path = "scaler/ordinal_encoder_grade.pkl"
+    ohe_blob_path = "scaler/one_hot_encoder.pkl"
+
+    # Create blobs for the files
+    le_blob = bucket.blob(le_blob_path)
+    oe_blob = bucket.blob(oe_blob_path)
+    ohe_blob = bucket.blob(ohe_blob_path)
+
+    # Download the pickled files to local temporary paths
+    local_le_path = "/tmp/label_encoder.pkl"
+    local_oe_path = "/tmp/ordinal_encoder_grade.pkl"
+    local_ohe_path = "/tmp/one_hot_encoder.pkl"
+
+    le_blob.download_to_filename(local_le_path)
+    oe_blob.download_to_filename(local_oe_path)
+    ohe_blob.download_to_filename(local_ohe_path)
+
+    # Load the encoders using pickle
+    with open(local_le_path, 'rb') as f:
+        label_encoder = pickle.load(f)
+
+    with open(local_oe_path, 'rb') as f:
+        ordinal_encoder = pickle.load(f)
+
+    with open(local_ohe_path, 'rb') as f:
+        one_hot_encoder = pickle.load(f)
+
+    # Return the loaded encoders
+    return label_encoder, ordinal_encoder, one_hot_encoder
+
 def load_model(bucket, bucket_name):
     """
     Fetch and load the latest model from the bucket.
@@ -77,11 +112,11 @@ def fetch_latest_model(bucket_name, prefix="model/model_"):
 
     # Extract the timestamps from the blob names and identify the blob with the latest timestamp
     blob_names = [blob.name for blob in blobs]
+    
     if not blob_names:
         raise ValueError("No model files found in the GCS bucket.")
-
-    latest_blob_name = sorted(blob_names, key=lambda x: x.split('_')[-1], reverse=True)[0]
-
+    sorted_blobs =  sorted(blob_names, key=lambda x: x.split('_')[-2:], reverse=True)
+    latest_blob_name = sorted_blobs[0]
     return latest_blob_name
 
 
@@ -102,7 +137,7 @@ def normalize_data(data, stats):
           'open_acc', 'pub_rec', 'revol_bal', 'total_acc', 'mort_acc', 'pub_rec_bankruptcies']
     
     for column in data.columns:
-        if column not in Num_cols:
+        if column in Num_cols:
             mean = stats["mean"][column]
             std = stats["std"][column]
             normalized_data[column] = [(value - mean) / std for value in data[column]]
@@ -138,34 +173,47 @@ def map_years(years):
     else:
         return int(years.split()[0])
 
-def encode(df):
+def preprocess( df):
+    df = df.drop(['loan_status', "issue_d"],axis=1)
 
+    #extract columns
+    df['earliest_cr_line']=df['earliest_cr_line'].apply(lambda x:int(x[-4:]))
+    df['zipcode']=df['address'].apply(lambda x:str(x[-5:]))
+    df["zipcode"] = df['zipcode'].astype ('category')
+    df.drop('address',axis=1,inplace=True)
+
+    #encode
     dic = {' 36 months':36, ' 60 months':60}
     df['term'] = df.term.map(dic)
 
+
     # Applying mapping function to the column
     df['emp_length'] = df['emp_length'].map(map_years)
-
-    # Label encoding for 'loan_status' column
-    le=LabelEncoder()
-    df['loan_status'] = le.fit_transform(df['loan_status'])
-
-    # print(f"Data saved to df after encoding.")
-    return df
-
-def preprocess( df):
-    df['earliest_cr_line']=df['earliest_cr_line'].apply(lambda x:int(x[-4:]))
-    df['zipcode']=df['address'].apply(lambda x:str(x[-5:]))
-    df.drop('address',axis=1,inplace=True)
-    df = encode(df)
+    
+    
+    # Columns_drop
     df.drop(['sub_grade','title','emp_title'],axis=1,inplace=True)
+
+    # treat na
     df['mort_acc'].fillna(df['mort_acc'].mean(),inplace = True)
     df['emp_length'].fillna(0,inplace = True)
     df['revol_util'].fillna(0,inplace = True)
     df['mort_acc'].fillna(0,inplace = True)
-    df = pd.get_dummies(df,columns=['grade', 'verification_status', 'purpose', 'initial_list_status',
-           'application_type', 'home_ownership'],dtype=int)   
+
     
+    # encode categorical columns
+    df['grade'] = ordinal_encoder.transform(df[['grade']])
+
+    categorical_columns = ['verification_status', 'purpose', 'initial_list_status', 'application_type', 'home_ownership']
+
+    # Transform categorical columns using the one_hot_encoder
+    one_hot_encoded_data = one_hot_encoder.transform(df[categorical_columns])
+    
+    # Convert the one-hot encoded data to a DataFrame
+    one_hot_encoded_df = pd.DataFrame(one_hot_encoded_data.toarray(), columns=one_hot_encoder.get_feature_names_out(categorical_columns))
+
+    # Concatenate the one-hot encoded data with the original data (excluding categorical columns)
+    df = pd.concat([df.drop(categorical_columns, axis=1), one_hot_encoded_df], axis=1)
     return df
 
 @app.route(os.environ['AIP_HEALTH_ROUTE'], methods=['GET'])
@@ -192,43 +240,20 @@ def predict():
     
     # Convert the list of dictionaries to a DataFrame
     df = pd.DataFrame(request_instances)
-    # df = preprocess(df)
-    # df = normalize_data(df,stats)
-
-    print(stats)
-    print(df.columns)
-    # Normalize and format each instance
-    # formatted_instances = []
-    # for instance in request_instances:
-        # print(instance)
-        # print(stats)
-        # normalized_instance  = normalize_data(instance, stats)  
-    #     formatted_instance = [
-    #         normalized_instance['PT08.S1(CO)'],
-    #         normalized_instance['NMHC(GT)'],
-    #         normalized_instance['C6H6(GT)'],
-    #         normalized_instance['PT08.S2(NMHC)'],
-    #         normalized_instance['NOx(GT)'],
-    #         normalized_instance['PT08.S3(NOx)'],
-    #         normalized_instance['NO2(GT)'],
-    #         normalized_instance['PT08.S4(NO2)'],
-    #         normalized_instance['PT08.S5(O3)'],
-    #         normalized_instance['T'],
-    #         normalized_instance['RH'],
-    #         normalized_instance['AH']
-    #     ]
-    #     formatted_instances.append(formatted_instance)
+    df = preprocess(df)
+    df = normalize_data(df,stats)   
 
     # Make predictions with the model
     prediction = model.predict(df)
     prediction = prediction.tolist()
-    output = {'predictions': [{'result': pred} for pred in prediction]}
+    output = {'predictions': [{'result': "loan_approved" if pred == 1 else "not approved" } for pred in prediction]}
     return jsonify(output)
     # return "recieve data"
 
 project_id, bucket_name = initialize_variables()
 storage_client, bucket = initialize_client_and_bucket(bucket_name)
 stats = load_stats(bucket)
+le, ordinal_encoder, one_hot_encoder = load_encoders(bucket)
 model = load_model(bucket, bucket_name)
 
 
