@@ -4,35 +4,37 @@
     <title>MLOps Sample Selection</title>
     <style>
         body {
-            background-color: #f0eeee; /* Professional background color */
+            background-color: #f5f5f5; /* Professional background color */
             text-align: center;
             font-family: Arial, sans-serif;
         }
 
         h1 {
-            margin: 40px 0;
-            font-size: 45px; /* Increase font size for h1 */
+            margin: 50px 0;
+            font-size: 50px;
         }
 
         h2 {
             margin: 40px 0;
+            font-size: 36px;
         }
+
 
         table {
             border-collapse: collapse;
             margin: auto;
-            width: 100%;  /* Adjust width as needed */
+            width: 80%;  /* Adjust width as needed */
         }
 
         th, td {
-            border: 1px solid #171212;
+            border: 1px solid #ddd;
             padding: 4px;  /* Reduce padding for potentially long content */
             white-space: nowrap;  /* Prevent text wrapping within cells */
-            text-overflow: ellipsis;  /* Truncate long content with ellipsis (...) */
+            /*text-overflow: ellipsis;*/  /* Truncate long content with ellipsis (...) */
         }
 
         th {
-            background-color: #ea8756;
+            background-color: #eee;
         }
 
         /* Custom styles for buttons */
@@ -69,11 +71,11 @@
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 4px;
-            appearance: none; /* Remove default dropdown arrow */
-            -webkit-appearance: none;
-            -moz-appearance: none;
+            /* appearance: none; *//* Remove default dropdown arrow */
+            /*-webkit-appearance: none;*/
+            /*-moz-appearance: none;*/
             background-color: #fff;
-            /*background-image: url('arrow.png'); *//* Add custom dropdown arrow */
+            /*background-image: url('arrow.png');*/ /* Add custom dropdown arrow */
             background-position: right center;
             background-repeat: no-repeat;
             cursor: pointer;
@@ -83,18 +85,17 @@
         select:hover {
             border-color: #999;
         }
-
     </style>
 </head>
 <body>
     <h1>Credit Risk Assessment</h1>
-    <form action="/">
-        <select name="selected_file">
+    <form action="/" id="sampleForm">
+        <select name="selected_file" id="selectedFile">
             {% for file in selected_file_options %}
-                <option value="{{ file }}" {% if selected_file == file %}selected{% endif %}>{{ file }}</option>
+                {% set sample_number = file.split('_')[1].split('.')[0] %}
+                <option value="{{ file }}" {% if selected_file == file %}selected{% endif %}>Sample {{ sample_number }}</option>
             {% endfor %}
         </select>
-        <button type="submit" class="button">Select</button>
     </form>
 
     {% if sample_data %}
@@ -123,6 +124,10 @@
     {% endif %}
 
     <script>
+        document.getElementById('selectedFile').addEventListener('change', function() {
+            document.getElementById('sampleForm').submit();
+        });
+
         function displayPopup(message) {
             alert(message); // Display popup alert
         }
@@ -135,10 +140,13 @@
                 if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
                     // Display popup when new samples are generated
                     displayPopup("New samples generated!");
+                    // Reload the page to fetch and display the updated data
+                    location.reload();
                 }
             };
             xhr.send();
         }
+
 
         function predict() {
             // Get the selected sample file from the dropdown
@@ -150,7 +158,7 @@
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        displayPopup("Predict data saved as predict_data.csv!");
+                        displayPopup("Predict data saved as predict_data.json");
                     } else {
                         displayPopup("Error occurred while predicting!");
                     }
