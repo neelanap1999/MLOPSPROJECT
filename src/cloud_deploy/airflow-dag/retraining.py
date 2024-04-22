@@ -37,18 +37,22 @@ pull_train_script = BashOperator(
 )
 
 
-
+env = {
+    'AIP_STORAGE_URI': 'gs://mlops_loan_data/model'
+}
 
 # Tasks for running scripts
 run_preprocess_script = BashOperator(
     task_id='run_preprocess_script',
     bash_command=f'python {LOCAL_PREPROCESS_FILE_PATH}',
+    env=env,
     dag=dag,
 )
 
 run_train_script = BashOperator(
     task_id='run_train_script',
     bash_command=f'python {LOCAL_TRAIN_FILE_PATH}',
+    env=env,
     dag=dag,
 )
 
