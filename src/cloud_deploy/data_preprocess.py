@@ -77,7 +77,7 @@ def map_years(years):
     else:
         return int(years.split()[0])
 
-def preprocess(train_data, output_filepath, normalization_stats_gcs_path, output_train_stats, encoder_path):
+def preprocess(train_data, output_filepath, normalization_stats_gcs_path, encoder_path):
     Stage_name = "Preprocessing data"
     logging.info(f"------Stage {Stage_name}------------")
 
@@ -154,28 +154,74 @@ def preprocess(train_data, output_filepath, normalization_stats_gcs_path, output
     if not train_data.empty:
         with fs.open(output_filepath, 'w') as f:
             train_data.to_csv(f, index=False)            
-    print(output_filepath)
+    # print(output_filepath)
     logging.info(f">>>>>> stage {Stage_name} completed <<<<<<\n\nx==========x")
+
+def update_dataset(train_data, monthly_dataframes, train_data_gcs_path, test_data_gcs_path, preprocessed_train_data_gcs_path, normalization_stats_gcs_path, encoder_path):
+    
+    sorted_months = sorted(monthly_dataframes.keys(), key=lambda x: (int(x.split('-')[0]), int(x.split('-')[1])))
+
+    # Attempt to load existing train and test datasets
+    try:
+        with fs.open(train_data_gcs_path, 'r') as f:
+            train_data = pd.read_csv(f)
+        with fs.open(test_data_gcs_path, 'r') as f:
+            test_data = pd.read_csv(f)
+    except FileNotFoundError:
+         # If files do not exist, initialize the first two months as training and the third month as testing
+        max_m = train_data["issue_d"].max()
+        test_data = monthly_dataframes[sorted_months[0]]
+        train_data = train_data[train_data["issue_d"] != max_m]
+        next_month_index = -1
+    else:
+        last_test_date  = test_data['issue_d'].max()
+        last_test_month = str(last_test_date)
+
+        next_month_index = sorted_months.index(last_test_month) + 1
+        
+        train_data = pd.concat([train_data, test_data], ignore_index=True)
+        test_data = monthly_dataframes[sorted_months[next_month_index]]
+
+    print(train_data.shape, test_data.shape)
+     # Save the updated datasets to GCS
+    if not train_data.empty:
+        with fs.open(train_data_gcs_path, 'w') as f:
+            train_data.to_csv(f, index=False)
+    if not test_data.empty:
+        with fs.open(test_data_gcs_path, 'w') as f:
+            test_data.to_csv(f, index=False)
+    train_data = train_data.drop("issue_d", axis =1)
+    preprocess(train_data, preprocessed_train_data_gcs_path, normalization_stats_gcs_path, encoder_path)
 
 
 if __name__ == "__main__":
      
     #ouput gcs path to save train_data and test _data
-    train_data_gcs_path = "gs://mlops_loan_data/data/train/train_data.xlsx"
-    test_data_gcs_path = "gs://mlops_loan_data/data/train/test_data.xlsx"
+    train_data_gcs_path = "gs://mlops_loan_data/data/train/train_data.csv"
+    test_data_gcs_path = "gs://mlops_loan_data/data/test/test_data.csv"
+
     normalization_stats_gcs_path = "gs://mlops_loan_data/scaler/normalization_stats.json"
     output_train_stats = "gs://mlops_loan_data/scaler/train_schema.txt"
+
     preprocessed_train_data_gcs_path = "gs://mlops_loan_data/data/train/preprocess/train_data_preprocessed.csv"
     encoder_path = "gs://mlops_loan_data/scaler/"
 
     # Original dataset
     gcs_loan_data_path = "gs://mlops_loan_data/data/initial_data.csv"
+    gcs_loan_test_data_path = "gs://mlops_loan_data/data/test_data.csv"
+
     train_data = pd.read_csv(gcs_loan_data_path)
-    train_data["issue_d"] = pd.to_datetime(train_data["issue_d"])
+    test_data = pd.read_csv(gcs_loan_test_data_path)
 
-    #during data splitting drop issue_d column
-    train_data.drop(['issue_d'],axis=1,inplace=True)
+    train_data["issue_d"] = pd.to_datetime(train_data["issue_d"]).dt.to_period('M')
+    test_data["Year_Month"] = pd.to_datetime(test_data["issue_d"]).dt.to_period('M')
+    test_data["issue_d"] = pd.to_datetime(test_data["issue_d"]).dt.to_period('M')
+    
 
-    preprocess(train_data, preprocessed_train_data_gcs_path, normalization_stats_gcs_path, output_train_stats, encoder_path)
+    monthly_groups = test_data.groupby('Year_Month')
+    monthly_dataframes = {str(period): group.drop('Year_Month', axis=1) for period, group in monthly_groups}
+
+
+    update_dataset(train_data, monthly_dataframes, train_data_gcs_path, test_data_gcs_path, preprocessed_train_data_gcs_path, normalization_stats_gcs_path, encoder_path)
 
 
