@@ -133,7 +133,7 @@ GCP enabled us to efficiently implement the ETL process while preserving interme
 1. To leverage Google Cloud Platform services, simply initialize a service account.
 2. Similar to other remotes, downloading an SSH key is required for remote access.
 
-[comment]: [Link to view our Files tracked by DVC on Google Cloud Platform]([https://console.cloud.google.com/storage/browser/custseg_dvc_store)
+//[Link to view our Files tracked by DVC on Google Cloud Platform]([https://console.cloud.google.com/storage/browser/custseg_dvc_store)
 
 
 ![Need to Implement](Image/blank.avif)
