@@ -57,7 +57,32 @@ def generate_new_samples():
     create_sample_files(original_data, num_samples, num_records_per_sample)
     return "New samples generated!"  # Placeholder message
 
-@app.route("/predict")
+@app.route("/predict", methods=["POST"])
+def predict():
+    selected_file = request.form.get("selected_file")  # Get the selected sample file
+    if selected_file:
+        try:
+            # Read selected file into a pandas DataFrame
+            sample_df = pd.read_csv(selected_file)
+            # Convert DataFrame to JSON
+            json_data = sample_df.to_json(orient="records")
+            
+            # Send a POST request to predict.py
+            response = requests.post(predict_url, json={"instances": json.loads(json_data)})
+            if response.status_code == 200:
+                # If successful, display predictions on the webpage
+                prediction_data = response.json()
+                predictions = prediction_data["predictions"]
+                return render_template("index.html", selected_file=selected_file, sample_data=sample_data, column_labels=column_labels, selected_file_options=selected_file_options, predictions=predictions)
+            else:
+                # If request fails, handle error
+                return jsonify({"success": False, "error": "Prediction failed"})
+        except FileNotFoundError:
+            return jsonify({"success": False, "error": "File not found"})
+    else:
+        return jsonify({"success": False, "error": "No file selected"})
+
+'''@app.route("/predict")
 def predict():
     selected_file = request.args.get("selected_file")
     if selected_file:
@@ -82,7 +107,7 @@ def predict():
         except FileNotFoundError:
             return jsonify({"success": False, "error": "File not found"})
     else:
-        return jsonify({"success": False, "error": "No file selected"})
+        return jsonify({"success": False, "error": "No file selected"})'''
 
 if __name__ == "__main__":
     original_data = pd.read_csv("test_data.csv")
