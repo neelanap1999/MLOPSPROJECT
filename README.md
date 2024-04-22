@@ -91,7 +91,7 @@ To install for users, follow these steps:
 
 1. Clone the repository to your local machine:
 ```
-git clone [https://github.com/neelanap1999/MLOPSPROJECT](https://github.com/neelanap1999/MLOPSPROJECT.git)
+git clone https://github.com/neelanap1999/MLOPSPROJECT.git
 ```
 2. Ensure that your Python version is 3.8 or above:
 ```python
@@ -106,21 +106,15 @@ docker run --rm "debian:bullseye-slim" bash -c 'numfmt --to iec $(echo $(($(getc
 
 # Tools Used for MLOps
 
-- GitHub Actions
 - Docker
 - Airflow
 - DVC
 - Google Cloud Platform (GCP)
 - MLflow
-- TensorFlow
 - Flask
-
-## GitHub Actions
-GitHub Actions workflows are set on push and pull requests for all branches, including feature and main. On pushing a new commit, the workflow triggers a build involving `pytest` and `pylint`, generating test reports in XML format. Feature branches merge with main only after successful builds.
 
 ## Docker and Airflow
 Inside the `docker-compose.yaml` file, you'll find the necessary code to execute Airflow. Utilizing Docker and containerization enables us to package our data pipeline along with its essential dependencies. This ensures platform independence, allowing our data pipeline to operate seamlessly on Windows, macOS, or Linux systems.
-
 
 ## DVC
 Data Version Control facilitates the versioning of datasets and machine learning models, capturing snapshots of the data utilized in training and its associated code. This capability enables reproducibility and traceability, ensuring the ability to recreate any past state of your project. DVC exclusively stores metadata, while the actual data resides in cloud storage or other remote locations. By seamlessly integrating with Git, DVC enables the utilization of Git repositories for code management and DVC repositories for data and model management. This dual-repository method aids in maintaining a tidy and efficient codebase.
@@ -139,7 +133,7 @@ GCP enabled us to efficiently implement the ETL process while preserving interme
 1. To leverage Google Cloud Platform services, simply initialize a service account.
 2. Similar to other remotes, downloading an SSH key is required for remote access.
 
-[Link to view our Files tracked by DVC on Google Cloud Platform]([https://console.cloud.google.com/storage/browser/custseg_dvc_store)
+[comment]: [Link to view our Files tracked by DVC on Google Cloud Platform]([https://console.cloud.google.com/storage/browser/custseg_dvc_store)
 
 
 ![Need to Implement](Image/blank.avif)
