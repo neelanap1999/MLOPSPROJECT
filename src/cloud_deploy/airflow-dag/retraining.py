@@ -10,7 +10,7 @@ GITHUB_TRAIN_RAW_URL = 'https://raw.githubusercontent.com/neelanap1999/MLOPSPROJ
 
 default_args = {
     'owner': 'Time_Series_IE7374',
-    'start_date': dt.datetime(2024, 04, 21),
+    'start_date': dt.datetime(2024, 4, 21),
     'retries': 1,
     'retry_delay': dt.timedelta(minutes=5),
 }
