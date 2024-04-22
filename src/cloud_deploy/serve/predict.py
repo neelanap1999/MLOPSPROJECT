@@ -6,9 +6,10 @@ import json
 from dotenv import load_dotenv
 import pandas as pd
 import numpy as np
+import gcsfs
 import pickle
 # from sklearn.preprocessing import LabelEncoder
-
+fs = gcsfs.GCSFileSystem()
 load_dotenv()
 
 app = Flask(__name__)
@@ -71,13 +72,13 @@ def load_encoders(bucket):
     ohe_blob.download_to_filename(local_ohe_path)
 
     # Load the encoders using pickle
-    with open(local_le_path, 'rb') as f:
+    with fs.open(local_le_path, 'rb') as f:
         label_encoder = pickle.load(f)
 
-    with open(local_oe_path, 'rb') as f:
+    with fs.open(local_oe_path, 'rb') as f:
         ordinal_encoder = pickle.load(f)
 
-    with open(local_ohe_path, 'rb') as f:
+    with fs.open(local_ohe_path, 'rb') as f:
         one_hot_encoder = pickle.load(f)
 
     # Return the loaded encoders
