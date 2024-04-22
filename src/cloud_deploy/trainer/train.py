@@ -145,7 +145,7 @@ def save_precision_to_bigquery(version, precision,accuracy):
     version (str): The version of the model.
     precision (float): The precision score of the model.
     """
-    client = bigquery.Client()
+    client = bigquery.Client(project="mlops-project-9608-416822")
     table_ref = client.dataset('mlopsmodeltracking').table('scoreboard')
     table = client.get_table(table_ref)
     
