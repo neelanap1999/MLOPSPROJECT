@@ -147,25 +147,30 @@
             xhr.send();
         }
 
-
         function predict() {
-            // Get the selected sample file from the dropdown
             var selectedFile = document.querySelector('select[name="selected_file"]').value;
 
-            // Make an AJAX request to Flask route for predicting
             var xhr = new XMLHttpRequest();
-            xhr.open("GET", "/predict?selected_file=" + encodeURIComponent(selectedFile), true);
+            xhr.open("POST", "/predict", true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        displayPopup("Predict data saved as predict_data.json");
+                        var predictionData = JSON.parse(xhr.responseText);
+                        var predictions = predictionData["predictions"];
+                        displayPopup("Predictions: " + predictions);
                     } else {
                         displayPopup("Error occurred while predicting!");
                     }
                 }
             };
-            xhr.send();
-        }
+
+            // Send selected file as JSON to /predict route
+            var jsonData = { "selected_file": selectedFile };
+            xhr.send(JSON.stringify(jsonData));
+        }   
+        
     </script>
 </body>
 </html>
