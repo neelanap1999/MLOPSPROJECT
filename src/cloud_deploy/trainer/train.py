@@ -17,9 +17,10 @@ load_dotenv()
 # Initialize variables
 fs = gcsfs.GCSFileSystem()
 storage_client = storage.Client()
-bucket_name = os.getenv("BUCKET_NAME")
-MODEL_DIR = os.getenv("AIP_STORAGE_URI")
-# MODEL_DIR = "gs://mlops_loan_data/model"
+#bucket_name = os.getenv("BUCKET_NAME")
+bucket_name = "mlops_loan_data"
+#MODEL_DIR = os.getenv("AIP_STORAGE_URI")
+MODEL_DIR = "gs://mlops_loan_data/model"
 
 def load_data(gcs_train_data_path):
     """
