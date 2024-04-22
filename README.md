@@ -91,7 +91,7 @@ To install for users, follow these steps:
 
 1. Clone the repository to your local machine:
 ```
-git clone https://github.com/Thomas-George-T/Ecommerce-Data-MLOps](https://github.com/neelanap1999/MLOPSPROJECT.git
+git clone [https://github.com/neelanap1999/MLOPSPROJECT](https://github.com/neelanap1999/MLOPSPROJECT.git
 ```
 2. Ensure that your Python version is 3.8 or above:
 ```python
