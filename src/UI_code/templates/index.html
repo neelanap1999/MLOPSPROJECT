@@ -123,6 +123,12 @@
         <button onclick="predict()" class="button predict-button">Predict</button> <!-- New Predict button -->
     {% endif %}
 
+    <!-- Prediction result section -->
+    <div id="predictionResult" style="display: none;">
+        <h2>Prediction Result</h2>
+        <p id="predictionText"></p>
+    </div>
+
     <script>
         document.getElementById('selectedFile').addEventListener('change', function() {
             document.getElementById('sampleForm').submit();

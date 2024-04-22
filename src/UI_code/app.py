@@ -57,7 +57,47 @@ def generate_new_samples():
     create_sample_files(original_data, num_samples, num_records_per_sample)
     return "New samples generated!"  # Placeholder message
 
-@app.route("/predict", methods=["POST"])
+from flask import redirect, url_for
+
+# Update the /predict route to handle both POST and GET
+@app.route("/predict", methods=["POST", "GET"])
+def predict():
+    if request.method == "POST":
+        # Handle POST request
+        selected_file = request.form.get("selected_file")  # Get the selected sample file
+        if selected_file:
+            try:
+                # Read selected file into a pandas DataFrame
+                sample_df = pd.read_csv(selected_file)
+                # Convert DataFrame to JSON
+                json_data = sample_df.to_json(orient="records")
+                
+                # Send a POST request to predict.py
+                response = requests.post(predict_url, json={"instances": json.loads(json_data)})
+                if response.status_code == 200:
+                    # If successful, redirect to the /prediction route
+                    prediction_data = response.json()
+                    predictions = prediction_data["predictions"]
+                    return redirect(url_for("prediction", predictions=predictions))
+                else:
+                    # If request fails, handle error
+                    return jsonify({"success": False, "error": "Prediction failed"})
+            except FileNotFoundError:
+                return jsonify({"success": False, "error": "File not found"})
+        else:
+            return jsonify({"success": False, "error": "No file selected"})
+    else:
+        # Handle GET request
+        predictions = request.args.get("predictions")  # Get predictions from URL parameters
+        return render_template("prediction.html", predictions=predictions)
+
+# Create a new route to display prediction result
+@app.route("/prediction")
+def prediction():
+    predictions = request.args.get("predictions")  # Get predictions from URL parameters
+    return render_template("prediction.html", predictions=predictions)
+
+'''@app.route("/predict", methods=["POST"])
 def predict():
     selected_file = request.form.get("selected_file")  # Get the selected sample file
     if selected_file:
@@ -80,7 +120,7 @@ def predict():
         except FileNotFoundError:
             return jsonify({"success": False, "error": "File not found"})
     else:
-        return jsonify({"success": False, "error": "No file selected"})
+        return jsonify({"success": False, "error": "No file selected"})'''
 
 '''@app.route("/predict")
 def predict():
