@@ -1,15 +1,16 @@
-from google.cloud import storage, bigquery
+from google.cloud import storage, bigquery, logging as cloud_logging
 from datetime import datetime
 import pytz
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import precision_score,accuracy_score
+from sklearn.metrics import precision_score, accuracy_score
 import joblib
 import json
 import gcsfs
 import os
 from dotenv import load_dotenv
+import logging
 
 # Load environment variables
 load_dotenv()
@@ -21,6 +22,10 @@ storage_client = storage.Client()
 bucket_name = "mlops_loan_data"
 #MODEL_DIR = os.getenv("AIP_STORAGE_URI")
 MODEL_DIR = "gs://mlops_loan_data/model"
+
+# Initialize the Cloud Logging client
+client = cloud_logging.Client()
+client.setup_logging()
 
 def load_data(gcs_train_data_path):
     """
@@ -137,7 +142,7 @@ def save_and_upload_model(model, local_model_path, gcs_model_path):
     with fs.open(gcs_model_path, 'wb') as f:
         joblib.dump(model, f)
 
-def save_precision_to_bigquery(version, precision,accuracy):
+def save_precision_to_bigquery(version, precision, accuracy):
     """
     Saves the precision score for a model version to BigQuery.
     
@@ -149,14 +154,13 @@ def save_precision_to_bigquery(version, precision,accuracy):
     table_ref = client.dataset('mlopsmodeltracking').table('scoreboard')
     table = client.get_table(table_ref)
     
-    rows_to_insert = [(version, precision,accuracy)]
+    rows_to_insert = [(version, precision, accuracy)]
     errors = client.insert_rows(table, rows_to_insert)
 
     if errors:
         print(f"Errors occurred: {errors}")
     else:
         print("Precision score saved successfully to BigQuery.")
-
 
 def main():
     """
@@ -175,7 +179,6 @@ def main():
     precision=precision_score(y_test,y_pred)
     accuracy=accuracy_score(y_test,y_pred)
 
-
     # Save the model locally and upload to GCS
     edt = pytz.timezone('US/Eastern')
     current_time_edt = datetime.now(edt)
@@ -183,7 +186,13 @@ def main():
     local_model_path = "model.pkl"
     gcs_model_path = f"{MODEL_DIR}/model_{version}.pkl"
     save_precision_to_bigquery(version, precision,accuracy)
-    print(gcs_model_path)
+
+    # Create a logger and log the GCS model path
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.INFO)
+    logger.addHandler(logging.StreamHandler())
+
+    logger.info(f"Model saved and uploaded to GCS: {gcs_model_path}")
     save_and_upload_model(model, local_model_path, gcs_model_path)
 
 if __name__ == "__main__":

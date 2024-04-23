@@ -1,24 +1,24 @@
-import logging
 import pandas as pd
 import numpy as np
 import pickle
 from sklearn.ensemble import IsolationForest
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder, OrdinalEncoder
-
-
-# import os
 import json 
 import gcsfs
+import logging
+from google.cloud import logging as cloud_logging
+
+# Initialize Google Cloud Logging client
+client = cloud_logging.Client()
+
+# Connect the logger to the cloud
+client.setup_logging()
 
 # Initialize a gcsfs file system object
 fs = gcsfs.GCSFileSystem()
 
-Stage_name = "Feature Extraction"
-
 def stats_to_json(train_data, normalization_stats_gcs_path):
-    
     Stage_name = "Preprocessing data"
-    # logging.info(f"------Stage {Stage_name}------------")    
     Num_cols = ['loan_amnt', 'int_rate', 'installment', 'annual_inc', 'dti', 
           'open_acc', 'pub_rec', 'revol_bal', 'total_acc', 'mort_acc', 'pub_rec_bankruptcies']
 
@@ -39,36 +39,6 @@ def stats_to_json(train_data, normalization_stats_gcs_path):
         json.dump(normalization_stats, json_file)
     logging.info(f">>>>>> stage {Stage_name} completed <<<<<<\n\nx==========x")
 
-def generate_train_schema(train_data_df, output_train_stats):
-    """Generate training schema."""
-    # train_stats = tfdv.generate_statistics_from_dataframe(train_data_df)
-    # tfdv.write_stats_text(train_stats, output_train_stats)
-
-# Define mapping function
-def map_years(years):
-    """
-    Mapping employment length values to numerical values.
-
-    Args:
-        years (str or int): The employment length value.
-
-    Returns:
-        int or np.nan: The mapped numerical value for employment length, or np.nan if input is NaN.
-
-    Raises:
-        None
-    """
-    if pd.isna(years):  # Handle NaN values
-        return np.nan
-    elif isinstance(years, int):  # If already an integer, return as is
-        return years
-    elif years == '< 1 year':
-        return 0
-    elif years == '10+ years':
-        return 10
-    else:
-        return int(years.split()[0])
-
 def preprocess(train_data, output_filepath, normalization_stats_gcs_path, encoder_path):
     Stage_name = "Preprocessing data"
     logging.info(f"------Stage {Stage_name}------------")
@@ -82,7 +52,6 @@ def preprocess(train_data, output_filepath, normalization_stats_gcs_path, encode
     # encode     
     dic = {' 36 months':36, ' 60 months':60}
     train_data['term'] = train_data.term.map(dic)
-
 
     # Applying mapping function to the column
     train_data['emp_length'] = train_data['emp_length'].map(map_years)
@@ -139,14 +108,11 @@ def preprocess(train_data, output_filepath, normalization_stats_gcs_path, encode
 
     #Generate stats on numerical columns only - >  export to JSON
     stats_to_json(train_data, normalization_stats_gcs_path)
-    # train_stats = tfdv.generate_statistics_from_dataframe(train_data)
-    
 
     #save preprocessed data to output_file path
     if not train_data.empty:
         with fs.open(output_filepath, 'w') as f:
             train_data.to_csv(f, index=False)            
-    # print(output_filepath)
     logging.info(f">>>>>> stage {Stage_name} completed <<<<<<\n\nx==========x")
 
 def update_dataset(train_data, monthly_dataframes, train_data_gcs_path, test_data_gcs_path, preprocessed_train_data_gcs_path, normalization_stats_gcs_path, encoder_path):
@@ -215,5 +181,3 @@ if __name__ == "__main__":
 
 
     update_dataset(train_data, monthly_dataframes, train_data_gcs_path, test_data_gcs_path, preprocessed_train_data_gcs_path, normalization_stats_gcs_path, encoder_path)
-
-
