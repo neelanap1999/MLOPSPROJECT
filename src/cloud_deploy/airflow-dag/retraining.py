@@ -1,6 +1,7 @@
 import datetime as dt
 from airflow import DAG
 from airflow.operators.bash_operator import BashOperator
+from airflow.operators.email_operator import EmailOperator
 
 LOCAL_PREPROCESS_FILE_PATH = '/tmp/preprocess.py'
 GITHUB_PREPROCESS_RAW_URL = 'https://raw.githubusercontent.com/neelanap1999/MLOPSPROJECT/main/src/cloud_deploy/data_preprocess.py'  # Adjust the path accordingly
@@ -15,12 +16,43 @@ default_args = {
     'retry_delay': dt.timedelta(minutes=5),
 }
 
+def notify_success(context):
+    success_email = EmailOperator(
+        task_id='success_email',
+        to='naveensvs.us@gmail.com',
+        subject='Success Notification from Airflow',
+        html_content='<p>The task succeeded.</p>',
+        dag=context['dag']
+    )
+    success_email.execute(context=context)
+
+def notify_failure(context):
+    failure_email = EmailOperator(
+        task_id='failure_email',
+        to='naveensvs.us@gmail.com',
+        subject='Failure Notification from Airflow',
+        html_content='<p>The task failed.</p>',
+        dag=context['dag']
+    )
+    failure_email.execute(context=context)
+
 dag = DAG(
     'model_retraining',
     default_args=default_args,
     description='Model retraining at every 1 hours',
     schedule_interval='@hourly',  # Every 12 hours
     catchup=False,
+)
+
+# Defining the email task to send notification
+send_email = EmailOperator(
+    task_id='send_email',
+    to='naveensvs.us@gmail.com',    # Email address of the recipient
+    subject='Notification from Airflow',
+    html_content='<p>This is a notification email sent from Airflow.</p>',
+    dag=dag,
+    on_failure_callback=notify_failure,
+    on_success_callback=notify_success
 )
 
 # Tasks for pulling scripts from GitHub
@@ -57,4 +89,4 @@ run_train_script = BashOperator(
 )
 
 # Setting up dependencies
-pull_preprocess_script >> pull_train_script >> run_preprocess_script >> run_train_script
+pull_preprocess_script >> pull_train_script >> run_preprocess_script >> run_train_script >> send_email 
