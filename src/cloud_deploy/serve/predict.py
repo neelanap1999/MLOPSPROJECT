@@ -71,14 +71,14 @@ def load_encoders(bucket):
     oe_blob.download_to_filename(local_oe_path)
     ohe_blob.download_to_filename(local_ohe_path)
 
-    # Load the encoders using pickle
-    with fs.open(local_le_path, 'rb') as f:
+     # Load the encoders using pickle
+    with open(local_le_path, 'rb') as f:
         label_encoder = pickle.load(f)
 
-    with fs.open(local_oe_path, 'rb') as f:
+    with open(local_oe_path, 'rb') as f:
         ordinal_encoder = pickle.load(f)
 
-    with fs.open(local_ohe_path, 'rb') as f:
+    with open(local_ohe_path, 'rb') as f:
         one_hot_encoder = pickle.load(f)
 
     # Return the loaded encoders
