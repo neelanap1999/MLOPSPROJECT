@@ -53,7 +53,6 @@ def map_years(years):
         None
     """
     if pd.isna(years):  # Handle NaN values
-        logging.info("Input value is NaN. Returning NaN.")
         return np.nan
     elif isinstance(years, int):  # If already an integer, return as is
         return years
