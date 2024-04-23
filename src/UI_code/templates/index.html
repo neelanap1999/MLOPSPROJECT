@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>MLOps Sample Selection</title>
+    <title>Credit Risk Assement</title>
     <style>
         body {
-            background-color: #f5f5f5; /* Professional background color */
+            background-color: #f7f2f2;
             text-align: center;
             font-family: Arial, sans-serif;
         }
@@ -23,14 +23,14 @@
         table {
             border-collapse: collapse;
             margin: auto;
-            width: 80%;  /* Adjust width as needed */
+            width: 80%;
         }
 
         th, td {
             border: 1px solid #ddd;
-            padding: 4px;  /* Reduce padding for potentially long content */
-            white-space: nowrap;  /* Prevent text wrapping within cells */
-            /*text-overflow: ellipsis;*/  /* Truncate long content with ellipsis (...) */
+            padding: 4px; 
+            white-space: nowrap;  /* Preventing text wrapping within cells */
+            /* text-overflow: ellipsis; Truncating long content with ellipsis */
         }
 
         th {
@@ -39,7 +39,7 @@
 
         /* Custom styles for buttons */
         .button {
-            background-color: #4CAF50; /* Green */
+            background-color: #4CAF50;
             border: none;
             color: white;
             padding: 10px 24px;
@@ -54,7 +54,7 @@
 
         /* Custom styles for Predict button */
         .predict-button {
-            background-color: #f44336; /* Red */
+            background-color: #f44336;
         }
 
         /* Custom styles for image */
@@ -75,13 +75,12 @@
             /*-webkit-appearance: none;*/
             /*-moz-appearance: none;*/
             background-color: #fff;
-            /*background-image: url('arrow.png');*/ /* Add custom dropdown arrow */
             background-position: right center;
             background-repeat: no-repeat;
             cursor: pointer;
         }
 
-        /* Add hover effect to dropdown */
+        /* Adding hover effect to dropdown */
         select:hover {
             border-color: #999;
         }
@@ -96,6 +95,7 @@
                 <option value="{{ file }}" {% if selected_file == file %}selected{% endif %}>Sample {{ sample_number }}</option>
             {% endfor %}
         </select>
+        <button onclick="predict()" class="button predict-button">Select</button>
     </form>
 
     {% if sample_data %}
@@ -119,15 +119,12 @@
             </tbody>
         </table>
         <br>
-        <button onclick="generateSamples()" class="button">Generate New Samples</button>
-        <button onclick="predict()" class="button predict-button">Predict</button> <!-- New Predict button -->
+        <button onclick="generateSamples()" class="button">Generate New Samples</button> 
+        <button onclick="getResponse()" class="button">Predict</button>
     {% endif %}
 
-    <!-- Prediction result section -->
-    <div id="predictionResult" style="display: none;">
-        <h2>Prediction Result</h2>
-        <p id="predictionText"></p>
-    </div>
+    <h2 id="predictionsHeading" style="display: none;">Predictions</h2>
+    <div id="predictions" style="display: none;"></div>
 
     <script>
         document.getElementById('selectedFile').addEventListener('change', function() {
@@ -135,18 +132,18 @@
         });
 
         function displayPopup(message) {
-            alert(message); // Display popup alert
+            alert(message); // Displaying popup alert
         }
 
         function generateSamples() {
-            // Make an AJAX request to Flask route for generating new samples
+            // Making an AJAX request to Flask route for generating new samples
             var xhr = new XMLHttpRequest();
             xhr.open("GET", "/generate_new_samples", true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
-                    // Display popup when new samples are generated
+                    // Displaying popup when new samples are generated
                     displayPopup("New samples generated!");
-                    // Reload the page to fetch and display the updated data
+                    // Reloading the page to fetch and display the updated data
                     location.reload();
                 }
             };
@@ -154,29 +151,81 @@
         }
 
         function predict() {
+            // Getting the selected sample file from the dropdown
             var selectedFile = document.querySelector('select[name="selected_file"]').value;
 
+            // Making an AJAX request to Flask route for saving
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "/predict", true);
-            xhr.setRequestHeader("Content-Type", "application/json");
-
+            xhr.open("GET", "/predict?selected_file=" + encodeURIComponent(selectedFile), true);
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                        var predictionData = JSON.parse(xhr.responseText);
-                        var predictions = predictionData["predictions"];
-                        displayPopup("Predictions: " + predictions);
+                        displayPopup("Predict data saved as predict_data.json");
                     } else {
                         displayPopup("Error occurred while predicting!");
                     }
                 }
             };
+            xhr.send();
+        }
 
-            // Send selected file as JSON to /predict route
-            var jsonData = { "selected_file": selectedFile };
-            xhr.send(JSON.stringify(jsonData));
+        function getResponse() {
+            // Making an AJAX request to Flask route for getting predictions
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "/get_response", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Displaying the predictions on success
+                        var response = JSON.parse(xhr.responseText);
+                        if (response.success) {
+                            displayPredictions(response.predictions);
+                        } else {
+                            //displayPopup("Error: " + response.error);
+                            displayPredictions("Error: " + response.error);
+                        }
+                    } else {
+                        //displayPopup("Error occurred while getting response!");
+                        displayPredictions("Error occurred while getting response!");
+                    }
+                }
+            };
+            xhr.send();
+        } 
+
+        function displayPredictions(predictions) {
+            var predictionsDiv = document.getElementById("predictions");
+            var predictionsHeading = document.getElementById("predictionsHeading");
+            if (predictionsDiv.style.display === "none") {
+                // If predictions div is hidden, then showing it along with the heading
+                predictionsDiv.style.display = "block";
+                predictionsHeading.style.display = "block";
+            }
+            predictionsDiv.innerHTML = ""; // to Clear the previous predictions
+            if (predictions.length === 0) {
+                predictionsDiv.textContent = "No predictions available.";
+                return;
+            }
+            var table = document.createElement("table");
+            var headerRow = document.createElement("tr");
+            var headers = ["Prediction"];// Adding header
+            headers.forEach(function(headerText) {
+                var header = document.createElement("th");
+                header.textContent = headerText;
+                headerRow.appendChild(header);
+            });
+            table.appendChild(headerRow);
+            // Adding rows
+            predictions.forEach(function(prediction) {
+                var row = document.createElement("tr");
+                var cell = document.createElement("td");
+                cell.textContent = prediction.result;
+                row.appendChild(cell);
+                table.appendChild(row);
+            });
+            predictionsDiv.appendChild(table);
         }   
-        
     </script>
 </body>
 </html>
+
