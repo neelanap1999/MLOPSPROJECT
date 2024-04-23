@@ -179,6 +179,11 @@ def main():
     precision=precision_score(y_test,y_pred)
     accuracy=accuracy_score(y_test,y_pred)
 
+    # Check precision and accuracy
+    if precision < 0.8 or accuracy < 0.8:
+        # Log a high severity warning
+        logger.warning("Precision or accuracy is below 0.8. Model performance may be insufficient for deployment.")
+
     # Save the model locally and upload to GCS
     edt = pytz.timezone('US/Eastern')
     current_time_edt = datetime.now(edt)

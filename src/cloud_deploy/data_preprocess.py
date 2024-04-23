@@ -56,18 +56,14 @@ def map_years(years):
         logging.info("Input value is NaN. Returning NaN.")
         return np.nan
     elif isinstance(years, int):  # If already an integer, return as is
-        logging.info("Input value is already an integer. Returning as is.")
         return years
     elif years == '< 1 year':
-        logging.info("Mapping '< 1 year' to 0.")
         return 0
     elif years == '10+ years':
-        logging.info("Mapping '10+ years' to 10.")
         return 10
     else:
         try:
             numeric_years = int(years.split()[0])
-            logging.info(f"Extracted numeric value: {numeric_years}.")
             return numeric_years
         except ValueError:
             logging.error(f"Unable to map value: {years}. Returning NaN.")
