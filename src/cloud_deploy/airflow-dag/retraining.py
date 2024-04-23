@@ -18,7 +18,7 @@ default_args = {
 dag = DAG(
     'model_retraining',
     default_args=default_args,
-    description='Model retraining at every 12 hours',
+    description='Model retraining at every 1 hours',
     schedule_interval='@hourly',  # Every 12 hours
     catchup=False,
 )
