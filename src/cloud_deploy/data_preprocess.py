@@ -39,6 +39,40 @@ def stats_to_json(train_data, normalization_stats_gcs_path):
         json.dump(normalization_stats, json_file)
     logging.info(f">>>>>> stage {Stage_name} completed <<<<<<\n\nx==========x")
 
+def map_years(years):
+    """
+    Mapping employment length values to numerical values.
+
+    Args:
+        years (str or int): The employment length value.
+
+    Returns:
+        int or np.nan: The mapped numerical value for employment length, or np.nan if input is NaN.
+
+    Raises:
+        None
+    """
+    if pd.isna(years):  # Handle NaN values
+        logging.info("Input value is NaN. Returning NaN.")
+        return np.nan
+    elif isinstance(years, int):  # If already an integer, return as is
+        logging.info("Input value is already an integer. Returning as is.")
+        return years
+    elif years == '< 1 year':
+        logging.info("Mapping '< 1 year' to 0.")
+        return 0
+    elif years == '10+ years':
+        logging.info("Mapping '10+ years' to 10.")
+        return 10
+    else:
+        try:
+            numeric_years = int(years.split()[0])
+            logging.info(f"Extracted numeric value: {numeric_years}.")
+            return numeric_years
+        except ValueError:
+            logging.error(f"Unable to map value: {years}. Returning NaN.")
+            return np.nan
+
 def preprocess(train_data, output_filepath, normalization_stats_gcs_path, encoder_path):
     Stage_name = "Preprocessing data"
     logging.info(f"------Stage {Stage_name}------------")
