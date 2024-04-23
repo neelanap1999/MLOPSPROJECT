@@ -1,18 +1,19 @@
 from flask import Flask, render_template, request, jsonify
-#from random_sample import create_sample_files
 import random
 import os
 import pandas as pd
-app = Flask(__name__)
 import requests
+import json
+
+app = Flask(__name__)
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-# Mock sample file paths (replace with actual logic from random_sample.py)
+# sample file paths
 SAMPLE_FILE_PATHS = [f"sample_{i}.csv" for i in range(1, 6)]
 predict_url  = 'http://127.0.0.1:8080/predict'
 
-# Define function to create sample files
+# Defining a function to create sample files
 def create_sample_files(original_data, num_samples, num_records_per_sample):
     for i in range(num_samples):
         sample_data = original_data.sample(n=num_records_per_sample)
@@ -22,7 +23,7 @@ def create_sample_files(original_data, num_samples, num_records_per_sample):
         print(f'Sample test data {i+1} created successfully.')
 
 '''
-This module creates the UI screen to select a predict file
+This module creates the UI screen to select a sample file and predict
 '''
 @app.route("/")
 def index():
@@ -34,126 +35,76 @@ def index():
     column_labels = None
     if selected_file:
         try:
-            # Read selected file into a pandas DataFrame
+            # Reading the selected file into a pandas DataFrame
             sample_df = pd.read_csv(selected_file)
-            sample_data = sample_df.head(5).values.tolist()  # Convert DataFrame head to list of lists
-            column_labels = sample_df.columns.tolist()  # Get column labels
+            sample_data = sample_df.head(5).values.tolist()  # Converting DataFrame head to list of lists
+            column_labels = sample_df.columns.tolist()  # Getting all the column labels
         except FileNotFoundError:
-            # Handle file not found case (optional)
+            # Handling file not found case
             pass
 
-    selected_file_options = SAMPLE_FILE_PATHS  # List of all sample files for dropdown
+    selected_file_options = SAMPLE_FILE_PATHS  # Listing all sample files for the dropdown menu
 
     return render_template("index.html", selected_file=selected_file, sample_data=sample_data, column_labels=column_labels, selected_file_options=selected_file_options)
 
 @app.route("/generate_new_samples")
 def generate_new_samples():
-    # Call your random_sample.py function to generate new samples (implementation details not provided)
-    # Update SAMPLE_FILE_PATHS accordingly
     original_data = pd.read_csv("test_data.csv")
-    # Define parameters
     num_samples = 5
     num_records_per_sample = 4
     create_sample_files(original_data, num_samples, num_records_per_sample)
-    return "New samples generated!"  # Placeholder message
+    return "New samples generated!" 
 
-from flask import redirect, url_for
-
-# Update the /predict route to handle both POST and GET
-@app.route("/predict", methods=["POST", "GET"])
-def predict():
-    if request.method == "POST":
-        # Handle POST request
-        selected_file = request.form.get("selected_file")  # Get the selected sample file
-        if selected_file:
-            try:
-                # Read selected file into a pandas DataFrame
-                sample_df = pd.read_csv(selected_file)
-                # Convert DataFrame to JSON
-                json_data = sample_df.to_json(orient="records")
-                
-                # Send a POST request to predict.py
-                response = requests.post(predict_url, json={"instances": json.loads(json_data)})
-                if response.status_code == 200:
-                    # If successful, redirect to the /prediction route
-                    prediction_data = response.json()
-                    predictions = prediction_data["predictions"]
-                    return redirect(url_for("prediction", predictions=predictions))
-                else:
-                    # If request fails, handle error
-                    return jsonify({"success": False, "error": "Prediction failed"})
-            except FileNotFoundError:
-                return jsonify({"success": False, "error": "File not found"})
-        else:
-            return jsonify({"success": False, "error": "No file selected"})
-    else:
-        # Handle GET request
-        predictions = request.args.get("predictions")  # Get predictions from URL parameters
-        return render_template("prediction.html", predictions=predictions)
-
-# Create a new route to display prediction result
-@app.route("/prediction")
-def prediction():
-    predictions = request.args.get("predictions")  # Get predictions from URL parameters
-    return render_template("prediction.html", predictions=predictions)
-
-'''@app.route("/predict", methods=["POST"])
-def predict():
-    selected_file = request.form.get("selected_file")  # Get the selected sample file
-    if selected_file:
-        try:
-            # Read selected file into a pandas DataFrame
-            sample_df = pd.read_csv(selected_file)
-            # Convert DataFrame to JSON
-            json_data = sample_df.to_json(orient="records")
-            
-            # Send a POST request to predict.py
-            response = requests.post(predict_url, json={"instances": json.loads(json_data)})
-            if response.status_code == 200:
-                # If successful, display predictions on the webpage
-                prediction_data = response.json()
-                predictions = prediction_data["predictions"]
-                return render_template("index.html", selected_file=selected_file, sample_data=sample_data, column_labels=column_labels, selected_file_options=selected_file_options, predictions=predictions)
-            else:
-                # If request fails, handle error
-                return jsonify({"success": False, "error": "Prediction failed"})
-        except FileNotFoundError:
-            return jsonify({"success": False, "error": "File not found"})
-    else:
-        return jsonify({"success": False, "error": "No file selected"})'''
-
-'''@app.route("/predict")
+@app.route("/predict")
 def predict():
     selected_file = request.args.get("selected_file")
     if selected_file:
         try:
-            # Read selected file into a pandas DataFrame
+            # Reading the selected file into a pandas DataFrame
             sample_df = pd.read_csv(selected_file)
-            # Save DataFrame as predict_data.csv
+            # Saving DataFrame as predict_data.json
             json_data = sample_df.to_json(orient="records")
             data = {
               "instances": json_data
             }
             json_file_path = "predict_data.json"
-            print(data["instances"])
+            #print(data)
             data_json = jsonify(data)            
             with open(json_file_path, "w") as json_file:
                 json_file.write(json_data)
-            
-            #response_predict = requests.post(predict_url, json=data)
-            #predict_status = response_predict.json()
-            #sample_df.to_csv("predict_data.csv", index=False)
+        
             return jsonify({"success": True})
         except FileNotFoundError:
             return jsonify({"success": False, "error": "File not found"})
     else:
-        return jsonify({"success": False, "error": "No file selected"})'''
+        return jsonify({"success": False, "error": "No file selected"})
+
+@app.route("/get_response")
+def get_response():
+    try:
+        # Reading the saved JSON file
+        with open("predict_data.json", "r") as json_file:
+            json_data = json.load(json_file)
+            data = {
+              "instances": json_data
+            }
+        
+        # Sending a POST request to the prediction endpoint
+        response = requests.post(predict_url, json=data)
+        
+        # Extracting the predictions from the predict.py
+        predictions = response.json()["predictions"]
+        
+        # Returning the predictions for displaying on UI
+        return jsonify({"success": True, "predictions": predictions})
+    except FileNotFoundError:
+        return jsonify({"success": False, "error": "JSON file not found"})
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)})
 
 if __name__ == "__main__":
     original_data = pd.read_csv("test_data.csv")
-    # Define parameters
     num_samples = 5
     num_records_per_sample = 4
     create_sample_files(original_data, num_samples, num_records_per_sample)
     app.run(debug=True)
-
