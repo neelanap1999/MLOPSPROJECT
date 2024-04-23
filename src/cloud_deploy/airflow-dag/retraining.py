@@ -9,7 +9,7 @@ LOCAL_TRAIN_FILE_PATH = '/tmp/train.py'
 GITHUB_TRAIN_RAW_URL = 'https://raw.githubusercontent.com/neelanap1999/MLOPSPROJECT/main/src/cloud_deploy/trainer/train.py'  # Adjust the path accordingly
 
 default_args = {
-    'owner': 'Time_Series_IE7374',
+    'owner': 'MLOPS_CREDIT_ASSESMENT',
     'start_date': dt.datetime(2024, 4, 21),
     'retries': 1,
     'retry_delay': dt.timedelta(minutes=5),
@@ -19,7 +19,7 @@ dag = DAG(
     'model_retraining',
     default_args=default_args,
     description='Model retraining at every 12 hours',
-    schedule_interval='0 */12 * * *',  # Every 12 hours
+    schedule_interval='@hourly',  # Every 12 hours
     catchup=False,
 )
 
