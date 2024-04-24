@@ -251,7 +251,14 @@ This Airflow DAG file orchestrates the execution of data_preprocess.py and train
 
 ![AirFlow_Retraining_DAGS](https://github.com/neelanap1999/MLOPSPROJECT/assets/125705831/f612dbca-757b-4cee-9586-acba8fce7e39)
 
-### 4. GCP Deploy
+### 4. Model Monitoring
+We're monitoring the precision and accuracy of the retrained models and storing this data in Google BigQuery. These statistics are then utilized to visualize the model performance in a Tableau dashboard, providing real-time tracking capabilities.
+
+![Model Monitoring Dashboard](https://github.com/neelanap1999/MLOPSPROJECT/assets/125705831/2f7bef15-d79a-4da6-ae72-be7161907a1d)
+
+
+
+### 5. GCP Deploy
 The training and prediction pipeline code has been dockerized and uploaded to the Artifacts Registry pipeline. The online serving pipeline is managed through Vertex AI.
 - `serve/build.py` : Will create a prediction job using the images from the above  serve in Vertex AI. At the end of the job it wil deploy to the endpoint where it will serve the model.
 - `trainer/build.py`:  A script to initiate training jobs, handle deployment on Google Cloud, and ensure the model is updated and served correctly.
@@ -263,13 +270,13 @@ The training and prediction pipeline code has been dockerized and uploaded to th
 
 For tracking our experimental machine learning pipeline, we use MLflow, Docker, and Python.
 
-We chose the three metrics Davies-Bouldin Index(lower the better), Calinski-Harabasz Index(higher the better) and primarily Silhouette score(higher the better) to choose our final model parameters from the plot below.
+We chose the three metrics Davies-Bouldin Index(lower the better), Calinski-Harabasz Index(higher the better), and primarily Silhouette score(higher the better) to choose our final model parameters from the plot below.
 
 ![MLFlow Parallel Plot Image](Image/MLFLOW_Hyperparameters.jpeg)
 Pictured: Parallel Plot for visualizing the parameter-metrics combinations for our model
 
-## Staging, Production and Archived models (MLFLOW)
-We rely on MLflow for managing models for Archiving, Staging, and Production as it allows us to reuse the models from artifacts regietry and serve it on a predefined port on-the-go. Our 
+## Staging, Production, and Archived models (MLFLOW)
+We rely on MLflow for managing models for Archiving, Staging, and Production as it allows us to reuse the models from the artifacts registry and serve them on a predefined port on the go. Our 
 
 ![MLFlow Dashboard](Image/MLFLOW_Experiments.png)
 Pictured: Existing Logs on MLFlow for all the Experimental Models
@@ -285,9 +292,6 @@ Pictured: Existing Logs on MLFlow for all the Experimental Models
    The model has four hyper-parameters max_depth, max_features, max_leaf_nodes, n_estimators in model_analysis(). Also, we used MLFLOW for checking models with multiple parameters by changing above parameters.
   #### 4. Model Analysis 
   The model is analyzed using precision and accuracy as metrics. 
-
-<p align="center">The plot above shows the silhouette score plots for different number of clusters. The closer it is to +1, the better it is</p>
-  
 
 <hr>
 
