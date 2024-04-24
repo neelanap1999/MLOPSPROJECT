@@ -277,13 +277,13 @@ Pictured: Existing Logs on MLFlow for all the Experimental Models
 ![MLFlow Staging Area](Image/MLFLOW_Staging.jpeg)
 
 ## Model Pipeline
-   #### Train the model 
+   #### 1. Train the model 
    The model is trained using K-Means_Clustering function. It takes 3 inputs and gives 2 outputs. The three inputs are PCA dataframe, transaction dataframe and number of clusters. The outputs are PCA dataframe and transaction dataframe with 'cluster' columns.
-   #### Save the model 
+   #### 2. Save the model 
    The model is saved locally using save_and_upload_model function and uploaded to GCS.
-   #### Hyper Parameter Tuning
+   #### 3. Hyper Parameter Tuning
    The model has four hyper-parameters namely init, n_init, number of iterations and number of clusters in model_analysis(). Also, we used MLFLOW for checking models with multiple parameters by changing cluster numbers in centroid seeds.
-  #### Model Analysis 
+  #### 4. Model Analysis 
   The model is analysed by the Silhouette_Analysis function.
 
 
