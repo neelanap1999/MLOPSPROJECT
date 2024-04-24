@@ -147,7 +147,8 @@ We've structured our data pipeline into modular components, spanning from data i
 
 Our pipeline is orchestrated using Apache Airflow, where we construct a Directed Acyclic Graph (DAG) incorporating these modules.
 
-![Retraining Pipeline](Images/AirFlow_Retraining_DAGS.jpg)
+![Retraining Pipeline]![AirFlow Retraining DAGS](https://github.com/neelanap1999/MLOPSPROJECT/assets/113211334/8965d4c1-f033-4ad1-8217-217dc3040f4b)
+
 Pictured: Our Airflow DAG
 
 
