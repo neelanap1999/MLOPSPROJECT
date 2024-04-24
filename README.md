@@ -29,6 +29,8 @@ Embracing the principles of DevOps, we've adopted containerization with Docker, 
 
 Our ultimate goal? To deliver a best-in-class lending experience that empowers both borrowers and lenders. By combining machine learning innovation with software engineering excellence, we're poised to transform the credit risk assessment landscape, ensuring accurate decision-making, regulatory compliance, and a superior overall experience for all stakeholders.
 
+---
+
 ## 2. Dataset Information
 
 ### 2.1. Dataset Introduction:
@@ -75,6 +77,7 @@ The dataset is a public dataset owned by [Lending Club](https://www.lendingclub.
 Attached is the URL for data:
 [Dataset Link](https://www.kaggle.com/code/faressayah/lending-club-loan-defaulters-prediction/input?select=lending_club_loan_two.csv)
 
+---
 
 # Setup Instructions
 Please confirm that `Python >= 3.8` or a later version is present on your system prior to installation. This software is designed to be compatible with Windows, Linux, and macOS platforms.
@@ -102,7 +105,7 @@ python --version
 docker run --rm "debian:bullseye-slim" bash -c 'numfmt --to iec $(echo $(($(getconf _PHYS_PAGES) * $(getconf PAGE_SIZE))))'
 ```
 <hr>
-
+---
 
 # Tools Used for MLOps
 
@@ -124,6 +127,10 @@ Data Version Control facilitates the versioning of datasets and machine learning
 ## MLFlow
 MLflow empowered us with a unified and reproducible setup for exploring supervised learning algorithms. It facilitated us effortless tracking, comparison, and storage of various parameters, metrics, experiments, and machine learning models as reusable artifacts. MLflow seamlessly integrated with frameworks such as scikit-learn and TensorFlow, enabling efficient model tuning by visualizing optimal parameter sets to enhance each metric.
 
+## Flask
+
+Flask API serves as the backbone for creating a user-friendly interface to interact machine learning model. It enables users to generate sample data from the test dataset and trigger the prediction pipeline seamlessly through a web interface. With Flask API, users can initiate predictions with just a click and receive the results in real-time, enhancing the overall usability and accessibility of our machine-learning application.
+
 ## Google Cloud Platform (GCP)
 
 Our data version control is managed and hosted on the Google Cloud Platform (GCP). GCP seamlessly handles the hosting and versioning of large datasets, facilitating the development of robust ETL pipelines. With support for concurrent access and updates by multiple users, coupled with built-in versioning, retrieving older versions is effortless.
@@ -138,6 +145,7 @@ GCP enabled us to efficiently implement the ETL process while preserving interme
 
 Pictured: Our data files tracked by DVC in GCP
 
+---
 
 ## Overall ML Project PipeLine
 ![Need to Implement](Image/blank.avif)
@@ -147,11 +155,9 @@ We've structured our data pipeline into modular components, spanning from data i
 
 Our pipeline is orchestrated using Apache Airflow, where we construct a Directed Acyclic Graph (DAG) incorporating these modules.
 
-![AirFlow Retraining DAGS](https://github.com/neelanap1999/MLOPSPROJECT/assets/113211334/8965d4c1-f033-4ad1-8217-217dc3040f4b)
-
+![airflow_chart2](https://github.com/neelanap1999/MLOPSPROJECT/assets/125705831/e986cb99-e517-40a8-8595-44619850f208)
 
 The following is the explanation of our Data pipeline DAG
-
 
 ## Data Pipeline Components
 
@@ -192,7 +198,7 @@ To improve model performance, we engineer and transform features using the follo
 The integration of these scripts ensures a seamless transition from raw data to insights, enabling us to derive maximum value from our data. Each script reads from a designated input path, processes the data, and outputs it to a specified output path, facilitating the creation of a robust and reproducible data pipeline.
 
 <hr>
-
+---
 # Machine Learning Modeling Pipeline
 
 We successfully established our machine learning pipeline on Google Cloud Platform (GCP). We uploaded our codebase, crafted Docker images, and securely stored them in the Artifact Registry. Following this, we proceeded to train and deploy our model using the powerful capabilities of Vertex AI.
