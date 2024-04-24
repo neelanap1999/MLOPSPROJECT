@@ -251,7 +251,38 @@ The model pipeline will automate the process of training and serving by using sc
 
 <hr>
 
+## Experimental tracking pipeline (MLFLOW)
 
+For tracking our experimental machine learning pipeline, we use MLflow, Docker, and Python.
+
+We chose the three metrics Davies-Bouldin Index(lower the better), Calinski-Harabasz Index(higher the better) and primarily Silhouette score(higher the better) to choose our final model parameters from the plot below.
+
+![MLFlow Parallel Plot Image](Image/MLFLOW_Hyperparameters.jpeg)
+Pictured: Parallel Plot for visualizing the parameter-metrics combinations for our model
+
+## Staging, Production and Archived models (MLFLOW)
+We rely on MLflow for managing models for Archiving, Staging, and Production as it allows us to reuse the models from artifacts regietry and serve it on a predefined port on-the-go. Our 
+
+![MLFlow Dashboard](Image/MLFLOW_Experiments.png)
+Pictured: Existing Logs on MLFlow for all the Experimental Models
+
+## Model Pipeline
+   #### Train the model 
+   The model is trained using K-Means_Clustering function. It takes 3 inputs and gives 2 outputs. The three inputs are PCA dataframe, transaction dataframe and number of clusters. The outputs are PCA dataframe and transaction dataframe with 'cluster' columns.
+   #### Save the model 
+   The model is saved locally using save_and_upload_model function and uploaded to GCS.
+   #### Hyper Parameter Tuning
+   The model has four hyper-parameters namely init, n_init, number of iterations and number of clusters in model_analysis(). Also, we used MLFLOW for checking models with multiple parameters by changing cluster numbers in centroid seeds.
+  #### Model Analysis 
+  The model is analysed by the Silhouette_Analysis function.
+
+
+   ![Silhouette_Analysis](Image/feature_importance.png)
+
+<p align="center">The plot above shows the silhouette score plots for different number of clusters. The closer it is to +1, the better it is</p>
+  
+
+<hr>
 
 
 
