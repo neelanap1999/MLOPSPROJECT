@@ -244,11 +244,12 @@ The model trained in the previous step is served using a Flask application, maki
 - `Flask Application`: To create endpoints for health checks and predictions.
 - `Model Deployment`: Loads the trained model from GCS and predicts output for new incoming data in JSON format.
 - `Environment Initialization`: Setting up Google Cloud client and other necessary configurations.
-- - `Dockerfile` : Used to host the serving module.
-
+- - `Dockerfile`: Used to host the serving module.
 
 ### 3. Retraining
 This Airflow DAG file orchestrates the execution of data_preprocess.py and train.py, ensuring they run sequentially. Scheduled to run every hour, it trains the model and stores the results in a Google Cloud bucket.
+
+![AirFlow_Retraining_DAGS](https://github.com/neelanap1999/MLOPSPROJECT/assets/125705831/f612dbca-757b-4cee-9586-acba8fce7e39)
 
 ### 4. GCP Deploy
 The training and prediction pipeline code has been dockerized and uploaded to the Artifacts Registry pipeline. The online serving pipeline is managed through Vertex AI.
