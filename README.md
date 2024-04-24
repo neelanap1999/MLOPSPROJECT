@@ -285,11 +285,12 @@ Pictured: Existing Logs on MLFlow for all the Experimental Models
 <hr>
 
 
+
 ## LOCAL DEPLOYMENT
 
 We've developed a user interface using Flask API, named app.py, which enables users to generate sample data from the test dataset. Afterwards, users can initiate the prediction pipeline by clicking the 'predict' button on the UI, and view the response of the prediction pipeline directly on the UI.
 
-![Prediction_EndPoint_UI].(Image/Prediction_EndPoint_UI.jpg)
+![Prediction_EndPoint_UI](https://github.com/neelanap1999/MLOPSPROJECT/assets/125705831/3e242487-b482-46f7-a8fc-b97fe80478eb)
 
 
 ## DVC
