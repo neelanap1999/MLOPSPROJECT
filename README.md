@@ -295,25 +295,26 @@ We've developed a user interface using Flask API, named app.py, which enables us
 ![Prediction_EndPoint_UI](https://github.com/neelanap1999/MLOPSPROJECT/assets/125705831/3e242487-b482-46f7-a8fc-b97fe80478eb)
 
 Steps to run the User Interface:
-1.Ensure you have the gcloud connection from your local terminal, if not use the below comments and authenticate.
-    ```bash
+1. Ensure you have the gcloud connection from your local terminal, if not use the below comments and authenticate.
+```bash
    sudo snap install google-cloud-cli --classic
    gcloud auth login
    gcloud auth application-default login
    gcloud auth activate-service-account --key-file="dags/data/mlops-project.json"
    gcloud config set project mlops-project-9608-416822
-    ```
+```
 2. Initially Run the Predict.py file which hosts a server in backend at ‘http://127.0.0.1:8080/predict’
     ```bash
     cd src/codedeploy/serve
     python3 predict.py
     ```
-3.once predict.py is up and running then run app.py which host a server at http://127.0.0.1:5000/.
-    ```bash
+3. once predict.py is up and running then run app.py which host a server at http://127.0.0.1:5000/.
+```bash
     cd src/UI_code
     python3 app.py
-    ```
-    
+```
+---  
+
 ## DVC
 
 Steps for initializing and tracking files using DVC:
