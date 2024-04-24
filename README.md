@@ -1,6 +1,6 @@
 # Credit Risk Assessment - MLOps
 
-[Kush Suryavanshi](https://github.com/Kush210/)  | [Aryan Fernandes](https://github.com/aryanf12122000/) | [Naveen Pasala](https://github.com/------/)  |  [Shiva Naga Jyothi Cherukuri](https://github.com/ShivaNagaJyothi-Cherukuri/)  | [Neel Shirish Anap](https://github.com/neelanap1999/)  | [Vishesh Gupta](https://github.com/visheshgupta-BA/)
+[Kush Suryavanshi](https://github.com/Kush210/)  | [Aryan Fernandes](https://github.com/aryanf12122000/) | [Naveen Pasala](https://github.com/Naveen2627-hub)  |  [Shiva Naga Jyothi Cherukuri](https://github.com/ShivaNagaJyothi-Cherukuri/)  | [Neel Shirish Anap](https://github.com/neelanap1999/)  | [Vishesh Gupta](https://github.com/visheshgupta-BA/)
 
 
 <p align="center">  
