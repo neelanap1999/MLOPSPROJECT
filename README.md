@@ -198,7 +198,7 @@ To improve model performance, we engineer and transform features using the follo
 The integration of these scripts ensures a seamless transition from raw data to insights, enabling us to derive maximum value from our data. Each script reads from a designated input path, processes the data, and outputs it to a specified output path, facilitating the creation of a robust and reproducible data pipeline.
 
 <hr>
----
+
 # Machine Learning Modeling Pipeline
 
 We successfully established our machine learning pipeline on Google Cloud Platform (GCP). We uploaded our codebase, crafted Docker images, and securely stored them in the Artifact Registry. Following this, we proceeded to train and deploy our model using the powerful capabilities of Vertex AI.
