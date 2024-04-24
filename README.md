@@ -247,13 +247,14 @@ The model trained in the previous step is served using a Flask application, maki
 - - `Dockerfile` : Used to host the serving module.
 
 
-### 3. Model Pipeline
-The model pipeline will automate the process of training and serving by using scripts or workflow tools (like Google Cloud's Vertex AI or similar) to sequence the tasks described above. This component isn’t fully described in your details but would typically include:
-- `build.py` : Will create a training job using the images from the above trainer and serve in Vertex AI. At the end of the job it wil deploy to the endpoint where it will serve the model.
-- `build.py` :  A script to initiate training jobs, handle deployment on Google Cloud, and ensure the model is updated and served correctly.
+### 3. Retraining
+This Airflow DAG file orchestrates the execution of data_preprocess.py and train.py, ensuring they run sequentially. Scheduled to run every hour, it trains the model and stores the results in a Google Cloud bucket.
 
-### 4. Inference
-- `inference.py : It will send a json input to the model to predict the results.
+### 4. GCP Deploy
+The training and prediction pipeline code has been dockerized and uploaded to the Artifacts Registry pipeline. The online serving pipeline is managed through Vertex AI.
+- `serve/build.py` : Will create a prediction job using the images from the above  serve in Vertex AI. At the end of the job it wil deploy to the endpoint where it will serve the model.
+- `trainer/build.py`:  A script to initiate training jobs, handle deployment on Google Cloud, and ensure the model is updated and served correctly.
+
 
 <hr>
 
