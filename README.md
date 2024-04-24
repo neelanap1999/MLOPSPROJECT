@@ -197,7 +197,7 @@ The integration of these scripts ensures a seamless transition from raw data to 
 
 We successfully established our machine learning pipeline on Google Cloud Platform (GCP). We uploaded our codebase, crafted Docker images, and securely stored them in the Artifact Registry. Following this, we proceeded to train and deploy our model using the powerful capabilities of Vertex AI.
 
-![ML_Pipeline_Graph_Image](Image/blank.avif)
+![ML_Pipeline_Graph_Image](Image/model_pipeline.jpg)
 
 ## Machine Learning Pipeline Components
 
