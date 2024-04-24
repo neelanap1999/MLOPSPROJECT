@@ -134,7 +134,7 @@ GCP enabled us to efficiently implement the ETL process while preserving interme
 2. Similar to other remotes, downloading an SSH key is required for remote access.
 
 
-![Need to Implement](Image/blank.avif)
+![Need to Implement](Image/DVC_Data_Tracking%20.png)
 
 Pictured: Our data files tracked by DVC in GCP
 
