@@ -148,7 +148,7 @@ Pictured: Our data files tracked by DVC in GCP
 ---
 
 ## Overall ML Project PipeLine
-![Need to Implement](Image/blank.avif)
+![Need to Implement](Image/mlops_overall_pipeline.png)
 
 ## Data Pipeline
 We've structured our data pipeline into modular components, spanning from data ingestion to preprocessing, ensuring our data is primed for modeling. Each module undergoes rigorous testing, adhering to the principles of Test Driven Development (TDD), to ensure its smooth functioning.
