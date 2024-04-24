@@ -122,6 +122,7 @@ Inside the `docker-compose.yaml` file, you'll find the necessary code to execute
 ## DVC
 Data Version Control facilitates the versioning of datasets and machine learning models, capturing snapshots of the data utilized in training and its associated code. This capability enables reproducibility and traceability, ensuring the ability to recreate any past state of your project. DVC exclusively stores metadata, while the actual data resides in cloud storage or other remote locations. By seamlessly integrating with Git, DVC enables the utilization of Git repositories for code management and DVC repositories for data and model management. This dual-repository method aids in maintaining a tidy and efficient codebase.
 
+![Need to Implement](Image/DVC_Data_Tracking%20.png)
 
 ## MLFlow
 MLflow empowered us with a unified and reproducible setup for exploring supervised learning algorithms. It facilitated us effortless tracking, comparison, and storage of various parameters, metrics, experiments, and machine learning models as reusable artifacts. MLflow seamlessly integrated with frameworks such as scikit-learn and TensorFlow, enabling efficient model tuning by visualizing optimal parameter sets to enhance each metric.
@@ -140,7 +141,6 @@ GCP enabled us to efficiently implement the ETL process while preserving interme
 2. Similar to other remotes, downloading an SSH key is required for remote access.
 
 
-![Need to Implement](Image/DVC_Data_Tracking%20.png)
 
 Pictured: Our data files tracked by DVC in GCP
 
@@ -323,7 +323,7 @@ Steps to run the User Interface:
     ```
 ---  
 
-## DVC
+## DVC SETUP
 
 Steps for initializing and tracking files using DVC:
 
@@ -348,7 +348,7 @@ Steps for initializing and tracking files using DVC:
     ```
 ---  
 
-## MLFlow
+## MLFlow SETUP
 
 Key configurations in the code:
 
