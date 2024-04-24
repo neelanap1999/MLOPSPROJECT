@@ -155,7 +155,7 @@ The following is the explanation of our Data pipeline DAG
 
 ## Data Pipeline Components
 
-![Model Pipeline](Image/blank.avif)
+![Model Pipeline](Image/flowchart.jpeg)
 
 In this project, the data pipeline comprises numerous interconnected modules, each designed to execute distinct data processing tasks. We employ Airflow and Docker to organize and encapsulate these modules, with each one serving as a task within the primary data pipeline Directed Acyclic Graph (DAG) (`datapipeline`).
 
